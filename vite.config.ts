@@ -6,7 +6,6 @@ import unimport from "unimport/unplugin"
 import dotenv from "dotenv"
 import { projectDir } from "./shared/dir"
 import pwa from "./pwa.config"
-// import nitro from "./nitro.config"  // Temporarily disabled due to h3-nightly compatibility issue
 
 dotenv.config({
   path: join(projectDir, ".env.server"),
