@@ -34,13 +34,6 @@ export default defineConfig({
     "color-base": "color-neutral-800 dark:color-neutral-300",
     "bg-base": "bg-zinc-200 dark:bg-dark-600",
     "btn": "op50 hover:op85 cursor-pointer transition-all",
-    // App design token shortcuts
-    "bg-background": "bg-[#101d22]",
-    "bg-surface": "bg-[#16262c]",
-    "bg-surfaceHighlight": "bg-[#1c2e36]",
-    "text-primary": "text-[#13b6ec]",
-    "text-secondary": "text-[#92bbc9]",
-    "border-default": "border-[#233f48]",
   },
   safelist: [
     ...["orange", ...new Set(Object.values(sources).map(k => k.color))].map(k =>
@@ -51,23 +44,6 @@ export default defineConfig({
   extendTheme: (theme) => {
     // @ts-expect-error >_<
     theme.colors.primary = theme.colors.red
-
-    // Add app design token colors to theme
-    // @ts-expect-error >_<
-    theme.colors.background = '#101d22'
-    // @ts-expect-error >_<
-    theme.colors.surface = '#16262c'
-    // @ts-expect-error >_<
-    theme.colors.surfaceHighlight = '#1c2e36'
-    // @ts-expect-error >_<
-    theme.colors.primaryColor = '#13b6ec'
-    // @ts-expect-error >_<
-    theme.colors.primaryHover = '#0ea5d6'
-    // @ts-expect-error >_<
-    theme.colors.textSecondary = '#92bbc9'
-    // @ts-expect-error >_<
-    theme.colors.borderColor = '#233f48'
-
     return theme
   },
 })

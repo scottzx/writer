@@ -1,6 +1,5 @@
 @import url(@unocss/reset/tailwind.css);
 @import url(overlayscrollbars/overlayscrollbars.css);
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
 
 html,
 body,
@@ -20,29 +19,11 @@ html.dark {
   color-scheme: dark;
 }
 
-/* App design token - CSS Variables */
-:root {
-  --color-background: #101d22;
-  --color-surface: #16262c;
-  --color-surfaceHighlight: #1c2e36;
-  --color-primary: #13b6ec;
-  --color-primaryHover: #0ea5d6;
-  --color-textSecondary: #92bbc9;
-  --color-border: #233f48;
-
-  /* Font family from app design */
-  --font-sans: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
-}
-
 body {
   --at-apply: color-base bg-base sprinkle-primary text-base;
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-
-  /* Apply app design colors and fonts */
-  background-color: var(--color-background);
-  font-family: var(--font-sans);
 }
 
 button:disabled {
@@ -50,23 +31,8 @@ button:disabled {
   pointer-events: all !important;
 }
 
-/* App design token - Scrollbar customization */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-background);
-}
-
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-surfaceHighlight);
+  border-radius: 8px;
 }
 
 /* https://github.com/KingSora/OverlayScrollbars/blob/master/packages/overlayscrollbars/src/styles/themes.scss */

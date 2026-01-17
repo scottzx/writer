@@ -1,7 +1,6 @@
 import { join } from "node:path"
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react-swc"
-import { TanStackRouterVite } from "@tanstack/router-plugin/vite"
 import unocss from "unocss/vite"
 import unimport from "unimport/unplugin"
 import dotenv from "dotenv"
@@ -14,6 +13,14 @@ dotenv.config({
 })
 
 export default defineConfig({
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
+  },
   resolve: {
     alias: {
       "~": join(projectDir, "src"),
@@ -21,10 +28,6 @@ export default defineConfig({
     },
   },
   plugins: [
-    TanStackRouterVite({
-      // error with auto import and vite-plugin-pwa
-      // autoCodeSplitting: true,
-    }),
     unimport.vite({
       dirs: ["src/hooks", "shared", "src/utils", "src/atoms"],
       presets: ["react", {
@@ -40,6 +43,6 @@ export default defineConfig({
     unocss(),
     react(),
     pwa(),
-    nitro(),
+    // nitro(), // Temporarily disabled due to h3-nightly compatibility issue
   ],
 })
