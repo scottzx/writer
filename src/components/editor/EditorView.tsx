@@ -1,6 +1,6 @@
 import { useStore } from "../../stores"
 import { RichTextEditor } from "./RichTextEditor"
-import { DocumentOutline } from "./DocumentOutline"
+import { LeftPanel } from "./LeftPanel"
 import { ChatPanel } from "./ChatPanel"
 
 export function EditorView({ noteId }: { noteId: string }) {
@@ -32,10 +32,8 @@ export function EditorView({ noteId }: { noteId: string }) {
 
   return (
     <div className="flex flex-1 h-full overflow-hidden">
-      {/* 左侧: 文档大纲 */}
-      <div className="w-64 bg-surface border-r border-border hidden lg:flex flex-col">
-        <DocumentOutline content={activeNote.content} />
-      </div>
+      {/* 左侧: 文件树 / 文档大纲 */}
+      <LeftPanel noteId={noteId} content={activeNote.content} />
 
       {/* 中间: 编辑器 */}
       <div className="flex-1 flex flex-col">
