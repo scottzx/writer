@@ -43,8 +43,8 @@ export function Dnd() {
 
   return (
     <DndWrapper items={items} setItems={setItems} goToTop={goToTop} isSingleColumn={isMobile}>
-      {/* 外部容器：提供统一的布局和样式 */}
-      <div className="w-full">
+      {/* 外部容器：提供统一的布局和样式，1个栅栏间距的外边距 */}
+      <div className="w-full px-6">
         <OverlayScrollbar defer className="overflow-x-auto">
           <motion.ol
             className={isMobile
