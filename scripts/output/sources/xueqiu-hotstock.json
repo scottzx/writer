@@ -1,0 +1,280 @@
+{
+  "sourceId": "xueqiu-hotstock",
+  "sourceName": "雪球",
+  "fetchTime": "2026-01-17T16:16:49.810Z",
+  "updatedTime": 1768666590833,
+  "status": "success",
+  "itemCount": 30,
+  "items": [
+    {
+      "rank": 1,
+      "id": "SZ002156",
+      "title": "通富微电",
+      "url": "https://xueqiu.com/s/SZ002156",
+      "extra": {
+        "info": "10% SZ"
+      }
+    },
+    {
+      "rank": 2,
+      "id": "SH600584",
+      "title": "长电科技",
+      "url": "https://xueqiu.com/s/SH600584",
+      "extra": {
+        "info": "10% SH"
+      }
+    },
+    {
+      "rank": 3,
+      "id": "SZ002788",
+      "title": "鹭燕医药",
+      "url": "https://xueqiu.com/s/SZ002788",
+      "extra": {
+        "info": "-10.01% SZ"
+      }
+    },
+    {
+      "rank": 4,
+      "id": "SZ300136",
+      "title": "信维通信",
+      "url": "https://xueqiu.com/s/SZ300136",
+      "extra": {
+        "info": "3.45% SZ"
+      }
+    },
+    {
+      "rank": 5,
+      "id": "SH603986",
+      "title": "兆易创新",
+      "url": "https://xueqiu.com/s/SH603986",
+      "extra": {
+        "info": "10% SH"
+      }
+    },
+    {
+      "rank": 6,
+      "id": "SZ300058",
+      "title": "蓝色光标",
+      "url": "https://xueqiu.com/s/SZ300058",
+      "extra": {
+        "info": "-11.52% SZ"
+      }
+    },
+    {
+      "rank": 7,
+      "id": "SZ300986",
+      "title": "志特新材",
+      "url": "https://xueqiu.com/s/SZ300986",
+      "extra": {
+        "info": "-20.01% SZ"
+      }
+    },
+    {
+      "rank": 8,
+      "id": "SZ001270",
+      "title": "*ST铖昌",
+      "url": "https://xueqiu.com/s/SZ001270",
+      "extra": {
+        "info": "5% SZ"
+      }
+    },
+    {
+      "rank": 9,
+      "id": "APP",
+      "title": "Applovin",
+      "url": "https://xueqiu.com/s/APP",
+      "extra": {
+        "info": "-6.2983% NASDAQ"
+      }
+    },
+    {
+      "rank": 10,
+      "id": "SH600900",
+      "title": "长江电力",
+      "url": "https://xueqiu.com/s/SH600900",
+      "extra": {
+        "info": "-1.12% SH"
+      }
+    },
+    {
+      "rank": 11,
+      "id": "SZ002202",
+      "title": "金风科技",
+      "url": "https://xueqiu.com/s/SZ002202",
+      "extra": {
+        "info": "-9.99% SZ"
+      }
+    },
+    {
+      "rank": 12,
+      "id": "SZ000547",
+      "title": "航天发展",
+      "url": "https://xueqiu.com/s/SZ000547",
+      "extra": {
+        "info": "1.2% SZ"
+      }
+    },
+    {
+      "rank": 13,
+      "id": "SZ301308",
+      "title": "江波龙",
+      "url": "https://xueqiu.com/s/SZ301308",
+      "extra": {
+        "info": "13.48% SZ"
+      }
+    },
+    {
+      "rank": 14,
+      "id": "SH600089",
+      "title": "特变电工",
+      "url": "https://xueqiu.com/s/SH600089",
+      "extra": {
+        "info": "-2.67% SH"
+      }
+    },
+    {
+      "rank": 15,
+      "id": "SZ300476",
+      "title": "胜宏科技",
+      "url": "https://xueqiu.com/s/SZ300476",
+      "extra": {
+        "info": "-0.66% SZ"
+      }
+    },
+    {
+      "rank": 16,
+      "id": "SH688270",
+      "title": "臻镭科技",
+      "url": "https://xueqiu.com/s/SH688270",
+      "extra": {
+        "info": "7.61% SH"
+      }
+    },
+    {
+      "rank": 17,
+      "id": "SH600118",
+      "title": "中国卫星",
+      "url": "https://xueqiu.com/s/SH600118",
+      "extra": {
+        "info": "-4.61% SH"
+      }
+    },
+    {
+      "rank": 18,
+      "id": "SH603778",
+      "title": "国晟科技",
+      "url": "https://xueqiu.com/s/SH603778",
+      "extra": {
+        "info": "-9.98% SH"
+      }
+    },
+    {
+      "rank": 19,
+      "id": "SH600941",
+      "title": "中国移动",
+      "url": "https://xueqiu.com/s/SH600941",
+      "extra": {
+        "info": "-0.84% SH"
+      }
+    },
+    {
+      "rank": 20,
+      "id": "SZ300342",
+      "title": "天银机电",
+      "url": "https://xueqiu.com/s/SZ300342",
+      "extra": {
+        "info": "8.87% SZ"
+      }
+    },
+    {
+      "rank": 21,
+      "id": "SZ002465",
+      "title": "海格通信",
+      "url": "https://xueqiu.com/s/SZ002465",
+      "extra": {
+        "info": "-10.02% SZ"
+      }
+    },
+    {
+      "rank": 22,
+      "id": "SH601869",
+      "title": "长飞光纤",
+      "url": "https://xueqiu.com/s/SH601869",
+      "extra": {
+        "info": "5.56% SH"
+      }
+    },
+    {
+      "rank": 23,
+      "id": "SZ300757",
+      "title": "罗博特科",
+      "url": "https://xueqiu.com/s/SZ300757",
+      "extra": {
+        "info": "8.77% SZ"
+      }
+    },
+    {
+      "rank": 24,
+      "id": "SH600036",
+      "title": "XD招商银",
+      "url": "https://xueqiu.com/s/SH600036",
+      "extra": {
+        "info": "-0.97% SH"
+      }
+    },
+    {
+      "rank": 25,
+      "id": "SH603083",
+      "title": "剑桥科技",
+      "url": "https://xueqiu.com/s/SH603083",
+      "extra": {
+        "info": "3.15% SH"
+      }
+    },
+    {
+      "rank": 26,
+      "id": "SZ000630",
+      "title": "铜陵有色",
+      "url": "https://xueqiu.com/s/SZ000630",
+      "extra": {
+        "info": "-0.16% SZ"
+      }
+    },
+    {
+      "rank": 27,
+      "id": "SH688110",
+      "title": "东芯股份",
+      "url": "https://xueqiu.com/s/SH688110",
+      "extra": {
+        "info": "4.74% SH"
+      }
+    },
+    {
+      "rank": 28,
+      "id": "SH688525",
+      "title": "佰维存储",
+      "url": "https://xueqiu.com/s/SH688525",
+      "extra": {
+        "info": "17.19% SH"
+      }
+    },
+    {
+      "rank": 29,
+      "id": "SH600519",
+      "title": "贵州茅台",
+      "url": "https://xueqiu.com/s/SH600519",
+      "extra": {
+        "info": "-0.5% SH"
+      }
+    },
+    {
+      "rank": 30,
+      "id": "SZ300604",
+      "title": "长川科技",
+      "url": "https://xueqiu.com/s/SZ300604",
+      "extra": {
+        "info": "0.87% SZ"
+      }
+    }
+  ]
+}

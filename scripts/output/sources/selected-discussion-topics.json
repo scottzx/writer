@@ -1,0 +1,202 @@
+{
+  "sourceId": "selected-discussion-topics",
+  "sourceName": "精选话题性新闻",
+  "fetchTime": "2026-01-18T00:00:00.000Z",
+  "updatedTime": 1737120000000,
+  "status": "success",
+  "itemCount": 25,
+  "items": [
+    {
+      "rank": 1,
+      "source": "知乎",
+      "id": "1995872467995027269",
+      "title": "女子吐槽14万买的钻石项链如今200块都不值",
+      "url": "https://www.zhihu.com/question/1995872467995027269",
+      "category": "社会争议"
+    },
+    {
+      "rank": 2,
+      "source": "知乎",
+      "id": "1995527451237975359",
+      "title": "比格比萨推出「环卫工人49.99元吃自助」福利日活动引热议",
+      "url": "https://www.zhihu.com/question/1995527451237975359",
+      "category": "社会争议"
+    },
+    {
+      "rank": 3,
+      "source": "知乎",
+      "id": "1995467173875905801",
+      "title": "上海黑珍珠餐厅服务员不满顾客拍照需求，在朋友圈辱骂顾客被开除",
+      "url": "https://www.zhihu.com/question/1995467173875905801",
+      "category": "社会争议"
+    },
+    {
+      "rank": 4,
+      "source": "知乎",
+      "id": "1994850753785847957",
+      "title": "税务部门曝光2起网络主播偷税案",
+      "url": "https://www.zhihu.com/question/1994850753785847957",
+      "category": "社会争议"
+    },
+    {
+      "rank": 5,
+      "source": "知乎",
+      "id": "1995120350212618006",
+      "title": "无座票乘客站一等座车厢被要求离开，12306称无座票仅限二等车厢",
+      "url": "https://www.zhihu.com/question/1995120350212618006",
+      "category": "社会争议"
+    },
+    {
+      "rank": 6,
+      "source": "微博",
+      "id": "曝丈夫出轨女子已连续道歉6天",
+      "title": "曝丈夫出轨女子已连续道歉6天",
+      "url": "https://s.weibo.com/weibo?q=%E6%9B%9D%E4%B8%88%E5%A4%AB%E5%87%BA%E8%BD%A8%E5%A5%B3%E5%AD%90%E5%B7%B2%E8%BF%9E%E7%BB%AD%E9%81%93%E6%AD%896%E5%A4%A9",
+      "category": "社会争议"
+    },
+    {
+      "rank": 7,
+      "source": "微博",
+      "id": "男子从喉咙痛到进ICU只用1小时",
+      "title": "男子从喉咙痛到进ICU只用1小时",
+      "url": "https://s.weibo.com/weibo?q=%23%E7%94%B7%E5%AD%90%E4%BB%8E%E5%96%89%E5%92%99%E7%97%9B%E5%88%B0%E8%BF%9BICU%E5%8F%AA%E7%94%A81%E5%B0%8F%E6%97%B6",
+      "category": "社会争议"
+    },
+    {
+      "rank": 8,
+      "source": "微博",
+      "id": "男孩凌晨5点起床写作业突然晕倒",
+      "title": "男孩凌晨5点起床写作业突然晕倒",
+      "url": "https://s.weibo.com/weibo?q=%23%E7%94%B7%E5%AD%A9%E5%87%8C%E6%99%A85%E7%82%B9%E8%B5%B7%E5%BA%8A%E5%86%99%E4%BD%9C%E4%B8%9A%E7%AA%81%E7%84%B6%E6%99%95%E5%80%92",
+      "category": "社会争议"
+    },
+    {
+      "rank": 9,
+      "source": "微博",
+      "id": "强奸幼女被判8年医生父亲是检察官",
+      "title": "强奸幼女被判8年医生父亲是检察官",
+      "url": "https://s.weibo.com/weibo?q=%E5%BC%BA%E5%A5%B8%E5%B9%BC%E5%A5%B3%E8%A2%AB%E5%88%A48%E5%B9%B4%E5%8C%BB%E7%94%9F%E7%88%B6%E4%BA%B2%E6%98%AF%E6%A3%80%E5%AF%9F%E5%AE%98",
+      "category": "社会争议"
+    },
+    {
+      "rank": 10,
+      "source": "微博",
+      "id": "道歉变处刑道德正义不等于合法判断",
+      "title": "道歉变处刑道德正义不等于合法判断",
+      "url": "https://s.weibo.com/weibo?q=%23%E9%81%93%E5%BE%B7%E5%8F%98%E5%A4%84%E5%88%91%E9%81%93%E5%BE%B7%E6%AD%A3%E4%B9%89%E4%B8%8D%E7%AD%89%E4%BA%8E%E5%90%88%E6%B3%95%E5%88%A4%E6%96%AD",
+      "category": "社会争议"
+    },
+    {
+      "rank": 11,
+      "source": "百度热搜",
+      "id": "https://www.baidu.com/s?wd=%E5%A4%9A%E6%A0%A1%E6%92%A4%E9%94%80%E8%89%BA%E6%9C%AF%E4%B8%93%E4%B8%9A",
+      "title": "多校撤销艺术专业",
+      "url": "https://www.baidu.com/s?wd=%E5%A4%9A%E6%A0%A1%E6%92%A4%E9%94%80%E8%89%BA%E6%9C%AF%E4%B8%93%E4%B8%9A",
+      "category": "经济消费"
+    },
+    {
+      "rank": 12,
+      "source": "百度热搜",
+      "id": "https://www.baidu.com/s?wd=%E2%80%9C%E4%B8%A4%E4%B8%AA%E8%A5%BF%E7%BA%A2%E6%9F%BF%E5%B0%B1%E8%A6%8110%E5%9D%97%E9%92%B1%E2%80%9D",
+      "title": "两个西红柿就要10块钱",
+      "url": "https://www.baidu.com/s?wd=%E2%80%9C%E4%B8%A4%E4%B8%AA%E8%A5%BF%E7%BA%A2%E6%9F%BF%E5%B0%B1%E8%A6%8110%E5%9D%97%E9%92%B1%E2%80%9D",
+      "category": "经济消费"
+    },
+    {
+      "rank": 13,
+      "source": "百度热搜",
+      "id": "https://www.baidu.com/s?wd=50%E4%B8%87%E4%BA%BF%E5%A4%A9%E9%87%8F%E5%AD%98%E6%AC%BE%E5%B0%86%E5%88%B0%E6%9C%9F+%E6%B5%81%E5%90%91%E5%8F%97%E5%85%B3%E6%B3%A8",
+      "title": "50万亿天量存款将到期 流向受关注",
+      "url": "https://www.baidu.com/s?wd=50%E4%B8%87%E4%BA%BF%E5%A4%A9%E9%87%8F%E5%AD%98%E6%AC%BE%E5%B0%86%E5%88%B0%E6%9C%9F+%E6%B5%81%E5%90%91%E5%8F%97%E5%85%B3%E6%B3%A8",
+      "category": "经济消费"
+    },
+    {
+      "rank": 14,
+      "source": "百度热搜",
+      "id": "https://www.baidu.com/s?wd=%E2%80%9C%E8%A3%85%E6%AD%BB%E7%BE%8A%E2%80%9D%E8%BA%AB%E4%BB%B7%E9%A3%99%E8%87%B330%E4%B8%87%E4%B8%BB%E4%BA%BA%E4%BB%8D%E4%B8%8D%E5%8D%96",
+      "title": "装死羊身价飙至30万主人仍不卖",
+      "url": "https://www.baidu.com/s?wd=%E2%80%9C%E8%A3%85%E6%AD%BB%E7%BE%8A%E2%80%9D%E8%BA%AB%E4%BB%B7%E9%A3%99%E8%87%B330%E4%B8%87%E4%B8%BB%E4%BA%BA%E4%BB%8D%E4%B8%8D%E5%8D%96",
+      "category": "经济消费"
+    },
+    {
+      "rank": 15,
+      "source": "百度热搜",
+      "id": "https://www.baidu.com/s?wd=%E4%B9%A1%E6%9D%91%E8%9B%8B%E7%B3%95%E5%BA%97%E8%B5%B0%E7%BA%A2+4%E5%AF%B8%E4%BB%85%E5%8D%9610%E5%85%83",
+      "title": "乡村蛋糕店走红 4寸仅卖10元",
+      "url": "https://www.baidu.com/s?wd=%E4%B9%A1%E6%9D%91%E8%9B%8B%E7%B3%95%E5%BA%97%E8%B5%B0%E7%BA%A2+4%E5%AF%B8%E4%BB%85%E5%8D%9610%E5%85%83",
+      "category": "经济消费"
+    },
+    {
+      "rank": 16,
+      "source": "今日头条",
+      "id": "7596297035712564787",
+      "title": "奔驰宝马奥迪在中国市场集体遇冷",
+      "url": "https://www.toutiao.com/trending/7596297035712564787/",
+      "category": "经济消费"
+    },
+    {
+      "rank": 17,
+      "source": "掘金",
+      "id": "7595147871939493934",
+      "title": "我的2025：做项目、跑副业、见人、奔波、搬家、维权、再回上海",
+      "url": "https://juejin.cn/post/7595147871939493934",
+      "category": "科技职场"
+    },
+    {
+      "rank": 18,
+      "source": "掘金",
+      "id": "7595484390428688419",
+      "title": "【2025年终总结】对象有了，工作没了",
+      "url": "https://juejin.cn/post/7595484390428688419",
+      "category": "科技职场"
+    },
+    {
+      "rank": 19,
+      "source": "掘金",
+      "id": "7595311405751386158",
+      "title": "2025代码进化论：从跟风Cursor到皈依Trae",
+      "url": "https://juejin.cn/post/7595311405751386158",
+      "category": "科技职场"
+    },
+    {
+      "rank": 20,
+      "source": "掘金",
+      "id": "7595365551607185459",
+      "title": "2026年程序员接单全指南：平台这么多，别再选错了",
+      "url": "https://juejin.cn/post/7595365551607185459",
+      "category": "科技职场"
+    },
+    {
+      "rank": 21,
+      "source": "百度热搜",
+      "id": "https://www.baidu.com/s?wd=20%E5%B2%81%E8%BF%88%E5%B7%B4%E8%B5%AB%E8%BD%A6%E4%B8%BB%E6%8A%8A%E8%BD%A6%E8%BA%AB%E8%B4%B4%E6%BB%A1%E5%AE%9D%E8%B4%9D%E5%9B%9E%E5%AE%B6",
+      "title": "20岁迈巴赫车主把车身贴满宝贝回家",
+      "url": "https://www.baidu.com/s?wd=20%E5%B2%81%E8%BF%88%E5%B7%B4%E8%B5%AB%E8%BD%A6%E4%B8%BB%E6%8A%8A%E8%BD%A6%E8%BA%AB%E8%B4%B4%E6%BB%A1%E5%AE%9D%E8%B4%9D%E5%9B%9E%E5%AE%B6",
+      "category": "社会民生"
+    },
+    {
+      "rank": 22,
+      "source": "百度热搜",
+      "id": "https://www.baidu.com/s?wd=2%E5%8D%83%E4%B8%87%E6%88%90%E5%B9%B4%E4%BA%BA%E6%82%A3ADHD+%E5%AD%98%E8%BF%87%E6%97%A9%E6%AD%BB%E4%BA%A1%E9%A3%8E%E9%99%A9",
+      "title": "2千万成年人患ADHD 存过早死亡风险",
+      "url": "https://www.baidu.com/s?wd=2%E5%8D%83%E4%B8%87%E6%88%90%E5%B9%B4%E4%BA%BA%E6%82%A3ADHD+%E5%AD%98%E8%BF%87%E6%97%A9%E6%AD%BB%E4%BA%A1%E9%A3%8E%E9%99%A9",
+      "category": "社会民生"
+    },
+    {
+      "rank": 23,
+      "source": "微博",
+      "id": "帕梅拉胖了6公斤",
+      "title": "帕梅拉胖了6公斤",
+      "url": "https://s.weibo.com/weibo?q=%E5%B8%95%E6%A2%85%E6%8B%89%E8%83%96%E4%BA%866%E5%85%AC%E6%96%A4",
+      "category": "社会民生"
+    },
+    {
+      "rank": 24,
+      "source": "微博",
+      "id": "体检报告里这些字眼或是癌症信号",
+      "title": "体检报告里这些字眼或是癌症信号",
+      "url": "https://s.weibo.com/weibo?q=%23%E4%BD%93%E6%A3%80%E6%8A%A5%E5%91%8A%E9%87%8C%E8%BF%99%E4%BA%9B%E5%AD%97%E7%9C%BC%E6%88%96%E6%98%AF%E7%99%8C%E7%97%87%E4%BF%A1%E5%8F%B7",
+      "category": "社会民生"
+    }
+  ]
+}

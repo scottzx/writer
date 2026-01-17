@@ -1,0 +1,310 @@
+{
+  "sourceId": "qqvideo-tv-hotsearch",
+  "sourceName": "腾讯视频",
+  "fetchTime": "2026-01-17T16:16:49.808Z",
+  "updatedTime": 1768666584687,
+  "status": "success",
+  "itemCount": 30,
+  "items": [
+    {
+      "rank": 1,
+      "id": "mzc00200o3jp0vf",
+      "title": "小城大事",
+      "url": "https://v.qq.com/x/cover/mzc00200o3jp0vf.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "赵丽颖黄晓明热血筑梦"
+      }
+    },
+    {
+      "rank": 2,
+      "id": "mzc00200xntoaip",
+      "title": "骄阳似我",
+      "url": "https://v.qq.com/x/cover/mzc00200xntoaip.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "宋威龙赵今麦演绎顾漫经典"
+      }
+    },
+    {
+      "rank": 3,
+      "id": "mzc002004qhfta9",
+      "title": "御赐小仵作2",
+      "url": "https://v.qq.com/x/cover/mzc002004qhfta9.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "王子奇苏晓彤谈情说案"
+      }
+    },
+    {
+      "rank": 4,
+      "id": "mzc002002yfzpaf",
+      "title": "人之初",
+      "url": "https://v.qq.com/x/cover/mzc002002yfzpaf.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "张若昀马思纯揭陈年罪案"
+      }
+    },
+    {
+      "rank": 5,
+      "id": "mzc002009xkvw78",
+      "title": "老舅",
+      "url": "https://v.qq.com/x/cover/mzc002009xkvw78.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "郭京飞王佳佳花样折腾"
+      }
+    },
+    {
+      "rank": 6,
+      "id": "mzc002004zylyzl",
+      "title": "御赐小仵作",
+      "url": "https://v.qq.com/x/cover/mzc002004zylyzl.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "仵作与刑狱官谈情说案"
+      }
+    },
+    {
+      "rank": 7,
+      "id": "mzc002009876trz",
+      "title": "半醒",
+      "url": "https://v.qq.com/x/cover/mzc002009876trz.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "一场惊心动魄的掌控与反杀"
+      }
+    },
+    {
+      "rank": 8,
+      "id": "mzc00200qwso750",
+      "title": "奇迹",
+      "url": "https://v.qq.com/x/cover/mzc00200qwso750.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "见证深圳45周年发展奇迹"
+      }
+    },
+    {
+      "rank": 9,
+      "id": "mzc00200f19q8q5",
+      "title": "许我耀眼",
+      "url": "https://v.qq.com/x/cover/mzc00200f19q8q5.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "强反转！假面夫妻高阶猎爱"
+      }
+    },
+    {
+      "rank": 10,
+      "id": "mzc00200djd8qu9",
+      "title": "狙击蝴蝶",
+      "url": "https://v.qq.com/x/cover/mzc00200djd8qu9.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "姐狗仙品！陈妍希周柯宇甜欲拉扯"
+      }
+    },
+    {
+      "rank": 11,
+      "id": "mzc00200vkqr54u",
+      "title": "九重紫",
+      "url": "https://v.qq.com/x/cover/mzc00200vkqr54u.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "孟子义李昀锐两世因果"
+      }
+    },
+    {
+      "rank": 12,
+      "id": "mzc002002kqssyu",
+      "title": "庆余年第二季",
+      "url": "https://v.qq.com/x/cover/mzc002002kqssyu.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "与范闲再探庙堂江湖"
+      }
+    },
+    {
+      "rank": 13,
+      "id": "zaasslvhhyy1sg7",
+      "title": "爱情公寓3",
+      "url": "https://v.qq.com/x/cover/zaasslvhhyy1sg7.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "合租男女囧事多"
+      }
+    },
+    {
+      "rank": 14,
+      "id": "mzc00200vvr86iv",
+      "title": "陷入我们的热恋",
+      "url": "https://v.qq.com/x/cover/mzc00200vvr86iv.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "刘浩存王安宇上演青春纯爱"
+      }
+    },
+    {
+      "rank": 15,
+      "id": "mzc00200a44kzlo",
+      "title": "轻年",
+      "url": "https://v.qq.com/x/cover/mzc00200a44kzlo.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "霍建华田雨新“轻”年再出发"
+      }
+    },
+    {
+      "rank": 16,
+      "id": "mzc00200cg24vid",
+      "title": "在暴雪时分",
+      "url": "https://v.qq.com/x/cover/mzc00200cg24vid.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "吴磊赵今麦冬日纯欲甜恋"
+      }
+    },
+    {
+      "rank": 17,
+      "id": "mzc00200kqpbtfg",
+      "title": "折腰",
+      "url": "https://v.qq.com/x/cover/mzc00200kqpbtfg.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "宋祖儿刘宇宁世族情仇"
+      }
+    },
+    {
+      "rank": 18,
+      "id": "mzc00200vfspynw",
+      "title": "六姊妹",
+      "url": "https://v.qq.com/x/cover/mzc00200vfspynw.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "年代巨制体味大家小家变迁"
+      }
+    },
+    {
+      "rank": 19,
+      "id": "vbb35hm6m6da1wc",
+      "title": "陈情令",
+      "url": "https://v.qq.com/x/cover/vbb35hm6m6da1wc.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "肖战王一博共闯侠义江湖"
+      }
+    },
+    {
+      "rank": 20,
+      "id": "mzc00200qon7vo3",
+      "title": "大奉打更人",
+      "url": "https://v.qq.com/x/cover/mzc00200qon7vo3.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "王鹤棣热血扫尽不平事"
+      }
+    },
+    {
+      "rank": 21,
+      "id": "mzc002008n7xsn3",
+      "title": "扫毒风暴",
+      "url": "https://v.qq.com/x/cover/mzc002008n7xsn3.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "段奕宏秦昊扫毒猎逃大对决"
+      }
+    },
+    {
+      "rank": 22,
+      "id": "mzc00200d70bilg",
+      "title": "枭起青壤",
+      "url": "https://v.qq.com/x/cover/mzc00200d70bilg.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "迪丽热巴陈星旭携手杀怪"
+      }
+    },
+    {
+      "rank": 23,
+      "id": "rjae621myqca41h",
+      "title": "庆余年",
+      "url": "https://v.qq.com/x/cover/rjae621myqca41h.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "张若昀身陷棋局绝处逢生"
+      }
+    },
+    {
+      "rank": 24,
+      "id": "mzc00200xh9313v",
+      "title": "你是我的荣耀",
+      "url": "https://v.qq.com/x/cover/mzc00200xh9313v.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "杨洋迪丽热巴共谱浪漫爱情"
+      }
+    },
+    {
+      "rank": 25,
+      "id": "mzc00200c1keuqc",
+      "title": "他为什么依然单身",
+      "url": "https://v.qq.com/x/cover/mzc00200c1keuqc.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "霍建华朱珠熟龄别样拉扯"
+      }
+    },
+    {
+      "rank": 26,
+      "id": "f7vj14icpqiqc7f",
+      "title": "爱情公寓4",
+      "url": "https://v.qq.com/x/cover/f7vj14icpqiqc7f.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "爱情公寓里他们都在！"
+      }
+    },
+    {
+      "rank": 27,
+      "id": "aav44xv50k8sfjb",
+      "title": "西游记",
+      "url": "https://v.qq.com/x/cover/aav44xv50k8sfjb.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "六小龄童演活美猴王"
+      }
+    },
+    {
+      "rank": 28,
+      "id": "mzc00200djsz2lc",
+      "title": "逐玉",
+      "url": "https://v.qq.com/x/cover/mzc00200djsz2lc.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "先婚后爱！烽火炼真情"
+      }
+    },
+    {
+      "rank": 29,
+      "id": "mzc00200vmd652y",
+      "title": "月升沧海",
+      "url": "https://v.qq.com/x/cover/mzc00200vmd652y.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "吴磊赵露思“甜虐”救赎"
+      }
+    },
+    {
+      "rank": 30,
+      "id": "mzc00200y504631",
+      "title": "长河落日",
+      "url": "https://v.qq.com/x/cover/mzc00200y504631.html",
+      "pubDate": "2026-01-17",
+      "extra": {
+        "hover": "张鲁一张钧甯携手破局"
+      }
+    }
+  ]
+}

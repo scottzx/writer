@@ -1,0 +1,70 @@
+{
+  "sourceId": "github-trending-today",
+  "sourceName": "GitHub",
+  "fetchTime": "2026-01-17T16:16:49.807Z",
+  "updatedTime": 1768665961924,
+  "status": "cache",
+  "itemCount": 6,
+  "items": [
+    {
+      "rank": 1,
+      "id": "/eigent-ai/eigent",
+      "title": "eigent-ai /      eigent",
+      "url": "https://github.com/eigent-ai/eigent",
+      "extra": {
+        "info": "✰ 8,226",
+        "hover": "Eigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity."
+      }
+    },
+    {
+      "rank": 2,
+      "id": "/obra/superpowers",
+      "title": "obra /      superpowers",
+      "url": "https://github.com/obra/superpowers",
+      "extra": {
+        "info": "✰ 27,031",
+        "hover": "An agentic skills framework & software development methodology that works."
+      }
+    },
+    {
+      "rank": 3,
+      "id": "/afkarxyz/SpotiFLAC",
+      "title": "afkarxyz /      SpotiFLAC",
+      "url": "https://github.com/afkarxyz/SpotiFLAC",
+      "extra": {
+        "info": "✰ 3,423",
+        "hover": "Get Spotify tracks in true FLAC from Tidal, Qobuz & Amazon Music — no account required."
+      }
+    },
+    {
+      "rank": 4,
+      "id": "/puckeditor/puck",
+      "title": "puckeditor /      puck",
+      "url": "https://github.com/puckeditor/puck",
+      "extra": {
+        "info": "✰ 11,258",
+        "hover": "The visual editor for React with AI superpowers"
+      }
+    },
+    {
+      "rank": 5,
+      "id": "/google/langextract",
+      "title": "google /      langextract",
+      "url": "https://github.com/google/langextract",
+      "extra": {
+        "info": "✰ 21,451",
+        "hover": "A Python library for extracting structured information from unstructured text using LLMs with precise source grounding and interactive visualization."
+      }
+    },
+    {
+      "rank": 6,
+      "id": "/iOfficeAI/AionUi",
+      "title": "iOfficeAI /      AionUi",
+      "url": "https://github.com/iOfficeAI/AionUi",
+      "extra": {
+        "info": "✰ 4,688",
+        "hover": "Free, local, open-source Cowork for Gemini CLI, Claude Code, Codex, Opencode, Qwen Code, Goose Cli, Auggie, and more | 🌟 Star if you like it!"
+      }
+    }
+  ]
+}

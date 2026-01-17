@@ -1,0 +1,70 @@
+{
+  "sourceId": "wallstreetcn-hot",
+  "sourceName": "华尔街见闻",
+  "fetchTime": "2026-01-17T16:16:49.809Z",
+  "updatedTime": 1768666589602,
+  "status": "success",
+  "itemCount": 10,
+  "items": [
+    {
+      "rank": 1,
+      "id": 3763450,
+      "title": "美联储主席人选生变，美国股债齐跌，美元走V收平，金银铜盘中跌",
+      "url": "https://wallstreetcn.com/articles/3763450"
+    },
+    {
+      "rank": 2,
+      "id": 3763515,
+      "title": "美国暂不征收“关键矿产”关税，摩根大通：白银暂时扛住了，但回调风险巨大，这对黄金是机会",
+      "url": "https://wallstreetcn.com/articles/3763515"
+    },
+    {
+      "rank": 3,
+      "id": 3763508,
+      "title": "马斯克「脑机第一人」首爆！不开颅在线升级，永生代码已写入",
+      "url": "https://wallstreetcn.com/articles/3763508"
+    },
+    {
+      "rank": 4,
+      "id": 3763518,
+      "title": "两型运载火箭发射失利：长征三号乙与谷神星二号任务未获成功",
+      "url": "https://wallstreetcn.com/articles/3763518"
+    },
+    {
+      "rank": 5,
+      "id": 3763500,
+      "title": "华尔街见闻早餐FM-Radio | 2026年1月17日",
+      "url": "https://wallstreetcn.com/articles/3763500"
+    },
+    {
+      "rank": 6,
+      "id": 3763509,
+      "title": "宋雪涛：今年市场的两条主线",
+      "url": "https://wallstreetcn.com/articles/3763509"
+    },
+    {
+      "rank": 7,
+      "id": 3763516,
+      "title": "机构路演：存储行业正转向“高利润、稳价格、弱周期”的运营模式",
+      "url": "https://wallstreetcn.com/articles/3763516"
+    },
+    {
+      "rank": 8,
+      "id": 3763511,
+      "title": "“HBM之父”：高带宽闪存（HBF）商业化进程超预期，或将在2-3年内集成到GPU，市场规模将超HBM",
+      "url": "https://wallstreetcn.com/articles/3763511"
+    },
+    {
+      "rank": 9,
+      "id": 3763499,
+      "title": "特朗普首次提及：可能对不支持美获得格陵兰岛计划的国家加征关税",
+      "url": "https://wallstreetcn.com/articles/3763499"
+    },
+    {
+      "rank": 10,
+      "id": 3763504,
+      "title": "哈塞特“出局”，但美债为何“不涨反跌”？",
+      "url": "https://wallstreetcn.com/articles/3763504"
+    }
+  ]
+}

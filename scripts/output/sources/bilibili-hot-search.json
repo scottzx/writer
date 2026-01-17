@@ -1,0 +1,280 @@
+{
+  "sourceId": "bilibili-hot-search",
+  "sourceName": "B站热搜",
+  "fetchTime": "2026-01-17T16:16:49.805Z",
+  "updatedTime": 1768666575683,
+  "status": "success",
+  "itemCount": 30,
+  "items": [
+    {
+      "rank": 1,
+      "id": "U23国足取胜乌兹别克斯坦",
+      "title": "U23国足取胜乌兹别克斯坦",
+      "url": "https://search.bilibili.com/all?keyword=U23%E5%9B%BD%E8%B6%B3%E5%8F%96%E8%83%9C%E4%B9%8C%E5%85%B9%E5%88%AB%E5%85%8B%E6%96%AF%E5%9D%A6",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221213/eaf2dd702d7cc14d8d9511190245d057/lrx9rnKo24.png"
+      }
+    },
+    {
+      "rank": 2,
+      "id": "锐评BLG战胜AL",
+      "title": "锐评BLG战胜AL",
+      "url": "https://search.bilibili.com/all?keyword=%E9%94%90%E8%AF%84BLG%E6%88%98%E8%83%9CAL",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221213/eaf2dd702d7cc14d8d9511190245d057/lrx9rnKo24.png"
+      }
+    },
+    {
+      "rank": 3,
+      "id": "曼联2-0曼城",
+      "title": "曼联2-0曼城",
+      "url": "https://search.bilibili.com/all?keyword=%E6%9B%BC%E8%81%942-0%E6%9B%BC%E5%9F%8E",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221118/eaf2dd702d7cc14d8d9511190245d057/UF7B1wVKT2.png"
+      }
+    },
+    {
+      "rank": 4,
+      "id": "JDG IG",
+      "title": "IG战胜JDG",
+      "url": "https://search.bilibili.com/all?keyword=JDG%20IG",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221213/eaf2dd702d7cc14d8d9511190245d057/lrx9rnKo24.png"
+      }
+    },
+    {
+      "rank": 5,
+      "id": "李昊U23亚洲杯扑救集锦",
+      "title": "李昊U23亚洲杯扑救集锦",
+      "url": "https://search.bilibili.com/all?keyword=%E6%9D%8E%E6%98%8AU23%E4%BA%9A%E6%B4%B2%E6%9D%AF%E6%89%91%E6%95%91%E9%9B%86%E9%94%A6",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221118/eaf2dd702d7cc14d8d9511190245d057/UF7B1wVKT2.png"
+      }
+    },
+    {
+      "rank": 6,
+      "id": "退钱哥直击国足赛后庆祝",
+      "title": "退钱哥直击国足赛后庆祝",
+      "url": "https://search.bilibili.com/all?keyword=%E9%80%80%E9%92%B1%E5%93%A5%E7%9B%B4%E5%87%BB%E5%9B%BD%E8%B6%B3%E8%B5%9B%E5%90%8E%E5%BA%86%E7%A5%9D",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221118/eaf2dd702d7cc14d8d9511190245d057/UF7B1wVKT2.png"
+      }
+    },
+    {
+      "rank": 7,
+      "id": "解读ChatGPT加入广告背后",
+      "title": "解读ChatGPT加入广告背后",
+      "url": "https://search.bilibili.com/all?keyword=%E8%A7%A3%E8%AF%BBChatGPT%E5%8A%A0%E5%85%A5%E5%B9%BF%E5%91%8A%E8%83%8C%E5%90%8E",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 8,
+      "id": "新一轮暴雪来了",
+      "title": "新一轮暴雪来了",
+      "url": "https://search.bilibili.com/all?keyword=%E6%96%B0%E4%B8%80%E8%BD%AE%E6%9A%B4%E9%9B%AA%E6%9D%A5%E4%BA%86",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 9,
+      "id": "UP主现场亲测西兰花",
+      "title": "UP主现场亲测西兰花",
+      "url": "https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E7%8E%B0%E5%9C%BA%E4%BA%B2%E6%B5%8B%E8%A5%BF%E5%85%B0%E8%8A%B1",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 10,
+      "id": "李昊点球大战关键扑救",
+      "title": "李昊点球大战关键扑救",
+      "url": "https://search.bilibili.com/all?keyword=%E6%9D%8E%E6%98%8A%E7%82%B9%E7%90%83%E5%A4%A7%E6%88%98%E5%85%B3%E9%94%AE%E6%89%91%E6%95%91",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 11,
+      "id": "BLG AL",
+      "title": "BLG战胜AL",
+      "url": "https://search.bilibili.com/all?keyword=BLG%20AL",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221213/eaf2dd702d7cc14d8d9511190245d057/lrx9rnKo24.png"
+      }
+    },
+    {
+      "rank": 12,
+      "id": "TF家族新年音乐会",
+      "title": "TF家族新年音乐会舞台纯享",
+      "url": "https://search.bilibili.com/all?keyword=TF%E5%AE%B6%E6%97%8F%E6%96%B0%E5%B9%B4%E9%9F%B3%E4%B9%90%E4%BC%9A",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 13,
+      "id": "我也要死吗是什么梗",
+      "title": "我也要死吗是什么梗",
+      "url": "https://search.bilibili.com/all?keyword=%E6%88%91%E4%B9%9F%E8%A6%81%E6%AD%BB%E5%90%97%E6%98%AF%E4%BB%80%E4%B9%88%E6%A2%97",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221118/eaf2dd702d7cc14d8d9511190245d057/UF7B1wVKT2.png"
+      }
+    },
+    {
+      "rank": 14,
+      "id": "鸣潮飞行雪绒EP靛青宇宙",
+      "title": "鸣潮飞行雪绒EP靛青宇宙",
+      "url": "https://search.bilibili.com/all?keyword=%E9%B8%A3%E6%BD%AE%E9%A3%9E%E8%A1%8C%E9%9B%AA%E7%BB%92EP%E9%9D%9B%E9%9D%92%E5%AE%87%E5%AE%99",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 15,
+      "id": "NMIXX开麦B站打歌纯享",
+      "title": "NMIXX开麦B站打歌纯享",
+      "url": "https://search.bilibili.com/all?keyword=NMIXX%E5%BC%80%E9%BA%A6B%E7%AB%99%E6%89%93%E6%AD%8C%E7%BA%AF%E4%BA%AB",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 16,
+      "id": "当哈基米遭遇意外",
+      "title": "当哈基米遭遇意外",
+      "url": "https://search.bilibili.com/all?keyword=%E5%BD%93%E5%93%88%E5%9F%BA%E7%B1%B3%E9%81%AD%E9%81%87%E6%84%8F%E5%A4%96",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 17,
+      "id": "疯狂的舞姿",
+      "title": "疯狂的舞姿",
+      "url": "https://search.bilibili.com/all?keyword=%E7%96%AF%E7%8B%82%E7%9A%84%E8%88%9E%E5%A7%BF",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221117/eaf2dd702d7cc14d8d9511190245d057/EeuqbMwao9.png"
+      }
+    },
+    {
+      "rank": 18,
+      "id": "TOM表哥谈3年未更新原因",
+      "title": "TOM表哥谈3年未更新原因",
+      "url": "https://search.bilibili.com/all?keyword=TOM%E8%A1%A8%E5%93%A5%E8%B0%883%E5%B9%B4%E6%9C%AA%E6%9B%B4%E6%96%B0%E5%8E%9F%E5%9B%A0",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 19,
+      "id": "NMIXX打歌live实力",
+      "title": "NMIXX打歌live实力",
+      "url": "https://search.bilibili.com/all?keyword=NMIXX%E6%89%93%E6%AD%8Clive%E5%AE%9E%E5%8A%9B",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 20,
+      "id": "时代少年团",
+      "title": "时代少年团心率挑战",
+      "url": "https://search.bilibili.com/all?keyword=%E6%97%B6%E4%BB%A3%E5%B0%91%E5%B9%B4%E5%9B%A2",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 21,
+      "id": "UP主还原野球场上的神人",
+      "title": "UP主还原野球场上的神人",
+      "url": "https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E8%BF%98%E5%8E%9F%E9%87%8E%E7%90%83%E5%9C%BA%E4%B8%8A%E7%9A%84%E7%A5%9E%E4%BA%BA",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 22,
+      "id": "U23国足点球大战全程",
+      "title": "U23国足点球大战全程",
+      "url": "https://search.bilibili.com/all?keyword=U23%E5%9B%BD%E8%B6%B3%E7%82%B9%E7%90%83%E5%A4%A7%E6%88%98%E5%85%A8%E7%A8%8B",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221118/eaf2dd702d7cc14d8d9511190245d057/UF7B1wVKT2.png"
+      }
+    },
+    {
+      "rank": 23,
+      "id": "张艺兴reaction大花轿",
+      "title": "张艺兴reaction大花轿",
+      "url": "https://search.bilibili.com/all?keyword=%E5%BC%A0%E8%89%BA%E5%85%B4reaction%E5%A4%A7%E8%8A%B1%E8%BD%BF",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 24,
+      "id": "哺乳动物的脸为何这么肉",
+      "title": "哺乳动物的脸为何这么肉",
+      "url": "https://search.bilibili.com/all?keyword=%E5%93%BA%E4%B9%B3%E5%8A%A8%E7%89%A9%E7%9A%84%E8%84%B8%E4%B8%BA%E4%BD%95%E8%BF%99%E4%B9%88%E8%82%89",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 25,
+      "id": "U23国足半决赛出战越南",
+      "title": "U23国足半决赛出战越南",
+      "url": "https://search.bilibili.com/all?keyword=U23%E5%9B%BD%E8%B6%B3%E5%8D%8A%E5%86%B3%E8%B5%9B%E5%87%BA%E6%88%98%E8%B6%8A%E5%8D%97",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221118/eaf2dd702d7cc14d8d9511190245d057/UF7B1wVKT2.png"
+      }
+    },
+    {
+      "rank": 26,
+      "id": "UP主和球星保罗的双向鼓励",
+      "title": "UP主和球星保罗的双向鼓励",
+      "url": "https://search.bilibili.com/all?keyword=UP%E4%B8%BB%E5%92%8C%E7%90%83%E6%98%9F%E4%BF%9D%E7%BD%97%E7%9A%84%E5%8F%8C%E5%90%91%E9%BC%93%E5%8A%B1",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 27,
+      "id": "实践三十二号卫星发射失利",
+      "title": "实践三十二号卫星发射失利",
+      "url": "https://search.bilibili.com/all?keyword=%E5%AE%9E%E8%B7%B5%E4%B8%89%E5%8D%81%E4%BA%8C%E5%8F%B7%E5%8D%AB%E6%98%9F%E5%8F%91%E5%B0%84%E5%A4%B1%E5%88%A9",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 28,
+      "id": "丹麦邀请美国参加格陵兰岛联合军演",
+      "title": "丹麦邀请美国参加格陵兰岛联合军演",
+      "url": "https://search.bilibili.com/all?keyword=%E4%B8%B9%E9%BA%A6%E9%82%80%E8%AF%B7%E7%BE%8E%E5%9B%BD%E5%8F%82%E5%8A%A0%E6%A0%BC%E9%99%B5%E5%85%B0%E5%B2%9B%E8%81%94%E5%90%88%E5%86%9B%E6%BC%94",
+      "extra": {
+        "icon": ""
+      }
+    },
+    {
+      "rank": 29,
+      "id": "LPL开麦了上线B站",
+      "title": "LPL开麦了上线B站",
+      "url": "https://search.bilibili.com/all?keyword=LPL%E5%BC%80%E9%BA%A6%E4%BA%86%E4%B8%8A%E7%BA%BFB%E7%AB%99",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20240304/fbb6ffcfd09815bd66290b6b7bde1196/0ZVm0aB2HV.png"
+      }
+    },
+    {
+      "rank": 30,
+      "id": "全世界都爱着地球",
+      "title": "全世界都爱着地球",
+      "url": "https://search.bilibili.com/all?keyword=%E5%85%A8%E4%B8%96%E7%95%8C%E9%83%BD%E7%88%B1%E7%9D%80%E5%9C%B0%E7%90%83",
+      "extra": {
+        "icon": "http://i0.hdslb.com/bfs/activity-plat/static/20221117/eaf2dd702d7cc14d8d9511190245d057/EeuqbMwao9.png"
+      }
+    }
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "sourceId": "hackernews",
+  "sourceName": "Hacker News",
+  "fetchTime": "2026-01-17T16:16:49.807Z",
+  "updatedTime": 1768665894384,
+  "status": "cache",
+  "itemCount": 30,
+  "items": [
+    {
+      "rank": 1,
+      "id": "46657122",
+      "title": "ASCII characters are not pixels: a deep dive into ASCII rendering",
+      "url": "https://news.ycombinator.com/item?id=46657122",
+      "extra": {
+        "info": "315 points"
+      }
+    },
+    {
+      "rank": 2,
+      "id": "46646475",
+      "title": "The Dilbert Afterlife",
+      "url": "https://news.ycombinator.com/item?id=46646475",
+      "extra": {
+        "info": "193 points"
+      }
+    },
+    {
+      "rank": 3,
+      "id": "46658345",
+      "title": "The recurring dream of replacing developers",
+      "url": "https://news.ycombinator.com/item?id=46658345",
+      "extra": {
+        "info": "31 points"
+      }
+    },
+    {
+      "rank": 4,
+      "id": "46657296",
+      "title": "The 600-year-old origins of the word 'hello'",
+      "url": "https://news.ycombinator.com/item?id=46657296",
+      "extra": {
+        "info": "50 points"
+      }
+    },
+    {
+      "rank": 5,
+      "id": "46656834",
+      "title": "Map To Poster – Create Art of your favourite city",
+      "url": "https://news.ycombinator.com/item?id=46656834",
+      "extra": {
+        "info": "104 points"
+      }
+    },
+    {
+      "rank": 6,
+      "id": "46656552",
+      "title": "ClickHouse acquires Langfuse",
+      "url": "https://news.ycombinator.com/item?id=46656552",
+      "extra": {
+        "info": "134 points"
+      }
+    },
+    {
+      "rank": 7,
+      "id": "46656903",
+      "title": "US electricity demand surged in 2025 – solar handled 61% of it",
+      "url": "https://news.ycombinator.com/item?id=46656903",
+      "extra": {
+        "info": "191 points"
+      }
+    },
+    {
+      "rank": 8,
+      "id": "46588972",
+      "title": "We Put Claude Code in Rollercoaster Tycoon",
+      "url": "https://news.ycombinator.com/item?id=46588972",
+      "extra": {
+        "info": "13 points"
+      }
+    },
+    {
+      "rank": 9,
+      "id": "46648916",
+      "title": "East Germany balloon escape",
+      "url": "https://news.ycombinator.com/item?id=46648916",
+      "extra": {
+        "info": "591 points"
+      }
+    },
+    {
+      "rank": 10,
+      "id": "46656358",
+      "title": "Show HN: Streaming gigabyte medical images from S3 without downloading them",
+      "url": "https://news.ycombinator.com/item?id=46656358",
+      "extra": {
+        "info": "84 points"
+      }
+    },
+    {
+      "rank": 11,
+      "id": "46593556",
+      "title": "Sergei Fedorov's Escape from Soviet Union Helped Save Red Wings (2020)",
+      "url": "https://news.ycombinator.com/item?id=46593556",
+      "extra": {
+        "info": "16 points"
+      }
+    },
+    {
+      "rank": 12,
+      "id": "46646645",
+      "title": "Cloudflare acquires Astro",
+      "url": "https://news.ycombinator.com/item?id=46646645",
+      "extra": {
+        "info": "877 points"
+      }
+    },
+    {
+      "rank": 13,
+      "id": "46658014",
+      "title": "Italy investigates Activision Blizzard for pushing in-game purchases",
+      "url": "https://news.ycombinator.com/item?id=46658014",
+      "extra": {
+        "info": "33 points"
+      }
+    },
+    {
+      "rank": 14,
+      "id": "46656045",
+      "title": "The 'untouchable hacker god' behind Finland's biggest ever crime",
+      "url": "https://news.ycombinator.com/item?id=46656045",
+      "extra": {
+        "info": "82 points"
+      }
+    },
+    {
+      "rank": 15,
+      "id": "46646777",
+      "title": "Cursor's latest “browser experiment” implied success without evidence",
+      "url": "https://news.ycombinator.com/item?id=46646777",
+      "extra": {
+        "info": "634 points"
+      }
+    },
+    {
+      "rank": 16,
+      "id": "46630816",
+      "title": "High-Level Is the Goal",
+      "url": "https://news.ycombinator.com/item?id=46630816",
+      "extra": {
+        "info": "193 points"
+      }
+    },
+    {
+      "rank": 17,
+      "id": "46657141",
+      "title": "Architecture for Disposable Systems",
+      "url": "https://news.ycombinator.com/item?id=46657141",
+      "extra": {
+        "info": "35 points"
+      }
+    },
+    {
+      "rank": 18,
+      "id": "46656998",
+      "title": "PCs refuse to shut down after Microsoft patch",
+      "url": "https://news.ycombinator.com/item?id=46656998",
+      "extra": {
+        "info": "109 points"
+      }
+    },
+    {
+      "rank": 19,
+      "id": "46647491",
+      "title": "6-Day and IP Address Certificates Are Generally Available",
+      "url": "https://news.ycombinator.com/item?id=46647491",
+      "extra": {
+        "info": "440 points"
+      }
+    },
+    {
+      "rank": 20,
+      "id": "46653721",
+      "title": "FLUX.2 [Klein]: Towards Interactive Visual Intelligence",
+      "url": "https://news.ycombinator.com/item?id=46653721",
+      "extra": {
+        "info": "182 points"
+      }
+    },
+    {
+      "rank": 21,
+      "id": "46615084",
+      "title": "Lies, Damned Lies and Proofs: Formal Methods Are Not Slopless",
+      "url": "https://news.ycombinator.com/item?id=46615084",
+      "extra": {
+        "info": "70 points"
+      }
+    },
+    {
+      "rank": 22,
+      "id": "46656911",
+      "title": "After 25 years, Wikipedia has proved that news doesn't need to look like news",
+      "url": "https://news.ycombinator.com/item?id=46656911",
+      "extra": {
+        "info": "139 points"
+      }
+    },
+    {
+      "rank": 23,
+      "id": "46657719",
+      "title": "The Risks of AI in Schools Outweigh the Benefits, Report Says",
+      "url": "https://news.ycombinator.com/item?id=46657719",
+      "extra": {
+        "info": "50 points"
+      }
+    },
+    {
+      "rank": 24,
+      "id": "46635309",
+      "title": "LLM Structured Outputs Handbook",
+      "url": "https://news.ycombinator.com/item?id=46635309",
+      "extra": {
+        "info": "314 points"
+      }
+    },
+    {
+      "rank": 25,
+      "id": "46604067",
+      "title": "Show HN: Microwave – Native iOS app for videos on ATproto",
+      "url": "https://news.ycombinator.com/item?id=46604067",
+      "extra": {
+        "info": "29 points"
+      }
+    },
+    {
+      "rank": 26,
+      "id": "46654749",
+      "title": "Drone Hacking Part 1: Dumping Firmware and Bruteforcing ECC",
+      "url": "https://news.ycombinator.com/item?id=46654749",
+      "extra": {
+        "info": "107 points"
+      }
+    },
+    {
+      "rank": 27,
+      "id": "46657088",
+      "title": "AV1 Image File Format Specification Gets an Upgrade with AVIF v1.2.0",
+      "url": "https://news.ycombinator.com/item?id=46657088",
+      "extra": {
+        "info": "44 points"
+      }
+    },
+    {
+      "rank": 28,
+      "id": "46652617",
+      "title": "Releasing rainbow tables to accelerate Net-NTLMv1 protocol deprecation",
+      "url": "https://news.ycombinator.com/item?id=46652617",
+      "extra": {
+        "info": "138 points"
+      }
+    },
+    {
+      "rank": 29,
+      "id": "46654726",
+      "title": "Ask HN: Is it still worth pursuing a software startup?",
+      "url": "https://news.ycombinator.com/item?id=46654726",
+      "extra": {
+        "info": "112 points"
+      }
+    },
+    {
+      "rank": 30,
+      "id": "46588210",
+      "title": "Post-PARA: What survived 4 years of real use",
+      "url": "https://news.ycombinator.com/item?id=46588210",
+      "extra": {
+        "info": "26 points"
+      }
+    }
+  ]
+}

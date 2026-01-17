@@ -1,0 +1,210 @@
+{
+  "sourceId": "producthunt",
+  "sourceName": "Product Hunt",
+  "fetchTime": "2026-01-17T16:16:49.808Z",
+  "updatedTime": 1768665893210,
+  "status": "cache",
+  "itemCount": 20,
+  "items": [
+    {
+      "rank": 1,
+      "id": "1050863",
+      "title": "Loki.Build",
+      "url": "https://www.producthunt.com/products/loki-build-2/launches/loki-build-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 748",
+        "hover": "Design and ship studio-grade landing pages with AI"
+      }
+    },
+    {
+      "rank": 2,
+      "id": "1044433",
+      "title": "Surgeflow",
+      "url": "https://www.producthunt.com/products/surgeflow/launches/surgeflow?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 709",
+        "hover": "Automate your browser tasks with a single command"
+      }
+    },
+    {
+      "rank": 3,
+      "id": "1033864",
+      "title": "PostSyncer",
+      "url": "https://www.producthunt.com/products/postsyncer-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 707",
+        "hover": "AI Content Maker, for Social Media Publishing"
+      }
+    },
+    {
+      "rank": 4,
+      "id": "1062017",
+      "title": "Cowork",
+      "url": "https://www.producthunt.com/products/claude?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 693",
+        "hover": "Turn Claude into your digital coworker"
+      }
+    },
+    {
+      "rank": 5,
+      "id": "1051339",
+      "title": "Typeless for iOS",
+      "url": "https://www.producthunt.com/products/typeless-2/launches/typeless-for-ios?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 637",
+        "hover": "AI voice keyboard now on iPhone"
+      }
+    },
+    {
+      "rank": 6,
+      "id": "1052680",
+      "title": "ConnectMachine",
+      "url": "https://www.producthunt.com/products/connectmachine-2/launches/connectmachine-4?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 630",
+        "hover": "A private AI agent that manages your network and connections"
+      }
+    },
+    {
+      "rank": 7,
+      "id": "1055221",
+      "title": "Mom Clock",
+      "url": "https://www.producthunt.com/products/mom-clock/launches/mom-clock?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 610",
+        "hover": "You said you'd do it. So why didn't you?"
+      }
+    },
+    {
+      "rank": 8,
+      "id": "1053246",
+      "title": "/agent by Firecrawl ",
+      "url": "https://www.producthunt.com/products/extract-by-firecrawl/launches/agent-by-firecrawl?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 592",
+        "hover": "Gather structured data wherever it lives on the web"
+      }
+    },
+    {
+      "rank": 9,
+      "id": "1062964",
+      "title": "Cal.com Companion Apps",
+      "url": "https://www.producthunt.com/products/cal?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 571",
+        "hover": "Native iOS & Android App + Browser Extensions for scheduling"
+      }
+    },
+    {
+      "rank": 10,
+      "id": "924550",
+      "title": "Giselle",
+      "url": "https://www.producthunt.com/products/giselle/launches/giselle?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 529",
+        "hover": "Build and run AI workflows. Open source."
+      }
+    },
+    {
+      "rank": 11,
+      "id": "1059906",
+      "title": "Livedocs",
+      "url": "https://www.producthunt.com/products/livedocs-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 515",
+        "hover": "The general data agent"
+      }
+    },
+    {
+      "rank": 12,
+      "id": "1053344",
+      "title": "Super Agents by ClickUp",
+      "url": "https://www.producthunt.com/products/clickup/launches/super-agents-by-clickup?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 514",
+        "hover": "Tag, message, + manage AI agents across your daily workflows"
+      }
+    },
+    {
+      "rank": 13,
+      "id": "1056605",
+      "title": "MiroMiro",
+      "url": "https://www.producthunt.com/products/miromiro?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 513",
+        "hover": "Copy any website's design & assets in one click"
+      }
+    },
+    {
+      "rank": 14,
+      "id": "1050622",
+      "title": "hq0",
+      "url": "https://www.producthunt.com/products/hq0/launches/hq0?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 512",
+        "hover": "Host meetings on your website instead of Zoom or Google Meet"
+      }
+    },
+    {
+      "rank": 15,
+      "id": "1055946",
+      "title": "Brief My Meeting",
+      "url": "https://www.producthunt.com/products/brief-my-meeting/launches/brief-my-meeting?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 508",
+        "hover": "AI meeting briefs delivered to your inbox. Open source"
+      }
+    },
+    {
+      "rank": 16,
+      "id": "1054929",
+      "title": "BizCard",
+      "url": "https://www.producthunt.com/products/bizcard-3/launches/bizcard-3?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 503",
+        "hover": "Kill LinkedIn QR contacts. Make real connections instead."
+      }
+    },
+    {
+      "rank": 17,
+      "id": "1060511",
+      "title": "remio 2.0",
+      "url": "https://www.producthunt.com/products/remio-ai-note-taker?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 497",
+        "hover": "Captures your work to build a searchable knowledge base"
+      }
+    },
+    {
+      "rank": 18,
+      "id": "1052376",
+      "title": "Claude in Chrome",
+      "url": "https://www.producthunt.com/products/claude/launches/claude-in-chrome?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 493",
+        "hover": "Let Claude see, click, type, and navigate in your browser"
+      }
+    },
+    {
+      "rank": 19,
+      "id": "1059610",
+      "title": "Atlas.new",
+      "url": "https://www.producthunt.com/products/atlas-co-2?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 488",
+        "hover": "The AI agent for maps and spatial data"
+      }
+    },
+    {
+      "rank": 20,
+      "id": "1063478",
+      "title": "1Code",
+      "url": "https://www.producthunt.com/products/1code-cursor-like-ui-for-claude-code?utm_campaign=producthunt-api&utm_medium=api-v2&utm_source=Application%3A+newsnow+%28ID%3A+239216%29",
+      "extra": {
+        "info": " △︎ 472",
+        "hover": "Open source Cursor-like UI for Claude Code"
+      }
+    }
+  ]
+}

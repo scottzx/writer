@@ -1,0 +1,310 @@
+{
+  "sourceId": "steam",
+  "sourceName": "Steam",
+  "fetchTime": "2026-01-17T16:16:49.809Z",
+  "updatedTime": 1768666585767,
+  "status": "success",
+  "itemCount": 30,
+  "items": [
+    {
+      "rank": 1,
+      "id": "https://store.steampowered.com/app/730/CounterStrike_2/",
+      "title": "Counter-Strike 2",
+      "url": "https://store.steampowered.com/app/730/CounterStrike_2/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "1,502,151"
+      }
+    },
+    {
+      "rank": 2,
+      "id": "https://store.steampowered.com/app/570/Dota_2/",
+      "title": "Dota 2",
+      "url": "https://store.steampowered.com/app/570/Dota_2/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "805,878"
+      }
+    },
+    {
+      "rank": 3,
+      "id": "https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/",
+      "title": "PUBG: BATTLEGROUNDS",
+      "url": "https://store.steampowered.com/app/578080/PUBG_BATTLEGROUNDS/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "500,289"
+      }
+    },
+    {
+      "rank": 4,
+      "id": "https://store.steampowered.com/app/1808500/ARC_Raiders/",
+      "title": "ARC Raiders",
+      "url": "https://store.steampowered.com/app/1808500/ARC_Raiders/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "268,665"
+      }
+    },
+    {
+      "rank": 5,
+      "id": "https://store.steampowered.com/app/252490/Rust/",
+      "title": "Rust",
+      "url": "https://store.steampowered.com/app/252490/Rust/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "184,872"
+      }
+    },
+    {
+      "rank": 6,
+      "id": "https://store.steampowered.com/app/1172470/Apex_Legends/",
+      "title": "Apex Legends",
+      "url": "https://store.steampowered.com/app/1172470/Apex_Legends/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "153,414"
+      }
+    },
+    {
+      "rank": 7,
+      "id": "https://store.steampowered.com/app/3419430/Bongo_Cat/",
+      "title": "Bongo Cat",
+      "url": "https://store.steampowered.com/app/3419430/Bongo_Cat/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "151,906"
+      }
+    },
+    {
+      "rank": 8,
+      "id": "https://steamcommunity.com/app/218",
+      "title": "Source SDK Base 2007",
+      "url": "https://steamcommunity.com/app/218",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "149,292"
+      }
+    },
+    {
+      "rank": 9,
+      "id": "https://store.steampowered.com/app/431960/Wallpaper_Engine/",
+      "title": "Wallpaper Engine",
+      "url": "https://store.steampowered.com/app/431960/Wallpaper_Engine/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "133,577"
+      }
+    },
+    {
+      "rank": 10,
+      "id": "https://store.steampowered.com/app/271590/Grand_Theft_Auto_V_Legacy/",
+      "title": "Grand Theft Auto V Legacy",
+      "url": "https://store.steampowered.com/app/271590/Grand_Theft_Auto_V_Legacy/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "116,105"
+      }
+    },
+    {
+      "rank": 11,
+      "id": "https://store.steampowered.com/app/2767030/Marvel_Rivals/",
+      "title": "Marvel Rivals",
+      "url": "https://store.steampowered.com/app/2767030/Marvel_Rivals/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "109,996"
+      }
+    },
+    {
+      "rank": 12,
+      "id": "https://store.steampowered.com/app/413150/Stardew_Valley/",
+      "title": "Stardew Valley",
+      "url": "https://store.steampowered.com/app/413150/Stardew_Valley/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "109,130"
+      }
+    },
+    {
+      "rank": 13,
+      "id": "https://store.steampowered.com/app/2507950/Delta_Force/",
+      "title": "Delta Force",
+      "url": "https://store.steampowered.com/app/2507950/Delta_Force/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "101,431"
+      }
+    },
+    {
+      "rank": 14,
+      "id": "https://store.steampowered.com/app/230410/Warframe/",
+      "title": "Warframe",
+      "url": "https://store.steampowered.com/app/230410/Warframe/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "95,992"
+      }
+    },
+    {
+      "rank": 15,
+      "id": "https://store.steampowered.com/app/3240220/Grand_Theft_Auto_V_Enhanced/",
+      "title": "Grand Theft Auto V Enhanced",
+      "url": "https://store.steampowered.com/app/3240220/Grand_Theft_Auto_V_Enhanced/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "95,799"
+      }
+    },
+    {
+      "rank": 16,
+      "id": "https://store.steampowered.com/app/236390/War_Thunder/",
+      "title": "War Thunder",
+      "url": "https://store.steampowered.com/app/236390/War_Thunder/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "95,141"
+      }
+    },
+    {
+      "rank": 17,
+      "id": "https://store.steampowered.com/app/322170/Geometry_Dash/",
+      "title": "Geometry Dash",
+      "url": "https://store.steampowered.com/app/322170/Geometry_Dash/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "88,453"
+      }
+    },
+    {
+      "rank": 18,
+      "id": "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/",
+      "title": "Baldur's Gate 3",
+      "url": "https://store.steampowered.com/app/1086940/Baldurs_Gate_3/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "88,054"
+      }
+    },
+    {
+      "rank": 19,
+      "id": "https://store.steampowered.com/app/3405690/EA_SPORTS_FC_26/",
+      "title": "EA SPORTS FC™ 26",
+      "url": "https://store.steampowered.com/app/3405690/EA_SPORTS_FC_26/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "84,973"
+      }
+    },
+    {
+      "rank": 20,
+      "id": "https://store.steampowered.com/app/2694490/Path_of_Exile_2/",
+      "title": "Path of Exile 2",
+      "url": "https://store.steampowered.com/app/2694490/Path_of_Exile_2/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "75,906"
+      }
+    },
+    {
+      "rank": 21,
+      "id": "https://store.steampowered.com/app/3564740/Where_Winds_Meet/",
+      "title": "Where Winds Meet",
+      "url": "https://store.steampowered.com/app/3564740/Where_Winds_Meet/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "74,433"
+      }
+    },
+    {
+      "rank": 22,
+      "id": "https://store.steampowered.com/app/2622380/ELDEN_RING_NIGHTREIGN/",
+      "title": "ELDEN RING NIGHTREIGN",
+      "url": "https://store.steampowered.com/app/2622380/ELDEN_RING_NIGHTREIGN/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "72,367"
+      }
+    },
+    {
+      "rank": 23,
+      "id": "https://store.steampowered.com/app/3241660/REPO/",
+      "title": "R.E.P.O.",
+      "url": "https://store.steampowered.com/app/3241660/REPO/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "70,371"
+      }
+    },
+    {
+      "rank": 24,
+      "id": "https://store.steampowered.com/app/2807960/Battlefield_6/",
+      "title": "Battlefield™ 6",
+      "url": "https://store.steampowered.com/app/2807960/Battlefield_6/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "69,226"
+      }
+    },
+    {
+      "rank": 25,
+      "id": "https://steamcommunity.com/app/480",
+      "title": "Spacewar",
+      "url": "https://steamcommunity.com/app/480",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "68,563"
+      }
+    },
+    {
+      "rank": 26,
+      "id": "https://store.steampowered.com/app/381210/Dead_by_Daylight/",
+      "title": "Dead by Daylight",
+      "url": "https://store.steampowered.com/app/381210/Dead_by_Daylight/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "63,694"
+      }
+    },
+    {
+      "rank": 27,
+      "id": "https://store.steampowered.com/app/394360/Hearts_of_Iron_IV/",
+      "title": "Hearts of Iron IV",
+      "url": "https://store.steampowered.com/app/394360/Hearts_of_Iron_IV/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "59,838"
+      }
+    },
+    {
+      "rank": 28,
+      "id": "https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/",
+      "title": "Euro Truck Simulator 2",
+      "url": "https://store.steampowered.com/app/227300/Euro_Truck_Simulator_2/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "58,883"
+      }
+    },
+    {
+      "rank": 29,
+      "id": "https://store.steampowered.com/app/1623730/Palworld/",
+      "title": "Palworld",
+      "url": "https://store.steampowered.com/app/1623730/Palworld/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "58,698"
+      }
+    },
+    {
+      "rank": 30,
+      "id": "https://store.steampowered.com/app/221100/DayZ/",
+      "title": "DayZ",
+      "url": "https://store.steampowered.com/app/221100/DayZ/",
+      "pubDate": 1768666586350,
+      "extra": {
+        "info": "57,499"
+      }
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "sourceId": "freebuf",
+  "sourceName": "Freebuf",
+  "fetchTime": "2026-01-17T16:16:49.806Z",
+  "updatedTime": 1768666579368,
+  "status": "success",
+  "itemCount": 20,
+  "items": [
+    {
+      "rank": 1,
+      "id": "466927",
+      "title": "天价Android 0day漏洞+POC演示，宣称通杀Android12–16",
+      "url": "https://www.freebuf.com/articles/vuls/466927.html",
+      "extra": {
+        "hover": "暗网曝出Android 0day漏洞售卖，攻击链可实现RCE、沙箱逃逸及Root权限，标价高达450万美元。",
+        "time": "网空闲话plus",
+        "author": {
+          "name": "网空闲话plus",
+          "profileUrl": "https://www.freebuf.com/author/网空闲话plus",
+          "avatar": "https://image.3001.net/images/20250620/1750420398374607_24b3c9271b3848f1acf4cec3392ad975.jpg"
+        },
+        "stats": {
+          "views": 9386,
+          "collections": 0
+        }
+      }
+    },
+    {
+      "rank": 2,
+      "id": "466931",
+      "title": "我所预见的2026年网络安全变局｜展望2026系列",
+      "url": "https://www.freebuf.com/articles/es/466931.html",
+      "extra": {
+        "hover": "2026年网络安全将演变为AI与AI的对抗，企业需加速资产管理自动化，安全人才两极分化加剧。",
+        "time": "安全喵喵站",
+        "author": {
+          "name": "安全喵喵站",
+          "profileUrl": "https://www.freebuf.com/author/安全喵喵站",
+          "avatar": "https://image.3001.net/images/20250606/1749225576919745_a8c1f58833ed4ae28679e7e823903853.jpg"
+        },
+        "stats": {
+          "views": 10592,
+          "collections": 1
+        }
+      }
+    },
+    {
+      "rank": 3,
+      "id": "462162",
+      "title": "从“记住我”到“控制我”：Shiro默认密钥反序列化攻击详解",
+      "url": "https://www.freebuf.com/articles/vuls/462162.html",
+      "extra": {
+        "hover": "本文面向新手，通俗讲解Shiro反序列化漏洞（CVE-2016-4437）为何发生。你将了解“硬编码密钥”如何让攻击者伪造Cookie、漏洞...",
+        "time": "monsterL",
+        "author": {
+          "name": "monsterL",
+          "profileUrl": "https://www.freebuf.com/author/monsterL",
+          "avatar": "https://image.3001.net/images/20220419/1650352400_625e61102cfa5714b86f5.png"
+        },
+        "stats": {
+          "views": 31342,
+          "collections": 3
+        }
+      }
+    },
+    {
+      "rank": 4,
+      "id": "466935",
+      "title": "北京大学 | ContractTinker：基于大语言模型的真实场景智能合约漏洞修复系统",
+      "url": "https://www.freebuf.com/articles/466935.html",
+      "extra": {
+        "hover": "ContractTinker利用大语言模型修复智能合约漏洞，结合静态分析提升补丁生成效率，但实验样本有限，泛化能力存疑。",
+        "time": "安全学术圈",
+        "author": {
+          "name": "安全学术圈",
+          "profileUrl": "https://www.freebuf.com/author/安全学术圈",
+          "avatar": "https://image.3001.net/images/20250627/1751013314007993_f6b8aaba5a4a48ea8a687ddf5870565e.jpg"
+        },
+        "stats": {
+          "views": 8855,
+          "collections": 0
+        }
+      }
+    },
+    {
+      "rank": 5,
+      "id": "466958",
+      "title": "记2025长城杯线上赛部分题目",
+      "url": "https://www.freebuf.com/articles/466958.html",
+      "extra": {
+        "hover": "通过逆向分析孤立森林算法，伪造交易记录绕过银行风控系统，成功窃取200万资金。",
+        "time": "蚁景网络安全",
+        "author": {
+          "name": "蚁景网络安全",
+          "profileUrl": "https://www.freebuf.com/author/蚁景网络安全",
+          "avatar": "https://image.3001.net/images/20250711/1752226945564785_075caa2a0b8c44e893bb14cdcb2d7b43.jpg"
+        },
+        "stats": {
+          "views": 9401,
+          "collections": 0
+        }
+      }
+    },
+    {
+      "rank": 6,
+      "id": "456982",
+      "title": "记一次记代码审计通用漏洞突破内网管理员权限的过程",
+      "url": "https://www.freebuf.com/articles/sectool/456982.html",
+      "extra": {
+        "hover": "一、信息收集1.端口扫描使用nmap进行端口扫描，发现其开放了22、80、8080、9000端口。访问其8080端口，发现是一个web界面。...",
+        "time": "pony686",
+        "author": {
+          "name": "pony686",
+          "profileUrl": "https://www.freebuf.com/author/pony686",
+          "avatar": "https://image.3001.net/images/20220419/1650352400_625e61102cfa5714b86f5.png"
+        },
+        "stats": {
+          "views": 53907,
+          "collections": 4
+        },
+        "album": "红队攻防演练"
+      }
+    },
+    {
+      "rank": 7,
+      "id": "466776",
+      "title": "朝鲜远程渗透计划年牟利6亿美元；暗网知名论坛遭“黑吃黑” | FreeBuf周报",
+      "url": "https://www.freebuf.com/articles/466776.html",
+      "extra": {
+        "hover": "朝鲜远程工作者通过身份窃取入侵敏感系统牟利6亿美元；暗网知名论坛BreachForums遭黑客攻击",
+        "time": "AI小蜜蜂",
+        "author": {
+          "name": "AI小蜜蜂",
+          "profileUrl": "https://www.freebuf.com/author/AI小蜜蜂",
+          "avatar": "https://image.3001.net/images/20241226/1735208886_676d2fb6775d385ed48b2.png"
+        },
+        "stats": {
+          "views": 7672,
+          "collections": 0
+        }
+      }
+    },
+    {
+      "rank": 8,
+      "id": "466659",
+      "title": "JAVA代码审计之深入分析SPEL表达式漏洞",
+      "url": "https://www.freebuf.com/articles/web/466659.html",
+      "extra": {
+        "hover": "Spring Expression Language，Spring 表达式语言）是 Spring 框架提供的一种基于字符串的表达式语言，支持...",
+        "time": "B10SS0MS",
+        "author": {
+          "name": "B10SS0MS",
+          "profileUrl": "https://www.freebuf.com/author/B10SS0MS",
+          "avatar": "https://image.3001.net/images/20220419/1650352400_625e61102cfa5714b86f5.png"
+        },
+        "stats": {
+          "views": 7410,
+          "collections": 2
+        }
+      }
+    },
+    {
+      "rank": 9,
+      "id": "466248",
+      "title": "应急响应：追影寻踪彻查入侵轨迹",
+      "url": "https://www.freebuf.com/articles/system/466248.html",
+      "extra": {
+        "hover": "作者因做postgresql的实验,无意开启对外连接,导致黑客入侵。正愁没有应急响应的环境，刚好可以练练手。希望对大家有所提升。",
+        "time": "hkl1x",
+        "author": {
+          "name": "hkl1x",
+          "profileUrl": "https://www.freebuf.com/author/hkl1x",
+          "avatar": "https://image.3001.net/images/20251125/1764065698_692581a285792af6c476b.png"
+        },
+        "stats": {
+          "views": 20969,
+          "collections": 1
+        }
+      }
+    },
+    {
+      "rank": 10,
+      "id": "466742",
+      "title": "俄语黑客伪装以色列组织，Sicarii勒索软件实为假旗行动",
+      "url": "https://www.freebuf.com/news/466742.html",
+      "extra": {
+        "hover": "\"俄语黑客伪装以色列组织，Sicarii勒索软件实为假旗行动！\"",
+        "time": "代码骑士",
+        "author": {
+          "name": "代码骑士",
+          "profileUrl": "https://www.freebuf.com/author/代码骑士",
+          "avatar": "https://image.3001.net/images/20220419/1650352400_625e61102cfa5714b86f5.png"
+        },
+        "stats": {
+          "views": 17964,
+          "collections": 0
+        }
+      }
+    },
+    {
+      "rank": 11,
+      "id": "457969",
+      "title": "手把手实现Tomcat Valve内存马：从“一个应用”到“三大容器”",
+      "url": "https://www.freebuf.com/articles/web/457969.html",
+      "extra": {
+        "hover": "深入解析如何通过一道Valve后门，利用Tomcat容器间固有的父子关系，将攻击影响力从单个应用拓展至整个引擎，实现从点到面的全局控制",
+        "time": "monsterL",
+        "author": {
+          "name": "monsterL",
+          "profileUrl": "https://www.freebuf.com/author/monsterL",
+          "avatar": "https://image.3001.net/images/20220419/1650352400_625e61102cfa5714b86f5.png"
+        },
+        "stats": {
+          "views": 79889,
+          "collections": 5
+        },
+        "album": "WEB渗透测试"
+      }
+    },
+    {
+      "rank": 12,
+      "id": "466718",
+      "title": "Windows远程协助漏洞可绕过安全防护机制",
+      "url": "https://www.freebuf.com/articles/system/466718.html",
+      "extra": {
+        "hover": "微软修复高危漏洞：Windows远程协助可绕过安全防护，需紧急更新。",
+        "time": "",
+        "author": {
+          "name": "PCSA安全能力者联盟",
+          "profileUrl": "https://www.freebuf.com/author/PCSA安全能力者联盟"
+        },
+        "stats": {
+          "views": 22946,
+          "collections": 0
+        }
+      }
+    },
+    {
+      "rank": 13,
+      "id": "466635",
+      "title": "从拼写错误到全面接管：揭秘npm供应链攻击的工业化进程",
+      "url": "https://www.freebuf.com/articles/development/466635.html",
+      "extra": {
+        "hover": "npm供应链攻击工业化：从仿冒包到凭证劫持，威胁直达企业核心系统",
+        "time": "北方的红队",
+        "author": {
+          "name": "北方的红队",
+          "profileUrl": "https://www.freebuf.com/author/北方的红队",
+          "avatar": "https://image.3001.net/images/20220419/1650352400_625e61102cfa5714b86f5.png"
+        },
+        "stats": {
+          "views": 11455,
+          "collections": 1
+        }
+      }
+    },
+    {
+      "rank": 14,
+      "id": "466623",
+      "title": "FreeBuf早报 | 微软Copilot曝一键式漏洞，攻击者可静默窃取敏感数据；Magecart再度来袭瞄准全球支付网络",
+      "url": "https://www.freebuf.com/news/466623.html",
+      "extra": {
+        "hover": "微软Copilot曝一键式漏洞，攻击者可静默窃取敏感数据。",
+        "time": "AI小蜜蜂",
+        "author": {
+          "name": "AI小蜜蜂",
+          "profileUrl": "https://www.freebuf.com/author/AI小蜜蜂",
+          "avatar": "https://image.3001.net/images/20241226/1735208886_676d2fb6775d385ed48b2.png"
+        },
+        "stats": {
+          "views": 26761,
+          "collections": 0
+        }
+      }
+    },
+    {
+      "rank": 15,
+      "id": "466244",
+      "title": "从破壁者到筑城师：当顶级黑客成为CTO",
+      "url": "https://www.freebuf.com/consult/466244.html",
+      "extra": {
+        "hover": "最了解锁如何打开的人，正是设计锁的人。而今天，那些曾经的开锁大师，正在为整个数字世界重新定义‘安全’的边界。",
+        "time": "Loren麟",
+        "author": {
+          "name": "Loren麟",
+          "profileUrl": "https://www.freebuf.com/author/Loren麟",
+          "avatar": "https://image.3001.net/images/20241031/1730354118_67231bc63b12a13f2100f.png"
+        },
+        "stats": {
+          "views": 16458,
+          "collections": 2
+        }
+      }
+    },
+    {
+      "rank": 16,
+      "id": "466604",
+      "title": "成果分享 | 智能体漏洞检测 [ASE'25, Security'25/26, BlackHat EU]",
+      "url": "https://www.freebuf.com/articles/466604.html",
+      "extra": {
+        "hover": "智能体漏洞频发，攻击者可窃取隐私或引发拒绝服务，团队提出两款工具高效检测70+漏洞。",
+        "time": "复旦白泽战队",
+        "author": {
+          "name": "复旦白泽战队",
+          "profileUrl": "https://www.freebuf.com/author/复旦白泽战队",
+          "avatar": "https://image.3001.net/images/20250620/1750428050159663_8074bc63d09a460d8b3a731be6963456.jpg"
+        },
+        "stats": {
+          "views": 29654,
+          "collections": 1
+        }
+      }
+    },
+    {
+      "rank": 17,
+      "id": "466556",
+      "title": "关于防范MongoDB数据库内存泄露高危漏洞的风险提示",
+      "url": "https://www.freebuf.com/articles/vuls/466556.html",
+      "extra": {
+        "hover": "MongoDB数据库曝内存泄露高危漏洞，攻击者可读取敏感数据，建议立即升级修复。",
+        "time": "网络安全威胁和漏洞信息共享平台",
+        "author": {
+          "name": "网络安全威胁和漏洞信息共享平台",
+          "profileUrl": "https://www.freebuf.com/author/网络安全威胁和漏洞信息共享平台",
+          "avatar": "https://image.3001.net/images/20250715/1752548359643936_76f45b88ecbb4a2686e71b8aaba58088.jpg"
+        },
+        "stats": {
+          "views": 31100,
+          "collections": 0
+        }
+      }
+    },
+    {
+      "rank": 18,
+      "id": "466198",
+      "title": "JAVA代码审计之深入分析XXE漏洞",
+      "url": "https://www.freebuf.com/articles/web/466198.html",
+      "extra": {
+        "hover": "XML (Extensible Markup Language) 是一种可扩展的标记语言，用于标记电子文件中的各种元素。它是用来传输和存储数...",
+        "time": "B10SS0MS",
+        "author": {
+          "name": "B10SS0MS",
+          "profileUrl": "https://www.freebuf.com/author/B10SS0MS",
+          "avatar": "https://image.3001.net/images/20220419/1650352400_625e61102cfa5714b86f5.png"
+        },
+        "stats": {
+          "views": 21205,
+          "collections": 2
+        }
+      }
+    },
+    {
+      "rank": 19,
+      "id": "466539",
+      "title": "Apache Struts 2曝高危漏洞：攻击者可窃取敏感数据",
+      "url": "https://www.freebuf.com/articles/web/466539.html",
+      "extra": {
+        "hover": "Apache Struts 2曝XXE注入漏洞（CVE-2025-68493），可致数据泄露、服务器入侵，需紧急修复！",
+        "time": "网安百色",
+        "author": {
+          "name": "网安百色",
+          "profileUrl": "https://www.freebuf.com/author/网安百色",
+          "avatar": "https://image.3001.net/images/20250620/1750422556557292_bcdb2d28507e4f57864bd681db41677e.jpg"
+        },
+        "stats": {
+          "views": 26320,
+          "collections": 2
+        }
+      }
+    },
+    {
+      "rank": 20,
+      "id": "466567",
+      "title": "Magecart再度来袭，长期网络窃密活动瞄准全球支付网络",
+      "url": "https://www.freebuf.com/articles/web/466567.html",
+      "extra": {
+        "hover": "\"Magecart长期窃取全球支付数据，伪造支付表单瞒天过海！\"",
+        "time": "K哥带你学",
+        "author": {
+          "name": "K哥带你学",
+          "profileUrl": "https://www.freebuf.com/author/K哥带你学",
+          "avatar": "https://image.3001.net/images/20220419/1650352400_625e61102cfa5714b86f5.png"
+        },
+        "stats": {
+          "views": 18752,
+          "collections": 0
+        }
+      }
+    }
+  ]
+}

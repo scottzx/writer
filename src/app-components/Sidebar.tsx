@@ -1,6 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import { Flame, LayoutDashboard, Library, Lightbulb, Newspaper, Search, Settings, Smartphone, X } from "lucide-react"
+import { Flame, LayoutDashboard, Library, Lightbulb, Newspaper, Settings, Smartphone, X } from "lucide-react"
 import { ViewState } from "../app-types"
 import { routePaths } from "../router"
 
@@ -15,7 +15,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onToggle }) => {
   const inspirationItems = [
     { id: ViewState.NEWS, label: "新闻中心", icon: Newspaper },
     { id: ViewState.HOTS, label: "热点聚合", icon: Flame }, // 新增：热点聚合入口
-    { id: ViewState.RESEARCH, label: "深度研究", icon: Search },
+    // { id: ViewState.RESEARCH, label: "深度研究", icon: Search }, // 暂时隐藏
   ]
 
   const creativeItems = [
