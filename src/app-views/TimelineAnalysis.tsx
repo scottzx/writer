@@ -240,7 +240,7 @@ const TimelineAnalysis: React.FC<TimelineAnalysisProps> = ({ isModal, onProceed,
               onClick={onProceed}
               className="flex items-center gap-2 px-8 py-3 rounded-lg bg-primary hover:bg-primaryHover text-background text-sm font-bold shadow-[0_0_15px_rgba(19,182,236,0.3)] transition-all transform hover:scale-105"
             >
-              创建研究项目
+              开始写作
               {" "}
               <ArrowRight size={16} />
             </button>

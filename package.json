@@ -16,6 +16,7 @@
   "homepage": "https://github.com/ourongxing/newsnow",
   "scripts": {
     "dev": "npm run presource && vite dev",
+    "dev:all": "./start-all.sh",
     "build": "npm run presource && vite build",
     "lint": "eslint",
     "presource": "tsx ./scripts/favicon.ts && tsx ./scripts/source.ts",
@@ -26,10 +27,12 @@
     "release": "bumpp",
     "prepare": "simple-git-hooks",
     "log": "wrangler pages deployment tail --project-name newsnow",
+    "logs": "./logs.sh",
     "test": "vitest -c vitest.config.ts",
     "restart": "./restart.sh",
     "restart:docker": "./restart-docker.sh",
     "setup": "./setup-env.sh",
+    "stop:all": "./stop-all.sh",
     "fetch:all": "tsx server/scripts/directFetch.ts"
   },
   "dependencies": {
