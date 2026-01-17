@@ -99,6 +99,7 @@ export interface NewsItem {
       url: string
       scale: number
     }
+    snippet?: string // AI生成的卡片摘要
   }
 }
 

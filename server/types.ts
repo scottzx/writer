@@ -64,3 +64,22 @@ export interface SourceOption {
 }
 
 export type SourceGetter = () => Promise<NewsItem[]>
+
+// Emotional Filter Types
+export interface FilterResult {
+  itemId: string
+  hasResonance: boolean
+  confidence: "high" | "medium" | "low"
+  reason: string
+  snippet?: string
+  timestamp: number
+}
+
+export interface EmotionalFilterConfig {
+  enabled: boolean
+  sources: SourceID[] | "*"
+  batchSize: number
+  cacheTTL: number
+  model: string
+  generateSnippets: boolean
+}

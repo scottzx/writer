@@ -3,6 +3,7 @@ import { getters } from "../../getters"
 import { getCacheTable } from "../../database/cache"
 import type { CacheInfo } from "../../types"
 import { sources } from "../../../shared/sources"
+// import { applyEmotionalFilter, enrichWithSnippets } from "../../utils/filter"  // Temporarily disabled due to import.meta issues
 
 export default defineEventHandler(async (event): Promise<SourceResponse> => {
   try {
@@ -57,17 +58,21 @@ export default defineEventHandler(async (event): Promise<SourceResponse> => {
     }
 
     try {
-      const newData = (await getters[id]()).slice(0, 30)
-      if (cacheTable && newData.length) {
-        if (event.context.waitUntil) event.context.waitUntil(cacheTable.set(id, newData))
-        else await cacheTable.set(id, newData)
+      // Fetch raw data
+      const rawData = (await getters[id]()).slice(0, 30)
+
+      // Cache raw data (filtering temporarily disabled)
+      if (cacheTable && rawData.length) {
+        if (event.context.waitUntil) event.context.waitUntil(cacheTable.set(id, rawData))
+        else await cacheTable.set(id, rawData)
       }
+
       logger.success(`fetch ${id} latest`)
       return {
         status: "success",
         id,
         updatedTime: now,
-        items: newData,
+        items: rawData,
       }
     } catch (e) {
       if (cache!) {

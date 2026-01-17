@@ -6,12 +6,19 @@ export default ourongxing({
   ignores: [
     "src/routeTree.gen.ts",
     "src_back/routeTree.gen.ts",
-    "server/.nitro",
+    ".nitro",
+    "**/.nitro",
     "imports.app.d.ts",
     "public/",
     ".vscode",
     "**/*.json",
+    "**/*.txt",
+    "**/*.env*",
   ],
 }).append(react({
   files: ["src/**"],
-}))
+})).append({
+  rules: {
+    "node/prefer-global/process": "off",
+  },
+})

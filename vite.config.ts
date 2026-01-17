@@ -6,6 +6,7 @@ import unimport from "unimport/unplugin"
 import dotenv from "dotenv"
 import { projectDir } from "./shared/dir"
 import pwa from "./pwa.config"
+// import nitro from "./nitro.config"  // Disabled due to h3-nightly compatibility issue
 
 dotenv.config({
   path: join(projectDir, ".env.server"),
@@ -42,6 +43,6 @@ export default defineConfig({
     unocss(),
     react(),
     pwa(),
-    // nitro(),  // Temporarily disabled - Nitro server running separately on port 3001
+    // nitro(),  // Temporarily disabled - use separate backend server
   ],
 })

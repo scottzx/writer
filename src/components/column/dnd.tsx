@@ -11,7 +11,6 @@ import { motion } from "framer-motion"
 import { useWindowSize } from "react-use"
 import { isMobile } from "react-device-detect"
 import { sources } from "@shared/sources"
-import { shallow } from "zustand/shallow"
 import { DndContext } from "../common/dnd"
 import { useSortable } from "../common/dnd/useSortable"
 import { OverlayScrollbar } from "../common/overlay-scrollbar"
@@ -24,11 +23,13 @@ import { isiOS } from "~/utils"
 const AnimationDuration = 200
 const WIDTH = 350
 
-// Stable selectors (defined outside component)
-const selectCurrentSources = (state: ReturnType<typeof useStore.getState>) => state.metadata.data[state.currentColumnID] || []
-
 export function Dnd() {
-  const items = useStore(selectCurrentSources, shallow)
+  const metadata = useStore(state => state.metadata)
+  const currentColumnID = useStore(state => state.currentColumnID)
+  const items = useMemo(
+    () => metadata.data[currentColumnID] || [],
+    [metadata, currentColumnID],
+  )
   const setItems = useStore(state => state.setCurrentSources)
   const goToTop = useStore(state => state.goToTop)
   const [parent] = useAutoAnimate({ duration: AnimationDuration })

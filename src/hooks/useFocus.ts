@@ -42,20 +42,16 @@ export function useFocusWith(id: SourceID) {
   }
 }
 
-// Stable selectors for useCurrentSources (defined outside component)
-const selectCurrentColumnID = (state: ReturnType<typeof useStore.getState>) => state.currentColumnID
-
-// Selector that depends on currentColumnID - defined as function to be used inline
-function makeSelectCurrentSources() {
-  return (state: ReturnType<typeof useStore.getState>) =>
-    state.metadata.data[state.currentColumnID] || []
-}
-
 // 获取当前栏目（focus）的新闻源
 export function useCurrentSources() {
-  const currentColumnID = useStore(selectCurrentColumnID)
-  const selectCurrentSources = useMemo(makeSelectCurrentSources, [])
-  const currentSources = useStore(selectCurrentSources, shallow)
+  // 直接订阅 state，用 useMemo 提取数据
+  const metadata = useStore(state => state.metadata)
+  const currentColumnID = useStore(state => state.currentColumnID)
+
+  const currentSources = useMemo(
+    () => metadata.data[currentColumnID] || [],
+    [metadata, currentColumnID],
+  )
 
   return useMemo(() => ({
     currentColumnID,
