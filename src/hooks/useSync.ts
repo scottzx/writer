@@ -87,12 +87,25 @@ export function useSync() {
         hasDownloadedRef.current = true
 
         if (result) {
-          // Merge downloaded data with current state to preserve action
-          const currentMetadata = useStore.getState().metadata
-          setMetadata(preprocessMetadata({
-            ...result,
-            action: currentMetadata.action, // Preserve current action
-          }))
+          // 只有当服务器返回有效数据且有内容时才更新
+          // 避免空数据覆盖本地默认数据
+          const hasValidData = result.data && (
+            (result.data.focus && result.data.focus.length > 0)
+            || (result.data.hottest && result.data.hottest.length > 0)
+            || (result.data.realtime && result.data.realtime.length > 0)
+          )
+
+          if (hasValidData) {
+            // Merge downloaded data with current state to preserve action
+            const currentMetadata = useStore.getState().metadata
+            setMetadata(preprocessMetadata({
+              ...result,
+              action: currentMetadata.action, // Preserve current action
+            }))
+          } else {
+            // 服务器返回空数据或无效数据，保持本地数据
+            console.warn("Server returned empty or invalid metadata, keeping local data")
+          }
         }
       } catch (e: any) {
         hasDownloadedRef.current = true

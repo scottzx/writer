@@ -1,6 +1,7 @@
 import type { StateCreator } from "zustand"
 import type { ChatMessage, Folder, Note, NoteStatus } from "../../types/notes"
 import { storageService } from "../../services/storageService"
+import { myFetch } from "../../utils"
 
 export interface EditorSlice {
   editor: {
@@ -76,43 +77,84 @@ export const createEditorSlice: StateCreator<EditorSlice> = (set, _get) => ({
       lastAutoSave: null,
     }
 
-    set((state) => {
-      const notes = [newNote, ...state.editor.notes]
-      storageService.saveNotes(notes)
-      return { editor: { ...state.editor, notes } }
+    // 先调用文件系统 API
+    myFetch("/api/projects", {
+      method: "POST",
+      body: newNote,
     })
+      .then(() => {
+        // API 成功后保存到 localStorage
+        set((state) => {
+          const notes = [newNote, ...state.editor.notes]
+          storageService.saveNotes(notes)
+          return { editor: { ...state.editor, notes } }
+        })
+      })
+      .catch((error) => {
+        // API 失败，阻止操作并显示错误
+        console.error("Failed to create project in file system:", error)
+        throw error
+      })
 
     return newNote.id
   },
 
   updateNote: (id: string, updates: Partial<Note>) => {
+    // 先获取更新后的 note 对象
+    let updatedNote: Note | null = null
+
     set((state) => {
       const notes = state.editor.notes.map(note =>
         note.id === id ? { ...note, ...updates, updatedAt: Date.now() } : note,
       )
       storageService.saveNotes(notes)
+      updatedNote = notes.find(n => n.id === id) || null
       return { editor: { ...state.editor, notes } }
     })
+
+    // 调用文件系统 API
+    if (updatedNote) {
+      myFetch(`/api/projects/${id}`, {
+        method: "PUT",
+        body: updatedNote,
+      })
+        .catch((error) => {
+          // API 失败，显示错误但保留 localStorage 的更新
+          console.error("Failed to update project in file system:", error)
+        })
+    }
   },
 
   deleteNote: (id: string) => {
-    set((state) => {
-      const notes = state.editor.notes.filter(note => note.id !== id)
-      const chatMessages = { ...state.editor.chatMessages }
-      delete chatMessages[id]
-
-      storageService.saveNotes(notes)
-      storageService.saveChatMessages(chatMessages)
-
-      return {
-        editor: {
-          ...state.editor,
-          notes,
-          chatMessages,
-          activeNoteId: state.editor.activeNoteId === id ? null : state.editor.activeNoteId,
-        },
-      }
+    // 先调用文件系统 API
+    myFetch(`/api/projects/${id}`, {
+      method: "DELETE",
     })
+      .then(() => {
+        // API 成功后，从 localStorage 删除
+        set((state) => {
+          const notes = state.editor.notes.filter(note => note.id !== id)
+          const chatMessages = { ...state.editor.chatMessages }
+          delete chatMessages[id]
+
+          storageService.saveNotes(notes)
+          storageService.saveChatMessages(chatMessages)
+
+          return {
+            editor: {
+              ...state.editor,
+              notes,
+              chatMessages,
+              activeNoteId: state.editor.activeNoteId === id ? null : state.editor.activeNoteId,
+            },
+          }
+        })
+      })
+      .catch((error) => {
+        // API 失败，阻止操作并显示错误
+        console.error("Failed to delete project from file system:", error)
+        throw error
+      })
   },
 
   createFolder: (name: string, parentId?: string) => {

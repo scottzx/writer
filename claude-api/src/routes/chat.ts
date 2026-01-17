@@ -11,7 +11,7 @@ const router: Router = Router()
  */
 router.post("/chat", async (req: Request, res: Response): Promise<void> => {
   try {
-    const { message } = req.body as ChatRequest
+    const { message, conversationHistory } = req.body as ChatRequest
 
     // 验证请求
     if (!message || typeof message !== "string") {
@@ -22,7 +22,10 @@ router.post("/chat", async (req: Request, res: Response): Promise<void> => {
       return
     }
 
-    logger.info("Chat request received", { messageLength: message.length })
+    logger.info("Chat request received", {
+      messageLength: message.length,
+      historyLength: conversationHistory?.length || 0,
+    })
 
     // 设置 SSE 响应头
     res.setHeader("Content-Type", "text/event-stream")
@@ -33,8 +36,8 @@ router.post("/chat", async (req: Request, res: Response): Promise<void> => {
     // 获取 Agent 服务
     const agentService = getClaudeAgentService()
 
-    // 发送消息并流式响应
-    const stream = agentService.sendMessage(message)
+    // 发送消息并流式响应，传递对话历史
+    const stream = agentService.sendMessage(message, conversationHistory || [])
 
     // 发送流式数据
     for await (const chunk of stream) {

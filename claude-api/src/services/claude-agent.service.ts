@@ -1,12 +1,29 @@
 import { query } from "@anthropic-ai/claude-agent-sdk"
+import type { ChatMessage } from "../types/index.js"
 
 export class ClaudeAgentService {
   /**
    * 发送消息并获取流式响应
    */
-  async *sendMessage(message: string): AsyncGenerator<string, void, unknown> {
+  async *sendMessage(message: string, conversationHistory: ChatMessage[] = []): AsyncGenerator<string, void, unknown> {
+    // 构建包含对话历史的完整提示词
+    let fullPrompt = ""
+
+    // 添加对话历史（最近5条）
+    if (conversationHistory.length > 0) {
+      fullPrompt += "## 对话历史\n\n"
+      const recentHistory = conversationHistory.slice(-5)
+      recentHistory.forEach((msg) => {
+        fullPrompt += `${msg.role === "user" ? "用户" : "助手"}: ${msg.content}\n\n`
+      })
+      fullPrompt += "\n"
+    }
+
+    // 添加当前消息
+    fullPrompt += `## 当前消息\n\n${message}`
+
     const q = query({
-      prompt: message,
+      prompt: fullPrompt,
       options: {
         model: "claude-sonnet-4-5-20250929",
         systemPrompt: this.getSystemPrompt(),

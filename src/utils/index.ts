@@ -42,6 +42,23 @@ export const myFetch = $fetch.create({
   timeout: 15000,
   retry: 0,
   baseURL: "/api",
+  headers: () => {
+    const headers: Record<string, string> = {}
+
+    // 添加 UCID header（如果有）
+    const ucid = localStorage.getItem("newsnow-ucid")
+    if (ucid) {
+      headers["X-User-ID"] = ucid
+    }
+
+    // 添加 JWT（如果有）
+    const jwt = localStorage.getItem("jwt")
+    if (jwt) {
+      headers.Authorization = `Bearer ${jwt}`
+    }
+
+    return headers
+  },
 })
 
 export function isiOS() {

@@ -1,38 +1,19 @@
 import { useCallback } from "react"
-import { useMount } from "react-use"
-import { useStore } from "~/stores"
 
 export function useLogin() {
-  const user = useStore(state => state.auth.user)
-  const jwt = useStore(state => state.auth.jwt)
-  const enableLogin = useStore(state => state.auth.enableLogin)
-  const setEnableLogin = useStore(state => state.setEnableLogin)
-
-  // Initialize enableLogin on mount
-  useMount(() => {
-    myFetch("/enable-login").then((r) => {
-      setEnableLogin(r)
-    }).catch((e) => {
-      if (e.statusCode === 506) {
-        setEnableLogin({ enable: false })
-        localStorage.removeItem("jwt")
-      }
-    })
-  })
-
+  // Login functionality is disabled
   const login = useCallback(() => {
-    window.location.href = enableLogin.url || "/api/login"
-  }, [enableLogin])
+    // No-op - login is disabled
+  }, [])
 
   const logout = useCallback(() => {
-    window.localStorage.clear()
-    window.location.reload()
+    // No-op - login is disabled
   }, [])
 
   return {
-    loggedIn: !!jwt,
-    userInfo: user,
-    enableLogin: !!enableLogin.enable,
+    loggedIn: false,
+    userInfo: null,
+    enableLogin: false,
     logout,
     login,
   }

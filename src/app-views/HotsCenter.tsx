@@ -4,6 +4,7 @@ import { GoToTop } from "~/components/common/GoToTop"
 import { Dnd } from "~/components/column/dnd"
 // import { ColumnNav } from "~/components/column/ColumnNav"
 import { useCurrentSources } from "~/hooks/useFocus"
+import { useStore } from "~/stores"
 
 /**
  * 热点聚合页面
@@ -15,6 +16,7 @@ import { useCurrentSources } from "~/hooks/useFocus"
  */
 export default function HotsCenter() {
   const { currentSources } = useCurrentSources()
+  const resetMetadataData = useStore(state => state.resetMetadataData)
   // const [currentColumn, setCurrentColumn] = useState<FixedColumnID>("hottest")
 
   return (
@@ -93,7 +95,16 @@ export default function HotsCenter() {
                     <span className="i-ph-star-duotone text-3xl" />
                   </div>
                   <p className="mb-4">还没有收藏任何新闻源</p>
-                  <p className="text-sm">按 ⌘K 打开搜索，选择你感兴趣的新闻源</p>
+                  <p className="text-sm mb-6">按 ⌘K 打开搜索，选择你感兴趣的新闻源</p>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      resetMetadataData()
+                    }}
+                    className="px-6 py-2.5 bg-primary text-background rounded-lg hover:bg-primaryHover font-semibold transition-colors"
+                  >
+                    恢复默认设置
+                  </button>
                 </div>
               )}
         </div>

@@ -7,6 +7,16 @@ import { Menu } from "lucide-react"
 import Sidebar from "./app-components/Sidebar"
 import { getViewStateFromPath, routes } from "./router"
 
+// 初始化 UCID（用户匿名 ID）
+if (typeof window !== "undefined") {
+  const UCID_KEY = "newsnow-ucid"
+  if (!localStorage.getItem(UCID_KEY)) {
+    const ucid = `user_${crypto.randomUUID()}`
+    localStorage.setItem(UCID_KEY, ucid)
+    console.log("Initialized UCID:", ucid)
+  }
+}
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

@@ -1,9 +1,14 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import { ArrowRight, CheckCircle, Globe, HelpCircle, Microscope, Rocket } from "lucide-react"
+import { useStore } from "../stores"
+import { routePaths } from "../router"
+import { ViewState } from "../app-types"
 
 interface TimelineAnalysisProps {
   isModal?: boolean
   onProceed?: () => void
+  onClose?: () => void
   eventData?: {
     title: string
     priority: string
@@ -58,7 +63,10 @@ function TimelineItem({ year, impact, title, desc, active, icon: Icon }: any) {
   )
 }
 
-const TimelineAnalysis: React.FC<TimelineAnalysisProps> = ({ isModal, onProceed, eventData }) => {
+const TimelineAnalysis: React.FC<TimelineAnalysisProps> = ({ isModal, onClose, eventData }) => {
+  const navigate = useNavigate()
+  const { createNote, setActiveNote } = useStore()
+
   // Use eventData if provided, otherwise use default data
   const title = eventData?.title || "火星殖民计划"
   const timeline = eventData?.timeline || [
@@ -110,9 +118,9 @@ const TimelineAnalysis: React.FC<TimelineAnalysisProps> = ({ isModal, onProceed,
         </div>
         <div className="flex-1 overflow-y-auto p-6 relative">
           <div className="absolute left-[39px] top-6 bottom-0 w-0.5 bg-gradient-to-b from-border via-border to-transparent"></div>
-          {timeline.map((item, index) => (
+          {timeline.map(item => (
             <TimelineItem
-              key={index}
+              key={item.year}
               active={item.active}
               year={item.year}
               impact={item.impact}
@@ -224,8 +232,8 @@ const TimelineAnalysis: React.FC<TimelineAnalysisProps> = ({ isModal, onProceed,
               <div>
                 <p className="text-white text-sm mb-3">此事件摘要是否有任何不清楚的地方？我可以重新分析特定方面或寻找替代来源。</p>
                 <div className="flex gap-2">
-                  <button className="px-3 py-1.5 rounded-lg bg-surface hover:bg-surfaceHighlight text-xs text-textSecondary border border-border">解释 "Artemis V"</button>
-                  <button className="px-3 py-1.5 rounded-lg bg-surface hover:bg-surfaceHighlight text-xs text-textSecondary border border-border">关于辐射屏蔽的更多信息</button>
+                  <button type="button" className="px-3 py-1.5 rounded-lg bg-surface hover:bg-surfaceHighlight text-xs text-textSecondary border border-border">解释 "Artemis V"</button>
+                  <button type="button" className="px-3 py-1.5 rounded-lg bg-surface hover:bg-surfaceHighlight text-xs text-textSecondary border border-border">关于辐射屏蔽的更多信息</button>
                 </div>
               </div>
             </div>
@@ -237,7 +245,26 @@ const TimelineAnalysis: React.FC<TimelineAnalysisProps> = ({ isModal, onProceed,
           <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border bg-surface/90 backdrop-blur flex justify-between items-center z-20">
             <span className="text-textSecondary text-sm">确定以此事件为核心进行创作？</span>
             <button
-              onClick={onProceed}
+              type="button"
+              onClick={() => {
+                // Create a new note with the event data
+                const noteId = createNote({
+                  title: `基于《${title}》的创作`,
+                  content: `# ${title}\n\n## 事件背景\n${eventData?.background || ""}\n\n## 关键参与者\n${eventData?.participants.map((p: string) => `- ${p}`).join("\n") || ""}\n\n## 时间线\n${timeline.map(t => `- **${t.year}**: ${t.title}`).join("\n")}\n\n## 创作思路\n\n`,
+                  status: "writing",
+                })
+
+                // Set the note as active
+                setActiveNote(noteId)
+
+                // Close modal first
+                onClose?.()
+
+                // Navigate to editor after modal closes
+                setTimeout(() => {
+                  navigate(routePaths[ViewState.EDITOR])
+                }, 100)
+              }}
               className="flex items-center gap-2 px-8 py-3 rounded-lg bg-primary hover:bg-primaryHover text-background text-sm font-bold shadow-[0_0_15px_rgba(19,182,236,0.3)] transition-all transform hover:scale-105"
             >
               开始写作

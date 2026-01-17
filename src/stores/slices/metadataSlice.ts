@@ -21,10 +21,17 @@ export function preprocessMetadata(target: PrimitiveMetadata): PrimitiveMetadata
   return {
     ...target,
     data: {
-      // 使用服务器数据,如果为空则使用默认值
-      focus: target.data.focus?.length > 0 ? target.data.focus : defaultData.focus,
-      hottest: target.data.hottest?.length > 0 ? target.data.hottest : defaultData.hottest,
-      realtime: target.data.realtime?.length > 0 ? target.data.realtime : defaultData.realtime,
+      // 只有当数据存在且不为空时才使用服务器数据,否则使用默认值
+      // 修复：避免空数组 [] 被当作有效数据
+      focus: (target.data?.focus && target.data.focus.length > 0)
+        ? target.data.focus
+        : defaultData.focus,
+      hottest: (target.data?.hottest && target.data.hottest.length > 0)
+        ? target.data.hottest
+        : defaultData.hottest,
+      realtime: (target.data?.realtime && target.data.realtime.length > 0)
+        ? target.data.realtime
+        : defaultData.realtime,
     },
   }
 }
@@ -36,6 +43,7 @@ export interface MetadataSlice {
   updateMetadata: (update: Partial<PrimitiveMetadata>) => void
   setCurrentColumnID: (id: FixedColumnID) => void
   resetAction: () => void
+  resetMetadataData: () => void
   // Stable selectors for use with shallow comparison
   selectFocusSources: (state: MetadataSlice) => SourceID[]
   selectCurrentSources: (state: MetadataSlice) => SourceID[]
@@ -152,5 +160,14 @@ export const createMetadataSlice: StateCreator<MetadataSlice> = (set, get) => {
         },
       }
     }),
+
+    resetMetadataData: () => set(state => ({
+      metadata: {
+        ...state.metadata,
+        data: getDefaultMetadataData(),
+        updatedTime: Date.now(),
+        action: "manual",
+      },
+    })),
   }
 }

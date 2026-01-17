@@ -3,7 +3,10 @@ import { config } from "dotenv"
 import { requestLogger } from "./middleware/requestLogger.js"
 import { corsMiddleware } from "./middleware/cors.js"
 import { errorHandler, notFoundHandler } from "./middleware/errorHandler.js"
+import userIdMiddleware from "./middleware/user-id.middleware.js"
 import chatRouter from "./routes/chat.js"
+import writingChatRouter from "./routes/writing-chat.js"
+import projectsRouter from "./routes/projects.js"
 import logger from "./utils/logger.js"
 
 // 加载环境变量
@@ -16,6 +19,7 @@ const PORT = process.env.PORT || 3001
 app.use(corsMiddleware)
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+app.use(userIdMiddleware) // 添加用户 ID 中间件
 app.use(requestLogger)
 
 // 健康检查端点
@@ -25,6 +29,8 @@ app.get("/health", (_req, res) => {
 
 // API 路由
 app.use("/api", chatRouter)
+app.use("/api", writingChatRouter)
+app.use("/api", projectsRouter)
 
 // 404 处理
 app.use(notFoundHandler)

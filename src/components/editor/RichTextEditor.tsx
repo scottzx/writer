@@ -21,6 +21,8 @@ export function RichTextEditor({
         heading: {
           levels: [1, 2, 3],
         },
+        // Exclude default Link extension to avoid duplicate
+        link: false,
       }),
       Placeholder.configure({
         placeholder,

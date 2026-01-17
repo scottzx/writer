@@ -1,11 +1,9 @@
 import React, { useState } from "react"
-import { useNavigate } from "react-router-dom"
 import { BarChart, History, PenLine, Search, TrendingUp, X } from "lucide-react"
-import { ViewState } from "../app-types"
-import { routePaths } from "../router"
-import { newsCenterData } from "../data/news-center-data" // Import static data
+import type { ViewState } from "../app-types"
+import { newsCenterData } from "../data/news-center-data"
 import { useSearchHistory } from "../hooks/useSearchHistory"
-import TimelineAnalysis from "./TimelineAnalysis" // Import Timeline component
+import TimelineAnalysis from "./TimelineAnalysis"
 
 interface NewsCenterProps {
   onNavigate?: (view: ViewState) => void
@@ -43,7 +41,7 @@ function NewsCard({ source, time, title, snippet, score, trend, color, onClick }
         <div className="w-full bg-background rounded-full h-1.5 mb-4">
           <div className="bg-gradient-to-r from-primary to-blue-600 h-1.5 rounded-full" style={{ width: `${Math.random() * 40 + 60}%` }}></div>
         </div>
-        <button className="w-full flex items-center justify-center gap-2 bg-background hover:bg-primary hover:text-background text-white text-sm font-semibold py-2.5 rounded-lg transition-all">
+        <button type="button" className="w-full flex items-center justify-center gap-2 bg-background hover:bg-primary hover:text-background text-white text-sm font-semibold py-2.5 rounded-lg transition-all">
           <PenLine size={16} />
           查看分析
         </button>
@@ -53,7 +51,6 @@ function NewsCard({ source, time, title, snippet, score, trend, color, onClick }
 }
 
 const NewsCenter: React.FC<NewsCenterProps> = () => {
-  const navigate = useNavigate()
   const [selectedNews, setSelectedNews] = useState<any>(null)
   const [searchTerm, setSearchTerm] = useState("")
   const [selectedSource, setSelectedSource] = useState<string>("所有来源")
@@ -65,10 +62,6 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
 
   const closeTimeline = () => {
     setSelectedNews(null)
-  }
-
-  const handleProceedToResearch = () => {
-    navigate(routePaths[ViewState.RESEARCH])
   }
 
   // Get unique sources from data
@@ -123,14 +116,14 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
                 趋势透视：
                 {selectedNews.title}
               </h2>
-              <button onClick={closeTimeline} className="p-2 hover:bg-surfaceHighlight rounded-full text-textSecondary hover:text-white transition-colors">
+              <button type="button" onClick={closeTimeline} className="p-2 hover:bg-surfaceHighlight rounded-full text-textSecondary hover:text-white transition-colors">
                 <X size={20} />
               </button>
             </div>
             <div className="flex-1 overflow-hidden">
               <TimelineAnalysis
                 isModal
-                onProceed={handleProceedToResearch}
+                onClose={closeTimeline}
                 eventData={selectedNews?.details}
               />
             </div>
@@ -155,6 +148,7 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
             />
             {searchTerm && (
               <button
+                type="button"
                 onClick={clearSearch}
                 className="absolute right-2 top-2 bg-surface/50 hover:bg-surface text-textSecondary hover:text-white p-2 rounded-lg transition-colors"
                 title="清除搜索"
@@ -169,6 +163,7 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
               ? (
                   history.map(tag => (
                     <button
+                      type="button"
                       key={tag}
                       onClick={() => handleSearchSubmit(tag)}
                       className="flex items-center gap-1 px-3 py-1 rounded-full border border-border bg-surface hover:border-primary text-textSecondary text-xs hover:text-primary transition-colors group relative"
@@ -198,6 +193,7 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
           <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0">
             {sources.map(p => (
               <button
+                type="button"
                 key={p}
                 onClick={() => handleSourceFilter(p)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
@@ -221,9 +217,9 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredNews.length > 0
             ? (
-                filteredNews.map((news, index) => (
+                filteredNews.map(news => (
                   <NewsCard
-                    key={index}
+                    key={news.title}
                     onClick={() => handleNewsClick(news)}
                     {...news}
                   />
@@ -235,6 +231,7 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
                   <p className="text-textSecondary text-sm">请尝试其他搜索词或筛选条件</p>
                   {searchTerm && (
                     <button
+                      type="button"
                       onClick={clearSearch}
                       className="mt-4 px-6 py-2 bg-primary text-background rounded-lg hover:bg-primaryHover font-semibold transition-colors"
                     >
