@@ -5,6 +5,7 @@ declare global {
   const appendHeaders: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').appendHeaders
   const appendResponseHeader: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').appendResponseHeader
   const appendResponseHeaders: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').appendResponseHeaders
+  const applyEmotionalFilter: typeof import('../../utils/filter').applyEmotionalFilter
   const assertMethod: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').assertMethod
   const cachedEventHandler: typeof import('../../../node_modules/.pnpm/nitro-go@0.0.3_@netlify+blobs@9.1.2_better-sqlite3@11.10.0_xml2js@0.6.2/node_modules/nitro-go/dist/runtime/internal/cache').cachedEventHandler
   const cachedFunction: typeof import('../../../node_modules/.pnpm/nitro-go@0.0.3_@netlify+blobs@9.1.2_better-sqlite3@11.10.0_xml2js@0.6.2/node_modules/nitro-go/dist/runtime/internal/cache').cachedFunction
@@ -42,11 +43,13 @@ declare global {
   const dynamicEventHandler: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').dynamicEventHandler
   const encodeBase64: typeof import('../../utils/base64').encodeBase64
   const encodeBase64URL: typeof import('../../utils/base64').encodeBase64URL
+  const enrichWithSnippets: typeof import('../../utils/filter').enrichWithSnippets
   const eventHandler: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').eventHandler
   const fetchWithEvent: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').fetchWithEvent
   const fromNodeMiddleware: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').fromNodeMiddleware
   const fromPlainHandler: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').fromPlainHandler
   const fromWebHandler: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').fromWebHandler
+  const generateCardSnippet: typeof import('../../utils/filter').generateCardSnippet
   const getCookie: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').getCookie
   const getHeader: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').getHeader
   const getHeaders: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').getHeaders
@@ -74,7 +77,6 @@ declare global {
   const getValidatedRouterParams: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').getValidatedRouterParams
   const handleCacheHeaders: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').handleCacheHeaders
   const handleCors: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').handleCors
-  const htmlToMarkdown: typeof import('../../utils/markdown.ts').htmlToMarkdown
   const isCorsOriginAllowed: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').isCorsOriginAllowed
   const isError: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').isError
   const isEvent: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').isEvent
@@ -85,7 +87,6 @@ declare global {
   const isWebResponse: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').isWebResponse
   const lazyEventHandler: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').lazyEventHandler
   const logger: typeof import('../../utils/logger').logger
-  const markdownToHtml: typeof import('../../utils/markdown.ts').markdownToHtml
   const md5: typeof import('../../utils/crypto').md5
   const myCrypto: typeof import('../../utils/crypto').myCrypto
   const myFetch: typeof import('../../utils/fetch').myFetch
@@ -152,11 +153,11 @@ export { useEvent } from 'nitropack/runtime/internal/context';
 export { defineTask, runTask } from 'nitropack/runtime/internal/task';
 export { defineNitroErrorHandler } from 'nitropack/runtime/internal/error/utils';
 export { appendCorsHeaders, appendCorsPreflightHeaders, appendHeader, appendHeaders, appendResponseHeader, appendResponseHeaders, assertMethod, callNodeListener, clearResponseHeaders, clearSession, createApp, createAppEventHandler, createError, createEvent, createEventStream, createRouter, defaultContentType, defineEventHandler, defineLazyEventHandler, defineNodeListener, defineNodeMiddleware, defineRequestMiddleware, defineResponseMiddleware, defineWebSocket, defineWebSocketHandler, deleteCookie, dynamicEventHandler, eventHandler, fetchWithEvent, fromNodeMiddleware, fromPlainHandler, fromWebHandler, getCookie, getHeader, getHeaders, getMethod, getProxyRequestHeaders, getQuery, getRequestFingerprint, getRequestHeader, getRequestHeaders, getRequestHost, getRequestIP, getRequestPath, getRequestProtocol, getRequestURL, getRequestWebStream, getResponseHeader, getResponseHeaders, getResponseStatus, getResponseStatusText, getRouterParam, getRouterParams, getSession, getValidatedQuery, getValidatedRouterParams, handleCacheHeaders, handleCors, isCorsOriginAllowed, isError, isEvent, isEventHandler, isMethod, isPreflightRequest, isStream, isWebResponse, lazyEventHandler, parseCookies, promisifyNodeListener, proxyRequest, readBody, readFormData, readMultipartFormData, readRawBody, readValidatedBody, removeResponseHeader, sanitizeStatusCode, sanitizeStatusMessage, sealSession, send, sendError, sendIterable, sendNoContent, sendProxy, sendRedirect, sendStream, sendWebResponse, serveStatic, setCookie, setHeader, setHeaders, setResponseHeader, setResponseHeaders, setResponseStatus, splitCookiesString, toEventHandler, toNodeListener, toPlainHandler, toWebHandler, toWebRequest, unsealSession, updateSession, useBase, useSession, writeEarlyHints } from 'h3';
-export { htmlToMarkdown, markdownToHtml } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/markdown';
-export { decodeBase64URL, encodeBase64URL, decodeBase64, encodeBase64 } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/base64';
-export { md5, myCrypto } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/crypto';
-export { tranformToUTC, parseDate, parseRelativeDate } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/date';
-export { myFetch } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/fetch';
-export { logger } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/logger';
-export { rss2json } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/rss2json';
-export { defineSource, defineRSSSource, defineRSSHubSource, proxySource } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/source';
+export { decodeBase64URL, encodeBase64URL, decodeBase64, encodeBase64 } from '/Users/zac/writer/server/utils/base64';
+export { md5, myCrypto } from '/Users/zac/writer/server/utils/crypto';
+export { tranformToUTC, parseDate, parseRelativeDate } from '/Users/zac/writer/server/utils/date';
+export { myFetch } from '/Users/zac/writer/server/utils/fetch';
+export { applyEmotionalFilter, generateCardSnippet, enrichWithSnippets } from '/Users/zac/writer/server/utils/filter';
+export { logger } from '/Users/zac/writer/server/utils/logger';
+export { rss2json } from '/Users/zac/writer/server/utils/rss2json';
+export { defineSource, defineRSSSource, defineRSSHubSource, proxySource } from '/Users/zac/writer/server/utils/source';

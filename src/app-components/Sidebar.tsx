@@ -1,6 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import { Flame, LayoutDashboard, Library, Lightbulb, Newspaper, Search, Settings, Smartphone, X } from "lucide-react"
+import { BookMarked, Flame, LayoutDashboard, Library, Lightbulb, Newspaper, Search, Settings, Smartphone, X } from "lucide-react"
 import { ViewState } from "../app-types"
 import { routePaths } from "../router"
 
@@ -21,6 +21,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onToggle }) => {
   const creativeItems = [
     { id: ViewState.EDITOR, label: "项目笔记库", icon: Library }, // 整合了编辑器、风格DNA、差异比对
     { id: ViewState.PUBLISH, label: "发布管理", icon: Smartphone },
+    { id: ViewState.LIBRARY, label: "文库中心", icon: BookMarked }, // 新增
   ]
 
   return (
@@ -55,10 +56,9 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onToggle }) => {
                   key={item.id}
                   type="button"
                   onClick={() => navigate(routePaths[item.id])}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 relative ${
-                    isActive
-                      ? "text-white bg-primary/5"
-                      : "text-textSecondary hover:text-white hover:bg-surfaceHighlight"
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 relative ${isActive
+                    ? "text-white bg-primary/5"
+                    : "text-textSecondary hover:text-white hover:bg-surfaceHighlight"
                   }`}
                   style={
                     isActive
@@ -91,10 +91,9 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onToggle }) => {
                   key={item.id}
                   type="button"
                   onClick={() => navigate(routePaths[item.id])}
-                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 relative ${
-                    isActive
-                      ? "text-white bg-primary/5"
-                      : "text-textSecondary hover:text-white hover:bg-surfaceHighlight"
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 relative ${isActive
+                    ? "text-white bg-primary/5"
+                    : "text-textSecondary hover:text-white hover:bg-surfaceHighlight"
                   }`}
                   style={
                     isActive

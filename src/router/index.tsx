@@ -6,6 +6,7 @@ import HotsCenter from "../app-views/HotsCenter"
 import TimelineAnalysis from "../app-views/TimelineAnalysis"
 import ResearchCenter from "../app-views/ResearchCenter"
 import EditorWorkspace from "../app-views/EditorWorkspace"
+import LibraryCenter from "../app-views/LibraryCenter"
 import { ViewState } from "../app-types"
 
 // 路由路径与 ViewState 的映射
@@ -20,6 +21,7 @@ export const routePaths: Record<ViewState, string> = {
   [ViewState.PUBLISH]: "/publish",
   [ViewState.DIFF]: "/diff",
   [ViewState.ASSETS]: "/assets",
+  [ViewState.LIBRARY]: "/library", // 新增：文库中心
 }
 
 // 根据路径获取 ViewState
@@ -120,5 +122,9 @@ export const routes = [
   {
     path: routePaths[ViewState.OUTLINE],
     element: <UnderDevelopment label={getLabelForView(ViewState.OUTLINE)} />,
+  },
+  {
+    path: routePaths[ViewState.LIBRARY],
+    element: <LibraryCenter />,
   },
 ]

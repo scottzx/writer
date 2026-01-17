@@ -48,6 +48,32 @@ export class ClaudeAgentService {
 
 如果用户询问新闻事件或需要信息，你可以建议用户使用新闻中心获取最新信息。`
   }
+
+  /**
+   * 使用自定义 prompt 发送消息并获取流式响应
+   */
+  async *sendMessageWithPrompt(prompt: string, systemPrompt?: string): AsyncGenerator<string, void, unknown> {
+    const q = query({
+      prompt,
+      options: {
+        model: "claude-sonnet-4-5-20250929",
+        systemPrompt: systemPrompt || "你是一位专业的写作风格分析专家。请用中文回复。",
+      },
+    })
+
+    for await (const msg of q) {
+      if (msg.type === "assistant") {
+        const text = msg.message.content
+          .filter((block: any) => block.type === "text")
+          .map((block: any) => block.text)
+          .join("")
+
+        if (text) {
+          yield text
+        }
+      }
+    }
+  }
 }
 
 // 单例模式

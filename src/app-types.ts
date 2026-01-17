@@ -9,6 +9,7 @@ export enum ViewState {
   PUBLISH = "PUBLISH",
   DIFF = "DIFF",
   ASSETS = "ASSETS",
+  LIBRARY = "LIBRARY", // 新增：文库中心
 }
 
 export interface NavItem {

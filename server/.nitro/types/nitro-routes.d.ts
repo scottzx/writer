@@ -12,6 +12,9 @@ declare module "nitropack/types" {
     '/api/latest': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../api/latest').default>>>>
     }
+    '/api/library/analyze-style': {
+      'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../api/library/analyze-style.post').default>>>>
+    }
     '/api/login': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../api/login').default>>>>
     }

@@ -18,8 +18,12 @@ import type { SearchBarSlice } from "./slices/searchBarSlice"
 import { createSearchBarSlice } from "./slices/searchBarSlice"
 import type { EditorSlice } from "./slices/editorSlice"
 import { createEditorSlice } from "./slices/editorSlice"
+import type { LibrarySlice } from "./slices/librarySlice"
+import { createLibrarySlice } from "./slices/librarySlice"
+import type { WritingStyleSlice } from "./slices/writingStyleSlice"
+import { createWritingStyleSlice } from "./slices/writingStyleSlice"
 
-export type StoreState = MetadataSlice & AuthSlice & UISlice & QuerySlice & TimerSlice & ToastSlice & GoToTopSlice & SearchBarSlice & EditorSlice
+export type StoreState = MetadataSlice & AuthSlice & UISlice & QuerySlice & TimerSlice & ToastSlice & GoToTopSlice & SearchBarSlice & EditorSlice & LibrarySlice & WritingStyleSlice
 
 export const useStore = create<StoreState>()(
   persist(
@@ -33,6 +37,8 @@ export const useStore = create<StoreState>()(
       ...createGoToTopSlice(...a),
       ...createSearchBarSlice(...a),
       ...createEditorSlice(...a),
+      ...createLibrarySlice(...a),
+      ...createWritingStyleSlice(...a),
     }),
     {
       name: "newsnow-storage",
@@ -62,4 +68,5 @@ export type { ToastSlice } from "./slices/toastSlice"
 export type { GoToTopSlice } from "./slices/goToTopSlice"
 export type { SearchBarSlice } from "./slices/searchBarSlice"
 export type { EditorSlice } from "./slices/editorSlice"
+export type { LibrarySlice } from "./slices/librarySlice"
 export type { ToastItem } from "./slices/toastSlice"
