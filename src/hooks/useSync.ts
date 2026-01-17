@@ -3,6 +3,8 @@ import { useDebounce, useMount } from "react-use"
 import { useLogin } from "./useLogin"
 import { useToast } from "./useToast"
 import { useStore } from "~/stores"
+import { myFetch } from "~/utils"
+import { preprocessMetadata } from "~/stores/slices/metadataSlice"
 
 async function uploadMetadata(metadata: PrimitiveMetadata, jwt: string) {
   if (!jwt) return
@@ -36,16 +38,20 @@ async function downloadMetadata(jwt: string): Promise<PrimitiveMetadata | undefi
 }
 
 export function useSync() {
-  const metadata = useStore(state => state.metadata)
   const setMetadata = useStore(state => state.setMetadata)
   const jwt = useStore(state => state.auth.jwt)
   const { logout, login } = useLogin()
   const toaster = useToast()
 
   useDebounce(async () => {
+    // Get latest metadata from store to avoid stale closure values
+    const metadata = useStore.getState().metadata
+
     const fn = async () => {
       try {
         await uploadMetadata(metadata, jwt)
+        // Reset action after successful upload to prevent re-upload
+        useStore.setState(prev => ({ metadata: { ...prev.metadata, action: "" } }))
       } catch (e: any) {
         if (e.statusCode !== 506) {
           toaster("身份校验失败，无法同步，请重新登录", {
@@ -63,7 +69,7 @@ export function useSync() {
     if (metadata.action === "manual") {
       fn()
     }
-  }, 10000, [metadata, jwt])
+  }, 10000, [jwt])
   useMount(() => {
     const fn = async () => {
       try {

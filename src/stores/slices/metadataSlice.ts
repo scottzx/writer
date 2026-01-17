@@ -15,7 +15,7 @@ function getDefaultMetadataData(): Record<FixedColumnID, SourceID[]> {
 
 // Preprocess metadata from server sync
 // 合并服务器数据和本地默认数据,确保所有栏目都有值
-function _preprocessMetadata(target: PrimitiveMetadata): PrimitiveMetadata {
+export function preprocessMetadata(target: PrimitiveMetadata): PrimitiveMetadata {
   const defaultData = getDefaultMetadataData()
 
   return {

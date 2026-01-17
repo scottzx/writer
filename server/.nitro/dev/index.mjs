@@ -1,4 +1,4 @@
-import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import os, { tmpdir } from 'node:os';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
 import destr from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/destr@2.0.5/node_modules/destr/dist/index.mjs';
 import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, getHeader, appendResponseHeader, sendRedirect, proxyRequest, getRequestURL, getRequestHeader, getResponseHeader, getRequestHeaders, setResponseHeaders, setResponseStatus, send, createError, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, readBody, getQuery as getQuery$1 } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/h3@1.15.5/node_modules/h3/dist/index.mjs';
 import { createHooks } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
@@ -962,6 +962,21 @@ const _1Va1YH = defineEventHandler(async (event) => {
   }
 });
 
+const _vlFPLv = defineEventHandler((event) => {
+  const url = getRequestURL(event);
+  if (!url.pathname.startsWith("/api")) return;
+  const userId = getHeader(event, "X-User-ID");
+  if (userId) {
+    const isValidUserId = /^user_\w+$/.test(userId);
+    if (isValidUserId) {
+      event.context.user = {
+        id: userId,
+        type: "anonymous"
+      };
+    }
+  }
+});
+
 const _lazy_VPRf2K = () => Promise.resolve().then(function () { return chat_post$1; });
 const _lazy_v08LzA = () => Promise.resolve().then(function () { return enableLogin$1; });
 const _lazy_WYlZxg = () => Promise.resolve().then(function () { return latest$1; });
@@ -970,12 +985,14 @@ const _lazy_ONLk8m = () => Promise.resolve().then(function () { return mcp_post$
 const _lazy_oQ4Fw4 = () => Promise.resolve().then(function () { return index$5; });
 const _lazy_bvJPsu = () => Promise.resolve().then(function () { return sync$1; });
 const _lazy_a1jDth = () => Promise.resolve().then(function () { return github$1; });
+const _lazy_2hukq4 = () => Promise.resolve().then(function () { return _id_$1; });
 const _lazy_kBT_JJ = () => Promise.resolve().then(function () { return index$3; });
 const _lazy_fHHtH6 = () => Promise.resolve().then(function () { return entire_post$1; });
 const _lazy_o_8ohj = () => Promise.resolve().then(function () { return index$1; });
 
 const handlers = [
   { route: '', handler: _1Va1YH, lazy: false, middleware: true, method: undefined },
+  { route: '', handler: _vlFPLv, lazy: false, middleware: true, method: undefined },
   { route: '/api/chat', handler: _lazy_VPRf2K, lazy: true, middleware: false, method: "post" },
   { route: '/api/enable-login', handler: _lazy_v08LzA, lazy: true, middleware: false, method: undefined },
   { route: '/api/latest', handler: _lazy_WYlZxg, lazy: true, middleware: false, method: undefined },
@@ -984,6 +1001,7 @@ const handlers = [
   { route: '/api/me', handler: _lazy_oQ4Fw4, lazy: true, middleware: false, method: undefined },
   { route: '/api/me/sync', handler: _lazy_bvJPsu, lazy: true, middleware: false, method: undefined },
   { route: '/api/oauth/github', handler: _lazy_a1jDth, lazy: true, middleware: false, method: undefined },
+  { route: '/api/projects/:id', handler: _lazy_2hukq4, lazy: true, middleware: false, method: undefined },
   { route: '/api/projects', handler: _lazy_kBT_JJ, lazy: true, middleware: false, method: undefined },
   { route: '/api/s/entire', handler: _lazy_fHHtH6, lazy: true, middleware: false, method: "post" },
   { route: '/api/s', handler: _lazy_o_8ohj, lazy: true, middleware: false, method: undefined }
@@ -2278,24 +2296,21 @@ const github$1 = /*#__PURE__*/Object.freeze({
   default: github
 });
 
-class ProjectFileSystem {
+let ProjectFileSystem$1 = class ProjectFileSystem {
   getBasePath() {
-    return path.join(os.homedir(), "hacktour");
+    return `${process$1.env.HOME}/hacktour`;
   }
   getUserProjectsPath(userId) {
-    return path.join(this.getBasePath(), userId, "projects");
+    return `${this.getBasePath()}/${userId}/projects`;
   }
   getProjectPath(userId, projectId) {
-    return path.join(this.getUserProjectsPath(userId), projectId);
+    return `${this.getUserProjectsPath(userId)}/${projectId}`;
   }
   ensureDir(dirPath) {
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true });
     }
   }
-  /**
-   * 创建新项目
-   */
   async createProject(userId, projectId, note) {
     const projectPath = this.getProjectPath(userId, projectId);
     this.ensureDir(projectPath);
@@ -2316,9 +2331,6 @@ class ProjectFileSystem {
     const content = this.htmlToMarkdown(note.content || "");
     fs.writeFileSync(contentPath, content);
   }
-  /**
-   * 读取项目
-   */
   async readProject(userId, projectId) {
     const projectPath = this.getProjectPath(userId, projectId);
     if (!fs.existsSync(projectPath)) {
@@ -2339,24 +2351,208 @@ class ProjectFileSystem {
       return null;
     }
   }
-  /**
-   * 更新项目
-   */
   async updateProject(userId, projectId, note) {
     await this.createProject(userId, projectId, note);
   }
-  /**
-   * 删除项目
-   */
   async deleteProject(userId, projectId) {
     const projectPath = this.getProjectPath(userId, projectId);
     if (fs.existsSync(projectPath)) {
       fs.rmSync(projectPath, { recursive: true, force: true });
     }
   }
-  /**
-   * 列出用户所有项目
-   */
+  projectExists(userId, projectId) {
+    const projectPath = this.getProjectPath(userId, projectId);
+    return fs.existsSync(projectPath);
+  }
+  htmlToMarkdown(html) {
+    let md = html;
+    md = md.replace(/<script[^>]*>.*?<\/script>/gis, "");
+    md = md.replace(/<style[^>]*>.*?<\/style>/gis, "");
+    md = md.replace(/<h1[^>]*>(.*?)<\/h1>/gi, "# $1\n\n");
+    md = md.replace(/<h2[^>]*>(.*?)<\/h2>/gi, "## $1\n\n");
+    md = md.replace(/<h3[^>]*>(.*?)<\/h3>/gi, "### $1\n\n");
+    md = md.replace(/<strong[^>]*>(.*?)<\/strong>/gi, "**$1**");
+    md = md.replace(/<em[^>]*>(.*?)<\/em>/gi, "*$1*");
+    md = md.replace(/<p[^>]*>(.*?)<\/p>/gi, "$1\n\n");
+    md = md.replace(/<br\s*\/?>/gi, "\n");
+    md = md.replace(/<[^>]+>/g, "");
+    md = md.replace(/&nbsp;/g, " ");
+    md = md.replace(/&lt;/g, "<");
+    md = md.replace(/&gt;/g, ">");
+    md = md.replace(/&amp;/g, "&");
+    return md.trim();
+  }
+  markdownToHtml(md) {
+    let html = md;
+    html = html.replace(/&/g, "&amp;");
+    html = html.replace(/</g, "&lt;");
+    html = html.replace(/>/g, "&gt;");
+    html = html.replace(/^### (.*$)/gm, "<h3>$1</h3>");
+    html = html.replace(/^## (.*$)/gm, "<h2>$1</h2>");
+    html = html.replace(/^# (.*$)/gm, "<h1>$1</h1>");
+    html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/\*(.*?)\*/g, "<em>$1</em>");
+    html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+    html = html.replace(/\n/g, "<br />");
+    return html;
+  }
+};
+const projectFileSystem$1 = new ProjectFileSystem$1();
+const _id_ = defineEventHandler(async (event) => {
+  var _a;
+  const userId = (_a = event.context.user) == null ? void 0 : _a.id;
+  if (!userId) {
+    throw createError({
+      statusCode: 401,
+      message: "Unauthorized: User ID not found"
+    });
+  }
+  const projectId = getRouterParam(event, "id");
+  if (!projectId) {
+    throw createError({
+      statusCode: 400,
+      message: "Project ID is required"
+    });
+  }
+  if (!/^[a-f0-9-]+$/.test(projectId)) {
+    throw createError({
+      statusCode: 400,
+      message: "Invalid project ID format"
+    });
+  }
+  const method = event.method;
+  try {
+    if (method === "GET") {
+      const project = await projectFileSystem$1.readProject(userId, projectId);
+      if (!project) {
+        throw createError({
+          statusCode: 404,
+          message: "Project not found"
+        });
+      }
+      return {
+        success: true,
+        data: project
+      };
+    }
+    if (method === "PUT") {
+      const body = await readBody(event);
+      if (!body || typeof body !== "object") {
+        throw createError({
+          statusCode: 400,
+          message: "Invalid request body"
+        });
+      }
+      if (!projectFileSystem$1.projectExists(userId, projectId)) {
+        throw createError({
+          statusCode: 404,
+          message: "Project not found"
+        });
+      }
+      await projectFileSystem$1.updateProject(userId, projectId, body);
+      return {
+        success: true,
+        data: { id: projectId, ...body }
+      };
+    }
+    if (method === "DELETE") {
+      if (!projectFileSystem$1.projectExists(userId, projectId)) {
+        throw createError({
+          statusCode: 404,
+          message: "Project not found"
+        });
+      }
+      await projectFileSystem$1.deleteProject(userId, projectId);
+      return {
+        success: true,
+        message: "Project deleted successfully"
+      };
+    }
+    throw createError({
+      statusCode: 405,
+      message: "Method not allowed"
+    });
+  } catch (error) {
+    if (error.statusCode) {
+      throw error;
+    }
+    console.error("Project API error:", error);
+    throw createError({
+      statusCode: 500,
+      message: error.message || "Internal server error"
+    });
+  }
+});
+
+const _id_$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: _id_
+});
+
+class ProjectFileSystem {
+  getBasePath() {
+    return `${process$1.env.HOME}/hacktour`;
+  }
+  getUserProjectsPath(userId) {
+    return `${this.getBasePath()}/${userId}/projects`;
+  }
+  getProjectPath(userId, projectId) {
+    return `${this.getUserProjectsPath(userId)}/${projectId}`;
+  }
+  ensureDir(dirPath) {
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath, { recursive: true });
+    }
+  }
+  async createProject(userId, projectId, note) {
+    const projectPath = this.getProjectPath(userId, projectId);
+    this.ensureDir(projectPath);
+    const metaPath = path.join(projectPath, "meta.json");
+    const meta = {
+      id: note.id,
+      title: note.title,
+      folderId: note.folderId || null,
+      tags: note.tags || [],
+      status: note.status || "draft",
+      wordCount: note.wordCount || 0,
+      createdAt: note.createdAt || Date.now(),
+      updatedAt: note.updatedAt || Date.now(),
+      lastAutoSave: note.lastAutoSave || null
+    };
+    fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2));
+    const contentPath = path.join(projectPath, "index.md");
+    const content = this.htmlToMarkdown(note.content || "");
+    fs.writeFileSync(contentPath, content);
+  }
+  async readProject(userId, projectId) {
+    const projectPath = this.getProjectPath(userId, projectId);
+    if (!fs.existsSync(projectPath)) {
+      return null;
+    }
+    try {
+      const metaPath = path.join(projectPath, "meta.json");
+      const contentPath = path.join(projectPath, "index.md");
+      const metaContent = fs.readFileSync(metaPath, "utf-8");
+      const mdContent = fs.readFileSync(contentPath, "utf-8");
+      const meta = JSON.parse(metaContent);
+      return {
+        ...meta,
+        content: this.markdownToHtml(mdContent)
+      };
+    } catch (error) {
+      console.error("Error reading project:", error);
+      return null;
+    }
+  }
+  async updateProject(userId, projectId, note) {
+    await this.createProject(userId, projectId, note);
+  }
+  async deleteProject(userId, projectId) {
+    const projectPath = this.getProjectPath(userId, projectId);
+    if (fs.existsSync(projectPath)) {
+      fs.rmSync(projectPath, { recursive: true, force: true });
+    }
+  }
   async listProjects(userId) {
     const projectsPath = this.getUserProjectsPath(userId);
     if (!fs.existsSync(projectsPath)) {
@@ -2379,16 +2575,10 @@ class ProjectFileSystem {
       return [];
     }
   }
-  /**
-   * 检查项目是否存在
-   */
   projectExists(userId, projectId) {
     const projectPath = this.getProjectPath(userId, projectId);
     return fs.existsSync(projectPath);
   }
-  /**
-   * HTML 转 Markdown (简化版本)
-   */
   htmlToMarkdown(html) {
     let md = html;
     md = md.replace(/<script[^>]*>.*?<\/script>/gis, "");
@@ -2432,9 +2622,6 @@ class ProjectFileSystem {
     md = md.replace(/&#39;/g, "'");
     return md.trim();
   }
-  /**
-   * Markdown 转 HTML (简化版本)
-   */
   markdownToHtml(md) {
     let html = md;
     html = html.replace(/&/g, "&amp;");
@@ -2456,7 +2643,7 @@ class ProjectFileSystem {
     html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />');
     html = html.replace(/^> (.*$)/gm, "<blockquote>$1</blockquote>");
     html = html.replace(/^---$/gm, "<hr />");
-    html = html.replace(/^\- (.*$)/gm, "<li>$1</li>");
+    html = html.replace(/^- (.*$)/gm, "<li>$1</li>");
     html = html.replace(/^\d+\. (.*$)/gm, "<li>$1</li>");
     html = html.replace(/\n\n/g, "</p><p>");
     html = html.replace(/\n/g, "<br />");
@@ -2472,7 +2659,6 @@ class ProjectFileSystem {
   }
 }
 const projectFileSystem = new ProjectFileSystem();
-
 const index$2 = defineEventHandler(async (event) => {
   var _a;
   const userId = (_a = event.context.user) == null ? void 0 : _a.id;
@@ -2482,7 +2668,7 @@ const index$2 = defineEventHandler(async (event) => {
       message: "Unauthorized: User ID not found"
     });
   }
-  const isValidUserId = /^user_[a-zA-Z0-9_]+$/.test(userId);
+  const isValidUserId = /^user_\w+$/.test(userId);
   if (!isValidUserId) {
     throw createError({
       statusCode: 400,
