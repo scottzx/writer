@@ -27,6 +27,12 @@ declare module "nitropack/types" {
     '/api/oauth/github': {
       'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../api/oauth/github').default>>>>
     }
+    '/api/projects/:id': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../api/projects/[id]').default>>>>
+    }
+    '/api/projects': {
+      'default': Simplify<Serialize<Awaited<ReturnType<typeof import('../../api/projects/index').default>>>>
+    }
     '/api/s/entire': {
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../api/s/entire.post').default>>>>
     }

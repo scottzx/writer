@@ -1,4 +1,4 @@
-import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import { tmpdir } from 'node:os';
+import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import os, { tmpdir } from 'node:os';
 import destr from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/destr@2.0.5/node_modules/destr/dist/index.mjs';
 import { defineEventHandler, handleCacheHeaders, splitCookiesString, createEvent, fetchWithEvent, isEvent, eventHandler, setHeaders, getHeader, appendResponseHeader, sendRedirect, proxyRequest, getRequestURL, getRequestHeader, getResponseHeader, getRequestHeaders, setResponseHeaders, setResponseStatus, send, createError, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, getRouterParam, readBody, getQuery as getQuery$1 } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/h3@1.15.5/node_modules/h3/dist/index.mjs';
 import { createHooks } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
@@ -14,7 +14,7 @@ import { snakeCase } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9
 import { getContext } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/unctx@2.5.0/node_modules/unctx/dist/index.mjs';
 import { toRouteMatcher, createRouter } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/radix3@1.1.2/node_modules/radix3/dist/index.mjs';
 import { readFile } from 'node:fs/promises';
-import { resolve, dirname, join } from 'node:path';
+import path, { resolve, dirname, join } from 'node:path';
 import consola, { createConsola } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/consola@3.4.2/node_modules/consola/dist/index.mjs';
 import { ErrorParser } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/youch-core@0.3.3/node_modules/youch-core/build/index.js';
 import { Youch } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/youch@4.1.0-beta.13/node_modules/youch/build/index.js';
@@ -29,6 +29,7 @@ import { StreamableHTTPServerTransport } from 'file:///Users/scott/Documents/%E9
 import { z } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/zod@3.25.76/node_modules/zod/index.js';
 import { McpServer } from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/@modelcontextprotocol+sdk@1.25.2_hono@4.11.4_zod@3.25.76/node_modules/@modelcontextprotocol/sdk/dist/esm/server/mcp.js';
 import cloudbase from 'file:///Users/scott/Documents/%E9%BB%91%E5%AE%A2%E6%9D%BE%E6%AF%94%E8%B5%9B/newsnow/node_modules/.pnpm/@cloudbase+node-sdk@3.17.0/node_modules/@cloudbase/node-sdk/dist/index.js';
+import fs from 'node:fs';
 
 const serverAssets = [{"baseName":"server","dir":"/Users/scott/Documents/黑客松比赛/newsnow/server/assets"}];
 
@@ -935,7 +936,7 @@ const _1Va1YH = defineEventHandler(async (event) => {
   if (!url.pathname.startsWith("/api")) return;
   if (["JWT_SECRET", "G_CLIENT_ID", "G_CLIENT_SECRET"].find((k) => !process$1.env[k])) {
     event.context.disabledLogin = true;
-    if (["/api/s", "/api/proxy", "/api/latest", "/api/mcp", "/api/chat"].every((p) => !url.pathname.startsWith(p)))
+    if (["/api/s", "/api/proxy", "/api/latest", "/api/mcp", "/api/chat", "/api/projects"].every((p) => !url.pathname.startsWith(p)))
       throw createError({ statusCode: 506, message: "Server not configured, disable login" });
   } else {
     if (["/api/s", "/api/me"].find((p) => url.pathname.startsWith(p))) {
@@ -966,9 +967,10 @@ const _lazy_v08LzA = () => Promise.resolve().then(function () { return enableLog
 const _lazy_WYlZxg = () => Promise.resolve().then(function () { return latest$1; });
 const _lazy_cy84EE = () => Promise.resolve().then(function () { return login$1; });
 const _lazy_ONLk8m = () => Promise.resolve().then(function () { return mcp_post$1; });
-const _lazy_oQ4Fw4 = () => Promise.resolve().then(function () { return index$3; });
+const _lazy_oQ4Fw4 = () => Promise.resolve().then(function () { return index$5; });
 const _lazy_bvJPsu = () => Promise.resolve().then(function () { return sync$1; });
 const _lazy_a1jDth = () => Promise.resolve().then(function () { return github$1; });
+const _lazy_kBT_JJ = () => Promise.resolve().then(function () { return index$3; });
 const _lazy_fHHtH6 = () => Promise.resolve().then(function () { return entire_post$1; });
 const _lazy_o_8ohj = () => Promise.resolve().then(function () { return index$1; });
 
@@ -982,6 +984,7 @@ const handlers = [
   { route: '/api/me', handler: _lazy_oQ4Fw4, lazy: true, middleware: false, method: undefined },
   { route: '/api/me/sync', handler: _lazy_bvJPsu, lazy: true, middleware: false, method: undefined },
   { route: '/api/oauth/github', handler: _lazy_a1jDth, lazy: true, middleware: false, method: undefined },
+  { route: '/api/projects', handler: _lazy_kBT_JJ, lazy: true, middleware: false, method: undefined },
   { route: '/api/s/entire', handler: _lazy_fHHtH6, lazy: true, middleware: false, method: "post" },
   { route: '/api/s', handler: _lazy_o_8ohj, lazy: true, middleware: false, method: undefined }
 ];
@@ -2057,15 +2060,15 @@ const mcp_post$1 = /*#__PURE__*/Object.freeze({
   default: mcp_post
 });
 
-const index$2 = defineEventHandler(() => {
+const index$4 = defineEventHandler(() => {
   return {
     hello: "world"
   };
 });
 
-const index$3 = /*#__PURE__*/Object.freeze({
+const index$5 = /*#__PURE__*/Object.freeze({
   __proto__: null,
-  default: index$2
+  default: index$4
 });
 
 const CLOUDBASE_ENV_ID = process$1.env.CLOUDBASE_ENV_ID || "dreammate-0grv5fzr79f3b0e0";
@@ -2275,6 +2278,286 @@ const github$1 = /*#__PURE__*/Object.freeze({
   default: github
 });
 
+class ProjectFileSystem {
+  getBasePath() {
+    return path.join(os.homedir(), "hacktour");
+  }
+  getUserProjectsPath(userId) {
+    return path.join(this.getBasePath(), userId, "projects");
+  }
+  getProjectPath(userId, projectId) {
+    return path.join(this.getUserProjectsPath(userId), projectId);
+  }
+  ensureDir(dirPath) {
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath, { recursive: true });
+    }
+  }
+  /**
+   * 创建新项目
+   */
+  async createProject(userId, projectId, note) {
+    const projectPath = this.getProjectPath(userId, projectId);
+    this.ensureDir(projectPath);
+    const metaPath = path.join(projectPath, "meta.json");
+    const meta = {
+      id: note.id,
+      title: note.title,
+      folderId: note.folderId || null,
+      tags: note.tags || [],
+      status: note.status || "draft",
+      wordCount: note.wordCount || 0,
+      createdAt: note.createdAt || Date.now(),
+      updatedAt: note.updatedAt || Date.now(),
+      lastAutoSave: note.lastAutoSave || null
+    };
+    fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2));
+    const contentPath = path.join(projectPath, "index.md");
+    const content = this.htmlToMarkdown(note.content || "");
+    fs.writeFileSync(contentPath, content);
+  }
+  /**
+   * 读取项目
+   */
+  async readProject(userId, projectId) {
+    const projectPath = this.getProjectPath(userId, projectId);
+    if (!fs.existsSync(projectPath)) {
+      return null;
+    }
+    try {
+      const metaPath = path.join(projectPath, "meta.json");
+      const contentPath = path.join(projectPath, "index.md");
+      const metaContent = fs.readFileSync(metaPath, "utf-8");
+      const mdContent = fs.readFileSync(contentPath, "utf-8");
+      const meta = JSON.parse(metaContent);
+      return {
+        ...meta,
+        content: this.markdownToHtml(mdContent)
+      };
+    } catch (error) {
+      console.error("Error reading project:", error);
+      return null;
+    }
+  }
+  /**
+   * 更新项目
+   */
+  async updateProject(userId, projectId, note) {
+    await this.createProject(userId, projectId, note);
+  }
+  /**
+   * 删除项目
+   */
+  async deleteProject(userId, projectId) {
+    const projectPath = this.getProjectPath(userId, projectId);
+    if (fs.existsSync(projectPath)) {
+      fs.rmSync(projectPath, { recursive: true, force: true });
+    }
+  }
+  /**
+   * 列出用户所有项目
+   */
+  async listProjects(userId) {
+    const projectsPath = this.getUserProjectsPath(userId);
+    if (!fs.existsSync(projectsPath)) {
+      return [];
+    }
+    try {
+      const projectDirs = fs.readdirSync(projectsPath, { withFileTypes: true });
+      const projects = [];
+      for (const dir of projectDirs) {
+        if (dir.isDirectory()) {
+          const project = await this.readProject(userId, dir.name);
+          if (project) {
+            projects.push(project);
+          }
+        }
+      }
+      return projects.sort((a, b) => b.updatedAt - a.updatedAt);
+    } catch (error) {
+      console.error("Error listing projects:", error);
+      return [];
+    }
+  }
+  /**
+   * 检查项目是否存在
+   */
+  projectExists(userId, projectId) {
+    const projectPath = this.getProjectPath(userId, projectId);
+    return fs.existsSync(projectPath);
+  }
+  /**
+   * HTML 转 Markdown (简化版本)
+   */
+  htmlToMarkdown(html) {
+    let md = html;
+    md = md.replace(/<script[^>]*>.*?<\/script>/gis, "");
+    md = md.replace(/<style[^>]*>.*?<\/style>/gis, "");
+    md = md.replace(/<h1[^>]*>(.*?)<\/h1>/gi, "# $1\n\n");
+    md = md.replace(/<h2[^>]*>(.*?)<\/h2>/gi, "## $1\n\n");
+    md = md.replace(/<h3[^>]*>(.*?)<\/h3>/gi, "### $1\n\n");
+    md = md.replace(/<h4[^>]*>(.*?)<\/h4>/gi, "#### $1\n\n");
+    md = md.replace(/<h5[^>]*>(.*?)<\/h5>/gi, "##### $1\n\n");
+    md = md.replace(/<h6[^>]*>(.*?)<\/h6>/gi, "###### $1\n\n");
+    md = md.replace(/<strong[^>]*>(.*?)<\/strong>/gi, "**$1**");
+    md = md.replace(/<b[^>]*>(.*?)<\/b>/gi, "**$1**");
+    md = md.replace(/<em[^>]*>(.*?)<\/em>/gi, "*$1*");
+    md = md.replace(/<i[^>]*>(.*?)<\/i>/gi, "*$1*");
+    md = md.replace(/<s[^>]*>(.*?)<\/s>/gi, "~~$1~~");
+    md = md.replace(/<strike[^>]*>(.*?)<\/strike>/gi, "~~$1~~");
+    md = md.replace(/<del[^>]*>(.*?)<\/del>/gi, "~~$1~~");
+    md = md.replace(/<pre[^>]*><code[^>]*>(.*?)<\/code><\/pre>/gis, "```\n$1\n```\n\n");
+    md = md.replace(/<code[^>]*>(.*?)<\/code>/gi, "`$1`");
+    md = md.replace(/<a[^>]*href=["']([^"']*)["'][^>]*>(.*?)<\/a>/gi, "[$2]($1)");
+    md = md.replace(/<img[^>]*src=["']([^"']*)["'][^>]*alt=["']([^"']*)["'][^>]*>/gi, "![$2]($1)");
+    md = md.replace(/<img[^>]*src=["']([^"']*)["'][^>]*>/gi, "![]($1)");
+    md = md.replace(/<ul[^>]*>/gi, "");
+    md = md.replace(/<\/ul>/gi, "\n");
+    md = md.replace(/<ol[^>]*>/gi, "");
+    md = md.replace(/<\/ol>/gi, "\n");
+    md = md.replace(/<li[^>]*>/gi, "- ");
+    md = md.replace(/<\/li>/gi, "\n");
+    md = md.replace(/<p[^>]*>(.*?)<\/p>/gi, "$1\n\n");
+    md = md.replace(/<br\s*\/?>/gi, "\n");
+    md = md.replace(/<div[^>]*>(.*?)<\/div>/gi, "$1\n");
+    md = md.replace(/<blockquote[^>]*>(.*?)<\/blockquote>/gis, "> $1\n\n");
+    md = md.replace(/<hr\s*\/?>/gi, "---\n\n");
+    md = md.replace(/\n{3,}/g, "\n\n");
+    md = md.replace(/<[^>]+>/g, "");
+    md = md.replace(/&nbsp;/g, " ");
+    md = md.replace(/&lt;/g, "<");
+    md = md.replace(/&gt;/g, ">");
+    md = md.replace(/&amp;/g, "&");
+    md = md.replace(/&quot;/g, '"');
+    md = md.replace(/&#39;/g, "'");
+    return md.trim();
+  }
+  /**
+   * Markdown 转 HTML (简化版本)
+   */
+  markdownToHtml(md) {
+    let html = md;
+    html = html.replace(/&/g, "&amp;");
+    html = html.replace(/</g, "&lt;");
+    html = html.replace(/>/g, "&gt;");
+    html = html.replace(/```(\w+)?\n([\s\S]*?)```/g, "<pre><code>$2</code></pre>");
+    html = html.replace(/^###### (.*$)/gm, "<h6>$1</h6>");
+    html = html.replace(/^##### (.*$)/gm, "<h5>$1</h5>");
+    html = html.replace(/^#### (.*$)/gm, "<h4>$1</h4>");
+    html = html.replace(/^### (.*$)/gm, "<h3>$1</h3>");
+    html = html.replace(/^## (.*$)/gm, "<h2>$1</h2>");
+    html = html.replace(/^# (.*$)/gm, "<h1>$1</h1>");
+    html = html.replace(/\*\*\*(.*?)\*\*\*/g, "<strong><em>$1</em></strong>");
+    html = html.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/\*(.*?)\*/g, "<em>$1</em>");
+    html = html.replace(/~~(.*?)~~/g, "<del>$1</del>");
+    html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+    html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" />');
+    html = html.replace(/^> (.*$)/gm, "<blockquote>$1</blockquote>");
+    html = html.replace(/^---$/gm, "<hr />");
+    html = html.replace(/^\- (.*$)/gm, "<li>$1</li>");
+    html = html.replace(/^\d+\. (.*$)/gm, "<li>$1</li>");
+    html = html.replace(/\n\n/g, "</p><p>");
+    html = html.replace(/\n/g, "<br />");
+    html = `<p>${html}</p>`;
+    html = html.replace(/<p><\/p>/g, "");
+    html = html.replace(/<p>(<h[1-6]>)/g, "$1");
+    html = html.replace(/(<\/h[1-6]>)<\/p>/g, "$1");
+    html = html.replace(/<p>(<pre>)/g, "$1");
+    html = html.replace(/(<\/pre>)<\/p>/g, "$1");
+    html = html.replace(/<p>(<blockquote>)/g, "$1");
+    html = html.replace(/(<\/blockquote>)<\/p>/g, "$1");
+    return html;
+  }
+}
+const projectFileSystem = new ProjectFileSystem();
+
+const index$2 = defineEventHandler(async (event) => {
+  var _a;
+  const userId = (_a = event.context.user) == null ? void 0 : _a.id;
+  if (!userId) {
+    throw createError({
+      statusCode: 401,
+      message: "Unauthorized: User ID not found"
+    });
+  }
+  const isValidUserId = /^user_[a-zA-Z0-9_]+$/.test(userId);
+  if (!isValidUserId) {
+    throw createError({
+      statusCode: 400,
+      message: "Invalid user ID format"
+    });
+  }
+  const method = event.method;
+  try {
+    if (method === "GET") {
+      const projects = await projectFileSystem.listProjects(userId);
+      return {
+        success: true,
+        data: projects
+      };
+    }
+    if (method === "POST") {
+      const body = await readBody(event);
+      if (!body || typeof body !== "object") {
+        throw createError({
+          statusCode: 400,
+          message: "Invalid request body"
+        });
+      }
+      const projectId = body.id || crypto.randomUUID();
+      const newNote = {
+        id: projectId,
+        title: body.title || "\u672A\u547D\u540D\u6587\u6863",
+        content: body.content || "",
+        folderId: body.folderId || null,
+        tags: body.tags || [],
+        status: body.status || "draft",
+        wordCount: body.wordCount || 0,
+        createdAt: body.createdAt || Date.now(),
+        updatedAt: body.updatedAt || Date.now(),
+        lastAutoSave: body.lastAutoSave || null
+      };
+      if (!/^[a-f0-9-]+$/.test(projectId)) {
+        throw createError({
+          statusCode: 400,
+          message: "Invalid project ID format"
+        });
+      }
+      if (projectFileSystem.projectExists(userId, projectId)) {
+        throw createError({
+          statusCode: 409,
+          message: "Project already exists"
+        });
+      }
+      await projectFileSystem.createProject(userId, projectId, newNote);
+      return {
+        success: true,
+        data: newNote
+      };
+    }
+    throw createError({
+      statusCode: 405,
+      message: "Method not allowed"
+    });
+  } catch (error) {
+    if (error.statusCode) {
+      throw error;
+    }
+    console.error("Projects API error:", error);
+    throw createError({
+      statusCode: 500,
+      message: error.message || "Internal server error"
+    });
+  }
+});
+
+const index$3 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: index$2
+});
+
 var __defProp = Object.defineProperty;
 var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
 var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
@@ -2400,13 +2683,13 @@ async function getCacheTable() {
   }
 }
 
-const sources$1 = _sources;
+const sources = _sources;
 
 const entire_post = defineEventHandler(async (event) => {
   try {
     const { sources: _ } = await readBody(event);
     const cacheTable = await getCacheTable();
-    const ids = _ == null ? void 0 : _.filter((k) => sources$1[k]);
+    const ids = _ == null ? void 0 : _.filter((k) => sources[k]);
     if ((ids == null ? void 0 : ids.length) && cacheTable) {
       const caches = await cacheTable.getEntire(ids);
       const now = Date.now();
@@ -2414,7 +2697,7 @@ const entire_post = defineEventHandler(async (event) => {
         status: "cache",
         id: cache.id,
         items: cache.items,
-        updatedTime: now - cache.updated < sources$1[cache.id].interval ? now : cache.updated
+        updatedTime: now - cache.updated < sources[cache.id].interval ? now : cache.updated
       }));
     }
   } catch {
@@ -2434,9 +2717,9 @@ const index = defineEventHandler(async (event) => {
     const query = getQuery$1(event);
     const latest = query.latest !== void 0 && query.latest !== "false";
     let id = query.id;
-    const isValid = (id2) => !id2 || !sources$1[id2] || !getters[id2];
+    const isValid = (id2) => !id2 || !sources[id2] || !getters[id2];
     if (isValid(id)) {
-      const redirectID = (_b = (_a = sources$1) == null ? void 0 : _a[id]) == null ? void 0 : _b.redirect;
+      const redirectID = (_b = (_a = sources) == null ? void 0 : _a[id]) == null ? void 0 : _b.redirect;
       if (redirectID) id = redirectID;
       if (isValid(id)) throw new Error("Invalid source id");
     }
@@ -2446,7 +2729,7 @@ const index = defineEventHandler(async (event) => {
     if (cacheTable) {
       cache = await cacheTable.get(id);
       if (cache) {
-        if (now - cache.updated < sources$1[id].interval) {
+        if (now - cache.updated < sources[id].interval) {
           return {
             status: "success",
             id,

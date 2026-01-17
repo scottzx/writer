@@ -74,6 +74,7 @@ declare global {
   const getValidatedRouterParams: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').getValidatedRouterParams
   const handleCacheHeaders: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').handleCacheHeaders
   const handleCors: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').handleCors
+  const htmlToMarkdown: typeof import('../../utils/markdown.ts').htmlToMarkdown
   const isCorsOriginAllowed: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').isCorsOriginAllowed
   const isError: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').isError
   const isEvent: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').isEvent
@@ -84,6 +85,7 @@ declare global {
   const isWebResponse: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').isWebResponse
   const lazyEventHandler: typeof import('../../../node_modules/.pnpm/h3@1.15.5/node_modules/h3').lazyEventHandler
   const logger: typeof import('../../utils/logger').logger
+  const markdownToHtml: typeof import('../../utils/markdown.ts').markdownToHtml
   const md5: typeof import('../../utils/crypto').md5
   const myCrypto: typeof import('../../utils/crypto').myCrypto
   const myFetch: typeof import('../../utils/fetch').myFetch
@@ -150,6 +152,7 @@ export { useEvent } from 'nitropack/runtime/internal/context';
 export { defineTask, runTask } from 'nitropack/runtime/internal/task';
 export { defineNitroErrorHandler } from 'nitropack/runtime/internal/error/utils';
 export { appendCorsHeaders, appendCorsPreflightHeaders, appendHeader, appendHeaders, appendResponseHeader, appendResponseHeaders, assertMethod, callNodeListener, clearResponseHeaders, clearSession, createApp, createAppEventHandler, createError, createEvent, createEventStream, createRouter, defaultContentType, defineEventHandler, defineLazyEventHandler, defineNodeListener, defineNodeMiddleware, defineRequestMiddleware, defineResponseMiddleware, defineWebSocket, defineWebSocketHandler, deleteCookie, dynamicEventHandler, eventHandler, fetchWithEvent, fromNodeMiddleware, fromPlainHandler, fromWebHandler, getCookie, getHeader, getHeaders, getMethod, getProxyRequestHeaders, getQuery, getRequestFingerprint, getRequestHeader, getRequestHeaders, getRequestHost, getRequestIP, getRequestPath, getRequestProtocol, getRequestURL, getRequestWebStream, getResponseHeader, getResponseHeaders, getResponseStatus, getResponseStatusText, getRouterParam, getRouterParams, getSession, getValidatedQuery, getValidatedRouterParams, handleCacheHeaders, handleCors, isCorsOriginAllowed, isError, isEvent, isEventHandler, isMethod, isPreflightRequest, isStream, isWebResponse, lazyEventHandler, parseCookies, promisifyNodeListener, proxyRequest, readBody, readFormData, readMultipartFormData, readRawBody, readValidatedBody, removeResponseHeader, sanitizeStatusCode, sanitizeStatusMessage, sealSession, send, sendError, sendIterable, sendNoContent, sendProxy, sendRedirect, sendStream, sendWebResponse, serveStatic, setCookie, setHeader, setHeaders, setResponseHeader, setResponseHeaders, setResponseStatus, splitCookiesString, toEventHandler, toNodeListener, toPlainHandler, toWebHandler, toWebRequest, unsealSession, updateSession, useBase, useSession, writeEarlyHints } from 'h3';
+export { htmlToMarkdown, markdownToHtml } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/markdown';
 export { decodeBase64URL, encodeBase64URL, decodeBase64, encodeBase64 } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/base64';
 export { md5, myCrypto } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/crypto';
 export { tranformToUTC, parseDate, parseRelativeDate } from '/Users/scott/Documents/黑客松比赛/newsnow/server/utils/date';
