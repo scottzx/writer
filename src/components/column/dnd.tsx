@@ -26,9 +26,14 @@ const WIDTH = 350
 export function Dnd() {
   const metadata = useStore(state => state.metadata)
   const currentColumnID = useStore(state => state.currentColumnID)
-  const items = useMemo(
+  // 过滤掉没有数据的 sourceId
+  const allItems = useMemo(
     () => metadata.data[currentColumnID] || [],
     [metadata, currentColumnID],
+  )
+  const items = useMemo(
+    () => allItems.filter(id => cacheSources.has(id) && cacheSources.get(id)?.items?.length > 0),
+    [allItems],
   )
   const setItems = useStore(state => state.setCurrentSources)
   const goToTop = useStore(state => state.goToTop)

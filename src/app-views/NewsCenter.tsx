@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { BarChart, Filter, History, PenLine, Search, TrendingUp, X } from "lucide-react"
 import { ViewState } from "../app-types"
 import { routePaths } from "../router"
+import { newsCenterData } from "../data/news-center-data" // Import static data
 import TimelineAnalysis from "./TimelineAnalysis" // Import Timeline component
 
 interface NewsCenterProps {
@@ -84,7 +85,11 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
               </button>
             </div>
             <div className="flex-1 overflow-hidden">
-              <TimelineAnalysis isModal onProceed={handleProceedToResearch} />
+              <TimelineAnalysis
+                isModal
+                onProceed={handleProceedToResearch}
+                eventData={selectedNews?.details}
+              />
             </div>
           </div>
         </div>
@@ -140,66 +145,13 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <NewsCard
-            onClick={() => handleNewsClick({ title: "Sora 模型发布引爆视频生成领域" })}
-            source="知乎"
-            color="text-blue-500"
-            time="2小时前"
-            title="Sora 模型发布引爆视频生成领域：新行业标准的确立？"
-            snippet="OpenAI 发布的 Sora 模型在科技界引发震动。讨论主要集中在算力需求、物理世界模拟能力以及对传统影视制作流程的潜在冲击。"
-            score="9.8"
-            trend="up"
-          />
-          <NewsCard
-            onClick={() => handleNewsClick({ title: "国产新能源汽车出海" })}
-            source="微博"
-            color="text-red-500"
-            time="15分钟前"
-            title="国产新能源汽车出海：欧洲市场季度销量创新高"
-            snippet="最新季度财报显示，国产 EV 品牌在欧洲市场的出口量激增 40%。分析师正在辩论补贴政策的可持续性以及充电基础设施的长期增长潜力。"
-            score="12.4"
-            trend="up"
-          />
-          <NewsCard
-            onClick={() => handleNewsClick({ title: "北京国际电影节" })}
-            source="百度"
-            color="text-blue-600"
-            time="45分钟前"
-            title="北京国际电影节公布主旨演讲嘉宾名单"
-            snippet="嘉宾阵容包括来自五大洲的获奖导演。社交媒体上的讨论热点集中在几位独立 VR 电影制作人的意外入选。"
-            score="5.2"
-            trend="down"
-          />
-          <NewsCard
-            onClick={() => handleNewsClick({ title: "科技行业裁员" })}
-            source="今日头条"
-            color="text-red-600"
-            time="3小时前"
-            title="科技行业裁员与 AI 人才招聘热潮：2024 年的悖论"
-            snippet="数据显示，企业编制正显著向机器学习岗位倾斜。传统软件工程职位的薪资增长停滞，而 AI 专家的需求量供不应求。"
-            score="8.1"
-            trend="up"
-          />
-          <NewsCard
-            onClick={() => handleNewsClick({ title: "SpaceX 星舰发射" })}
-            source="微博"
-            color="text-red-500"
-            time="1小时前"
-            title="SpaceX 星舰发射：震撼画面刷屏社交网络"
-            snippet="助推器捕获尝试的视频片段在社交媒体上疯传。话题 #星舰发射# 登顶热搜榜，每小时互动量数百万次。"
-            score="22"
-            trend="up"
-          />
-          <NewsCard
-            onClick={() => handleNewsClick({ title: "远程办公 2.0" })}
-            source="知乎"
-            color="text-blue-500"
-            time="5小时前"
-            title="远程办公 2.0：亚洲多国推出数字游民签证"
-            snippet="日本和韩国相继推出针对远程工作者的新签证类别。外籍人士分享了关于税收影响和生活方式转变的真实体验。"
-            score="4.5"
-            trend="up"
-          />
+          {newsCenterData.map((news, index) => (
+            <NewsCard
+              key={index}
+              onClick={() => handleNewsClick(news)}
+              {...news}
+            />
+          ))}
         </div>
       </div>
     </div>

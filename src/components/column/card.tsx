@@ -33,6 +33,14 @@ export const CardWrapper = forwardRef<HTMLElement, ItemsProps>(({ id, isDragging
 
   useImperativeHandle(dndRef, () => ref.current! as HTMLDivElement)
 
+  // 检查缓存的数据是否有内容
+  const hasData = cacheSources.has(id) && cacheSources.get(id)?.items?.length > 0
+
+  // 当没有数据时，不显示卡片
+  if (!hasData) {
+    return null
+  }
+
   return (
     <div
       ref={ref}
