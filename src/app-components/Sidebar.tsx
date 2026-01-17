@@ -1,36 +1,37 @@
-
-import React from 'react';
-import { ViewState } from '../app-types';
-import { LayoutDashboard, Newspaper, Smartphone, Settings, Lightbulb, Library, Search } from 'lucide-react';
+import React from "react"
+import { useNavigate } from "react-router-dom"
+import { LayoutDashboard, Library, Lightbulb, Newspaper, Search, Settings, Smartphone } from "lucide-react"
+import { ViewState } from "../app-types"
+import { routePaths } from "../router"
 
 interface SidebarProps {
-  currentView: ViewState;
-  onChangeView: (view: ViewState) => void;
+  currentView: ViewState
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView }) => {
-  
+const Sidebar: React.FC<SidebarProps> = ({ currentView }) => {
+  const navigate = useNavigate()
+
   const inspirationItems = [
-    { id: ViewState.NEWS, label: '新闻中心', icon: Newspaper },
-    { id: ViewState.RESEARCH, label: '深度研究', icon: Search },
-  ];
+    { id: ViewState.NEWS, label: "新闻中心", icon: Newspaper },
+    { id: ViewState.RESEARCH, label: "深度研究", icon: Search },
+  ]
 
   const creativeItems = [
-    { id: ViewState.EDITOR, label: '项目笔记库', icon: Library }, // 整合了编辑器、风格DNA、差异比对
-    { id: ViewState.PUBLISH, label: '发布管理', icon: Smartphone },
-  ];
+    { id: ViewState.EDITOR, label: "项目笔记库", icon: Library }, // 整合了编辑器、风格DNA、差异比对
+    { id: ViewState.PUBLISH, label: "发布管理", icon: Smartphone },
+  ]
 
   return (
     <aside className="w-64 bg-surface border-r border-border flex flex-col h-screen shrink-0">
       <div className="p-6 flex items-center gap-3">
         <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center text-primary">
-           <LayoutDashboard size={20} />
+          <LayoutDashboard size={20} />
         </div>
         <h1 className="font-bold text-lg tracking-tight">TrendEngine</h1>
       </div>
 
       <div className="flex-1 px-4 space-y-6 overflow-y-auto">
-        
+
         {/* 灵感中心 Group */}
         <div>
           <div className="flex items-center gap-2 px-2 mb-2 text-textSecondary">
@@ -38,14 +39,14 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView }) => {
             <span className="text-xs font-bold uppercase tracking-wider">灵感中心</span>
           </div>
           <div className="space-y-1">
-            {inspirationItems.map((item) => (
+            {inspirationItems.map(item => (
               <button
                 key={item.id}
-                onClick={() => onChangeView(item.id)}
+                onClick={() => navigate(routePaths[item.id])}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   currentView === item.id
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-textSecondary hover:text-white hover:bg-surfaceHighlight'
+                    ? "bg-primary/10 text-primary"
+                    : "text-textSecondary hover:text-white hover:bg-surfaceHighlight"
                 }`}
               >
                 <item.icon size={18} />
@@ -62,14 +63,14 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView }) => {
             <span className="text-xs font-bold uppercase tracking-wider">创作空间</span>
           </div>
           <div className="space-y-1">
-            {creativeItems.map((item) => (
+            {creativeItems.map(item => (
               <button
                 key={item.id}
-                onClick={() => onChangeView(item.id)}
+                onClick={() => navigate(routePaths[item.id])}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   currentView === item.id
-                    ? 'bg-primary/10 text-primary'
-                    : 'text-textSecondary hover:text-white hover:bg-surfaceHighlight'
+                    ? "bg-primary/10 text-primary"
+                    : "text-textSecondary hover:text-white hover:bg-surfaceHighlight"
                 }`}
               >
                 <item.icon size={18} />
@@ -92,7 +93,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onChangeView }) => {
         </div>
       </div>
     </aside>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

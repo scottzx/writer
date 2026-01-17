@@ -1,32 +1,24 @@
-const userAtom = atomWithStorage<{
-  name?: string
-  avatar?: string
-}>("user", {})
-
-const jwtAtom = atomWithStorage("jwt", "")
-
-const enableLoginAtom = atomWithStorage<{
-  enable: boolean
-  url?: string
-}>("login", {
-  enable: true,
-})
-
-enableLoginAtom.onMount = (set) => {
-  myFetch("/enable-login").then((r) => {
-    set(r)
-  }).catch((e) => {
-    if (e.statusCode === 506) {
-      set({ enable: false })
-      localStorage.removeItem("jwt")
-    }
-  })
-}
+import { useCallback } from "react"
+import { useMount } from "react-use"
+import { useStore } from "~/stores"
 
 export function useLogin() {
-  const userInfo = useAtomValue(userAtom)
-  const jwt = useAtomValue(jwtAtom)
-  const enableLogin = useAtomValue(enableLoginAtom)
+  const user = useStore(state => state.auth.user)
+  const jwt = useStore(state => state.auth.jwt)
+  const enableLogin = useStore(state => state.auth.enableLogin)
+  const setEnableLogin = useStore(state => state.setEnableLogin)
+
+  // Initialize enableLogin on mount
+  useMount(() => {
+    myFetch("/enable-login").then((r) => {
+      setEnableLogin(r)
+    }).catch((e) => {
+      if (e.statusCode === 506) {
+        setEnableLogin({ enable: false })
+        localStorage.removeItem("jwt")
+      }
+    })
+  })
 
   const login = useCallback(() => {
     window.location.href = enableLogin.url || "/api/login"
@@ -39,7 +31,7 @@ export function useLogin() {
 
   return {
     loggedIn: !!jwt,
-    userInfo,
+    userInfo: user,
     enableLogin: !!enableLogin.enable,
     logout,
     login,

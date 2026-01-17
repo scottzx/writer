@@ -1,17 +1,10 @@
+import { useEffect, useState } from "react"
 import { useMount } from "react-use"
+import { useStore } from "~/stores"
 
 /**
  * changed every minute
  */
-const timerAtom = atom(0)
-
-timerAtom.onMount = (set) => {
-  const timer = setInterval(() => {
-    set(Date.now())
-  }, 60 * 1000)
-  return () => clearInterval(timer)
-}
-
 function useVisibility() {
   const [visible, setVisible] = useState(true)
   useMount(() => {
@@ -28,8 +21,15 @@ function useVisibility() {
 
 export function useRelativeTime(timestamp: string | number) {
   const [time, setTime] = useState<string>()
-  const timer = useAtomValue(timerAtom)
+  const timer = useStore(state => state.timer)
+  const startTimer = useStore(state => state.startTimer)
   const visible = useVisibility()
+
+  // Start timer on mount (only once globally)
+  useMount(() => {
+    const cleanup = startTimer()
+    return cleanup
+  })
 
   useEffect(() => {
     if (visible) {

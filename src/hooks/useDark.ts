@@ -1,12 +1,12 @@
 import { useMemo } from "react"
 import { useMedia, useUpdateEffect } from "react-use"
+import { useStore } from "~/stores"
 
 export declare type ColorScheme = "dark" | "light" | "auto"
 
-const colorSchemeAtom = atomWithStorage("color-scheme", "dark")
-
 export function useDark() {
-  const [colorScheme, setColorScheme] = useAtom(colorSchemeAtom)
+  const colorScheme = useStore(state => state.ui.colorScheme)
+  const setColorScheme = useStore(state => state.setColorScheme)
   const prefersDarkMode = useMedia("(prefers-color-scheme: dark)")
   const isDark = useMemo(() => colorScheme === "auto" ? prefersDarkMode : colorScheme === "dark", [colorScheme, prefersDarkMode])
 

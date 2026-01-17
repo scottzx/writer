@@ -1,53 +1,35 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query"
-import type { SourceID, SourceResponse } from "@shared/types"
+import { useCallback, useEffect } from "react"
+import type { SourceID } from "@shared/types"
+import { useStore } from "~/stores"
 
 export function useUpdateQuery() {
-  const queryClient = useQueryClient()
+  const fetchSource = useStore(state => state.fetchSource)
+  const fetchMultipleSources = useStore(state => state.fetchMultipleSources)
 
   /**
    * update query
    */
   return useCallback(async (...sources: SourceID[]) => {
-    await queryClient.refetchQueries({
-      predicate: (query) => {
-        const [type, id] = query.queryKey as ["source" | "entire", SourceID]
-        return type === "source" && sources.includes(id)
-      },
-    })
-  }, [queryClient])
+    if (sources.length === 1) {
+      await fetchSource(sources[0])
+    } else {
+      await fetchMultipleSources(sources)
+    }
+  }, [fetchSource, fetchMultipleSources])
 }
 
 export function useEntireQuery(items: SourceID[]) {
-  const update = useUpdateQuery()
-  useQuery({
-    // sort in place
-    queryKey: ["entire", [...items].sort()],
-    queryFn: async ({ queryKey }) => {
-      const sources = queryKey[1]
-      if (sources.length === 0) return null
-      const res: SourceResponse[] | undefined = await myFetch("/s/entire", {
-        method: "POST",
-        body: {
-          sources,
-        },
-      })
-      if (res?.length) {
-        const s = [] as SourceID[]
-        res.forEach((v) => {
-          const id = v.id
-          if (!cacheSources.has(id) || cacheSources.get(id)!.updatedTime < v.updatedTime) {
-            s.push(id)
-            cacheSources.set(id, v)
-          }
-        })
-        // update now
-        update(...s)
+  const fetchMultipleSources = useStore(state => state.fetchMultipleSources)
+  const getQueryData = useStore(state => state.getQueryData)
 
-        return res
-      }
-      return null
-    },
-    staleTime: 1000 * 60 * 3,
-    retry: false,
-  })
+  useEffect(() => {
+    if (items.length > 0) {
+      fetchMultipleSources(items)
+    }
+  }, [items, fetchMultipleSources])
+
+  // Get data for all sources
+  const data = items.map(id => getQueryData(id)).filter(Boolean)
+
+  return { data }
 }

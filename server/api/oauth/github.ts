@@ -1,11 +1,12 @@
 import process from "node:process"
 import { SignJWT } from "jose"
 import { UserTable } from "#/database/user"
+import { db as cloudBaseDb, isCloudBaseEnabled } from "#/database/cloudbase-adapter"
 
 export default defineEventHandler(async (event) => {
-  const db = useDatabase()
-  const userTable = db ? new UserTable(db) : undefined
-  if (!userTable) throw new Error("db is not defined")
+  // 根据环境选择数据库实例
+  const db = isCloudBaseEnabled() ? cloudBaseDb : useDatabase()
+  const userTable = new UserTable(db)
   if (process.env.INIT_TABLE !== "false") await userTable.init()
 
   const response: {

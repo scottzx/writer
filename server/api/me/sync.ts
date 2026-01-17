@@ -1,11 +1,12 @@
 import process from "node:process"
 import { UserTable } from "#/database/user"
+import { db as cloudBaseDb, isCloudBaseEnabled } from "#/database/cloudbase-adapter"
 
 export default defineEventHandler(async (event) => {
   try {
     const { id } = event.context.user
-    const db = useDatabase()
-    if (!db) throw new Error("Not found database")
+    // 根据环境选择数据库实例
+    const db = isCloudBaseEnabled() ? cloudBaseDb : useDatabase()
     const userTable = new UserTable(db)
     if (process.env.INIT_TABLE !== "false") await userTable.init()
     if (event.method === "GET") {

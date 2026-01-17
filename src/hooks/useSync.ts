@@ -2,10 +2,9 @@ import type { PrimitiveMetadata } from "@shared/types"
 import { useDebounce, useMount } from "react-use"
 import { useLogin } from "./useLogin"
 import { useToast } from "./useToast"
-import { safeParseString } from "~/utils"
+import { useStore } from "~/stores"
 
-async function uploadMetadata(metadata: PrimitiveMetadata) {
-  const jwt = safeParseString(localStorage.getItem("jwt"))
+async function uploadMetadata(metadata: PrimitiveMetadata, jwt: string) {
   if (!jwt) return
   await myFetch("/me/sync", {
     method: "POST",
@@ -19,8 +18,7 @@ async function uploadMetadata(metadata: PrimitiveMetadata) {
   })
 }
 
-async function downloadMetadata(): Promise<PrimitiveMetadata | undefined> {
-  const jwt = safeParseString(localStorage.getItem("jwt"))
+async function downloadMetadata(jwt: string): Promise<PrimitiveMetadata | undefined> {
   if (!jwt) return
   const { data, updatedTime } = await myFetch("/me/sync", {
     headers: {
@@ -38,14 +36,16 @@ async function downloadMetadata(): Promise<PrimitiveMetadata | undefined> {
 }
 
 export function useSync() {
-  const [primitiveMetadata, setPrimitiveMetadata] = useAtom(primitiveMetadataAtom)
+  const metadata = useStore(state => state.metadata)
+  const setMetadata = useStore(state => state.setMetadata)
+  const jwt = useStore(state => state.auth.jwt)
   const { logout, login } = useLogin()
   const toaster = useToast()
 
   useDebounce(async () => {
     const fn = async () => {
       try {
-        await uploadMetadata(primitiveMetadata)
+        await uploadMetadata(metadata, jwt)
       } catch (e: any) {
         if (e.statusCode !== 506) {
           toaster("身份校验失败，无法同步，请重新登录", {
@@ -60,16 +60,16 @@ export function useSync() {
       }
     }
 
-    if (primitiveMetadata.action === "manual") {
+    if (metadata.action === "manual") {
       fn()
     }
-  }, 10000, [primitiveMetadata])
+  }, 10000, [metadata, jwt])
   useMount(() => {
     const fn = async () => {
       try {
-        const metadata = await downloadMetadata()
+        const metadata = await downloadMetadata(jwt)
         if (metadata) {
-          setPrimitiveMetadata(preprocessMetadata(metadata))
+          setMetadata(preprocessMetadata(metadata))
         }
       } catch (e: any) {
         if (e.statusCode !== 506) {

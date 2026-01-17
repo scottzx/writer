@@ -63,6 +63,9 @@ if (process.env.VERCEL) {
       connector: "bun-sqlite",
     },
   }
+} else if (process.env.CLOUDBASE_ENV_ID) {
+  // CloudBase MySQL 模式：不使用 Nitro 数据库，使用自定义适配器
+  nitroOption.database = undefined
 }
 
 export default function () {
