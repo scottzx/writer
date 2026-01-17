@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { BarChart, Filter, History, PenLine, Search, TrendingUp, X } from "lucide-react"
+import { BarChart, History, PenLine, Search, TrendingUp, X } from "lucide-react"
 import { ViewState } from "../app-types"
 import { routePaths } from "../router"
 import { newsCenterData } from "../data/news-center-data" // Import static data
+import { useSearchHistory } from "../hooks/useSearchHistory"
 import TimelineAnalysis from "./TimelineAnalysis" // Import Timeline component
 
 interface NewsCenterProps {
@@ -54,6 +55,9 @@ function NewsCard({ source, time, title, snippet, score, trend, color, onClick }
 const NewsCenter: React.FC<NewsCenterProps> = () => {
   const navigate = useNavigate()
   const [selectedNews, setSelectedNews] = useState<any>(null)
+  const [searchTerm, setSearchTerm] = useState("")
+  const [selectedSource, setSelectedSource] = useState<string>("所有来源")
+  const { history, addSearchTerm, removeSearchTerm } = useSearchHistory()
 
   const handleNewsClick = (news: any) => {
     setSelectedNews(news)
@@ -65,6 +69,45 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
 
   const handleProceedToResearch = () => {
     navigate(routePaths[ViewState.RESEARCH])
+  }
+
+  // Get unique sources from data
+  const sources = ["所有来源", ...Array.from(new Set(newsCenterData.map(news => news.source)))]
+
+  // Filter news based on search term and selected source
+  const filteredNews = newsCenterData.filter((news) => {
+    // Search filter: check if title includes search term
+    const matchesSearch = searchTerm === "" || news.title.includes(searchTerm)
+
+    // Source filter: check if source matches selected source
+    const matchesSource = selectedSource === "所有来源" || news.source === selectedSource
+
+    return matchesSearch && matchesSource
+  })
+
+  const handleSearch = (term: string) => {
+    setSearchTerm(term)
+  }
+
+  const handleSearchSubmit = (term: string) => {
+    if (term && term.trim()) {
+      addSearchTerm(term.trim())
+      setSearchTerm(term.trim())
+    }
+  }
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearchSubmit(searchTerm)
+    }
+  }
+
+  const handleSourceFilter = (source: string) => {
+    setSelectedSource(source)
+  }
+
+  const clearSearch = () => {
+    setSearchTerm("")
   }
 
   return (
@@ -104,34 +147,65 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
             </div>
             <input
               type="text"
-              className="w-full bg-surface border-none rounded-xl py-4 pl-12 pr-4 text-white placeholder-textSecondary focus:ring-2 focus:ring-primary shadow-lg"
+              className="w-full bg-surface border-none rounded-xl py-4 pl-12 pr-16 text-white placeholder-textSecondary focus:ring-2 focus:ring-primary shadow-lg"
               placeholder="搜索趋势、关键词或实体..."
+              value={searchTerm}
+              onChange={e => handleSearch(e.target.value)}
+              onKeyDown={handleKeyPress}
             />
-            <button className="absolute right-2 top-2 bg-primary/10 text-primary hover:bg-primary/20 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-              搜索
-            </button>
+            {searchTerm && (
+              <button
+                onClick={clearSearch}
+                className="absolute right-2 top-2 bg-surface/50 hover:bg-surface text-textSecondary hover:text-white p-2 rounded-lg transition-colors"
+                title="清除搜索"
+              >
+                <X size={16} />
+              </button>
+            )}
           </div>
           <div className="flex justify-center gap-3 flex-wrap">
             <span className="text-sm text-textSecondary py-1">最近搜索：</span>
-            {["AI 法规", "中国新能源汽车", "热门游戏黑神话", "半导体供应链"].map(tag => (
-              <button key={tag} className="flex items-center gap-1 px-3 py-1 rounded-full border border-border bg-surface hover:border-primary text-textSecondary text-xs hover:text-primary transition-colors">
-                <History size={12} />
-                {" "}
-                {tag}
-              </button>
-            ))}
+            {history.length > 0
+              ? (
+                  history.map(tag => (
+                    <button
+                      key={tag}
+                      onClick={() => handleSearchSubmit(tag)}
+                      className="flex items-center gap-1 px-3 py-1 rounded-full border border-border bg-surface hover:border-primary text-textSecondary text-xs hover:text-primary transition-colors group relative"
+                    >
+                      <History size={12} />
+                      {" "}
+                      {tag}
+                      <span
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          removeSearchTerm(tag)
+                        }}
+                        className="ml-1 hover:text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        ×
+                      </span>
+                    </button>
+                  ))
+                )
+              : (
+                  <span className="text-sm text-textSecondary py-1">暂无搜索历史</span>
+                )}
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center border-b border-border pb-4 gap-4">
           <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0">
-            <button className="flex items-center gap-2 bg-white text-background px-4 py-2 rounded-lg text-sm font-bold">
-              <Filter size={16} />
-              {" "}
-              所有来源
-            </button>
-            {["微博", "知乎", "今日头条", "百度"].map(p => (
-              <button key={p} className="flex items-center gap-2 bg-surface text-textSecondary hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+            {sources.map(p => (
+              <button
+                key={p}
+                onClick={() => handleSourceFilter(p)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  selectedSource === p
+                    ? "bg-white text-background"
+                    : "bg-surface text-textSecondary hover:text-white"
+                }`}
+              >
                 {p}
               </button>
             ))}
@@ -145,13 +219,32 @@ const NewsCenter: React.FC<NewsCenterProps> = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {newsCenterData.map((news, index) => (
-            <NewsCard
-              key={index}
-              onClick={() => handleNewsClick(news)}
-              {...news}
-            />
-          ))}
+          {filteredNews.length > 0
+            ? (
+                filteredNews.map((news, index) => (
+                  <NewsCard
+                    key={index}
+                    onClick={() => handleNewsClick(news)}
+                    {...news}
+                  />
+                ))
+              )
+            : (
+                <div className="col-span-3 text-center py-12">
+                  <p className="text-textSecondary text-lg mb-2">没有找到匹配的新闻</p>
+                  <p className="text-textSecondary text-sm">请尝试其他搜索词或筛选条件</p>
+                  {searchTerm && (
+                    <button
+                      onClick={clearSearch}
+                      className="mt-4 px-6 py-2 bg-primary text-background rounded-lg hover:bg-primaryHover font-semibold transition-colors"
+                    >
+                      清除搜索："
+                      {searchTerm}
+                      "
+                    </button>
+                  )}
+                </div>
+              )}
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import { Flame, LayoutDashboard, Library, Lightbulb, Newspaper, Settings, Smartphone, X } from "lucide-react"
+import { Flame, LayoutDashboard, Library, Lightbulb, Newspaper, Settings, X } from "lucide-react"
 import { ViewState } from "../app-types"
 import { routePaths } from "../router"
 
@@ -20,7 +20,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onToggle }) => {
 
   const creativeItems = [
     { id: ViewState.EDITOR, label: "项目笔记库", icon: Library }, // 整合了编辑器、风格DNA、差异比对
-    { id: ViewState.PUBLISH, label: "发布管理", icon: Smartphone },
+    // { id: ViewState.PUBLISH, label: "发布管理", icon: Smartphone }, // 暂时隐藏发布管理
   ]
 
   return (
