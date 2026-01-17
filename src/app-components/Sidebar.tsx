@@ -5,7 +5,7 @@ import { ViewState } from "../app-types"
 import { routePaths } from "../router"
 
 interface SidebarProps {
-  currentView: ViewState
+  currentView?: ViewState
   onToggle: () => void
 }
 
@@ -48,21 +48,32 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onToggle }) => {
             <span className="text-xs font-bold uppercase tracking-wider">灵感中心</span>
           </div>
           <div className="space-y-1">
-            {inspirationItems.map(item => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => navigate(routePaths[item.id])}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  currentView === item.id
-                    ? "bg-primary/10 text-primary"
-                    : "text-textSecondary hover:text-white hover:bg-surfaceHighlight"
-                }`}
-              >
-                <item.icon size={18} />
-                {item.label}
-              </button>
-            ))}
+            {inspirationItems.map((item) => {
+              const isActive = currentView === item.id
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => navigate(routePaths[item.id])}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 relative ${
+                    isActive
+                      ? "text-white bg-primary/5"
+                      : "text-textSecondary hover:text-white hover:bg-surfaceHighlight"
+                  }`}
+                  style={
+                    isActive
+                      ? {
+                          borderLeft: "3px solid rgb(var(--color-primary))",
+                          paddingLeft: "calc(0.75rem - 3px)",
+                        }
+                      : {}
+                  }
+                >
+                  <item.icon size={isActive ? 20 : 18} className={isActive ? "text-primary" : ""} />
+                  {item.label}
+                </button>
+              )
+            })}
           </div>
         </div>
 
@@ -73,21 +84,32 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onToggle }) => {
             <span className="text-xs font-bold uppercase tracking-wider">创作空间</span>
           </div>
           <div className="space-y-1">
-            {creativeItems.map(item => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => navigate(routePaths[item.id])}
-                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  currentView === item.id
-                    ? "bg-primary/10 text-primary"
-                    : "text-textSecondary hover:text-white hover:bg-surfaceHighlight"
-                }`}
-              >
-                <item.icon size={18} />
-                {item.label}
-              </button>
-            ))}
+            {creativeItems.map((item) => {
+              const isActive = currentView === item.id
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => navigate(routePaths[item.id])}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 relative ${
+                    isActive
+                      ? "text-white bg-primary/5"
+                      : "text-textSecondary hover:text-white hover:bg-surfaceHighlight"
+                  }`}
+                  style={
+                    isActive
+                      ? {
+                          borderLeft: "3px solid rgb(var(--color-primary))",
+                          paddingLeft: "calc(0.75rem - 3px)",
+                        }
+                      : {}
+                  }
+                >
+                  <item.icon size={isActive ? 20 : 18} className={isActive ? "text-primary" : ""} />
+                  {item.label}
+                </button>
+              )
+            })}
           </div>
         </div>
 

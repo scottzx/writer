@@ -21,25 +21,25 @@ async function uploadMetadata(metadata: PrimitiveMetadata, jwt: string) {
   })
 }
 
-async function downloadMetadata(jwt: string): Promise<PrimitiveMetadata | undefined> {
+async function downloadMetadata(jwt: string): Promise<{ data: PrimitiveMetadata["data"], updatedTime: number } | undefined> {
   if (!jwt) return
-  const { data, updatedTime } = await myFetch("/me/sync", {
+  const res = await myFetch("/me/sync", {
     headers: {
       Authorization: `Bearer ${jwt}`,
     },
-  }) as PrimitiveMetadata
-  // 不用同步 action 字段
-  if (data) {
+  }) as { data?: PrimitiveMetadata["data"], updatedTime?: number }
+  // 只返回数据,不包含 action 字段
+  if (res.data) {
     return {
-      action: "sync",
-      data,
-      updatedTime,
+      data: res.data,
+      updatedTime: res.updatedTime || 0,
     }
   }
 }
 
 export function useSync() {
   const setMetadata = useStore(state => state.setMetadata)
+  const resetAction = useStore(state => state.resetAction)
   const jwt = useStore(state => state.auth.jwt)
   const { logout, login } = useLogin()
   const toaster = useToast()
@@ -59,7 +59,7 @@ export function useSync() {
       try {
         await uploadMetadata(metadata, jwt)
         // Reset action after successful upload to prevent re-upload
-        useStore.setState(prev => ({ metadata: { ...prev.metadata, action: "" } }))
+        resetAction()
       } catch (e: any) {
         if (e.statusCode !== 506) {
           toaster("身份校验失败，无法同步，请重新登录", {
@@ -77,18 +77,22 @@ export function useSync() {
     if (metadata.action === "manual") {
       fn()
     }
-  }, 10000, [jwt])
+  }, 10000, [jwt, resetAction])
 
   useMount(() => {
     const fn = async () => {
       try {
-        const metadata = await downloadMetadata(jwt)
-        if (metadata) {
-          hasDownloadedRef.current = true
-          setMetadata(preprocessMetadata(metadata))
-        } else {
-          // No data to download (no jwt or empty response), mark as done
-          hasDownloadedRef.current = true
+        const result = await downloadMetadata(jwt)
+        // Always mark as done, whether we have data or not
+        hasDownloadedRef.current = true
+
+        if (result) {
+          // Merge downloaded data with current state to preserve action
+          const currentMetadata = useStore.getState().metadata
+          setMetadata(preprocessMetadata({
+            ...result,
+            action: currentMetadata.action, // Preserve current action
+          }))
         }
       } catch (e: any) {
         hasDownloadedRef.current = true

@@ -23,7 +23,7 @@ export default function HotsCenter() {
   const [currentColumn, setCurrentColumn] = useState<FixedColumnID>("hottest")
 
   return (
-    <div className="flex-1 overflow-hidden bg-background relative">
+    <div className="flex-1 overflow-auto bg-background relative">
       {/* Search Bar - Cmd+K 唤起 */}
       <SearchBar />
 
@@ -87,7 +87,7 @@ export default function HotsCenter() {
         </div>
 
         {/* 新闻内容区 - 使用 Dnd 组件 */}
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1 overflow-auto">
           {currentSources.length > 0
             ? (
                 <Dnd />

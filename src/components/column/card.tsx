@@ -37,11 +37,11 @@ export const CardWrapper = forwardRef<HTMLElement, ItemsProps>(({ id, isDragging
     <div
       ref={ref}
       className={$(
-        "flex flex-col h-500px rounded-2xl p-4 cursor-default",
-        // "backdrop-blur-5",
-        "transition-opacity-300",
-        isDragging && "op-50",
-        `bg-${sources[id].color}-500 dark:bg-${sources[id].color} bg-op-40!`,
+        "flex flex-col min-h-[500px] max-h-[600px] rounded-xl p-5 cursor-default group",
+        "bg-surface border border-border",
+        "hover:border-primary/50 hover:bg-surfaceHighlight/50",
+        "transition-all duration-200",
+        isDragging && "op-50 scale-95",
       )}
       style={{
         transformOrigin: "50% 50%",
@@ -110,10 +110,11 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
 
   return (
     <>
-      <div className={$("flex justify-between mx-2 mt-0 mb-2 items-center")}>
-        <div className="flex gap-2 items-center">
+      <div className="flex justify-between items-center mb-4 pb-3 border-b border-border/50">
+        {/* 左侧：源信息 */}
+        <div className="flex items-center gap-3">
           <a
-            className={$("w-8 h-8 rounded-full bg-cover")}
+            className="w-10 h-10 rounded-full bg-cover border-2 border-primary/30 hover:border-primary/50 transition-colors"
             target="_blank"
             href={sources[id].home}
             title={sources[id].desc}
@@ -121,45 +122,64 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
               backgroundImage: `url(/icons/${id.split("-")[0]}.png)`,
             }}
           />
-          <span className="flex flex-col">
-            <span className="flex items-center gap-2">
+          <div className="flex flex-col">
+            <div className="flex items-center gap-2">
               <span
-                className="text-xl font-bold"
+                className="text-lg font-bold text-white group-hover:text-primary transition-colors"
                 title={sources[id].desc}
               >
                 {sources[id].name}
               </span>
-              {sources[id]?.title && <span className={$("text-sm", `color-${sources[id].color} bg-base op-80 bg-op-50! px-1 rounded`)}>{sources[id].title}</span>}
-            </span>
-            <span className="text-xs op-70"><UpdatedTime isError={isError} updatedTime={data?.updatedTime} /></span>
-          </span>
+              {sources[id]?.title && (
+                <span className={$("text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded", `bg-${sources[id].color}/10 text-${sources[id].color}`)}>
+                  {sources[id].title}
+                </span>
+              )}
+            </div>
+          </div>
         </div>
-        <div className={$("flex gap-2 text-lg", `color-${sources[id].color}`)}>
-          <button
-            type="button"
-            className={$("btn i-ph:arrow-counter-clockwise-duotone", isFetching && "animate-spin i-ph:circle-dashed-duotone")}
-            onClick={() => refresh(id)}
-          />
-          <button
-            type="button"
-            className={$("btn", isFocused ? "i-ph:star-fill" : "i-ph:star-duotone")}
-            onClick={toggleFocus}
-          />
-          {/* firefox cannot drag a button */}
-          {setHandleRef && (
-            <div
-              ref={setHandleRef}
-              className={$("btn", "i-ph:dots-six-vertical-duotone", "cursor-grab")}
-            />
-          )}
+
+        {/* 右侧：时间标签 + 操作按钮 */}
+        <div className="flex items-center gap-3">
+          <span className="text-xs text-textSecondary bg-background px-2.5 py-1 rounded-md">
+            <UpdatedTime isError={isError} updatedTime={data?.updatedTime} />
+          </span>
+          <div className={$("flex items-center gap-1.5", `text-${sources[id].color}`)}>
+            <button
+              type="button"
+              className={$("btn p-1.5 rounded-md hover:bg-surfaceHighlight/50 transition-colors", isFetching && "animate-spin")}
+              onClick={() => refresh(id)}
+              title="刷新"
+            >
+              <span className={isFetching ? "i-ph:circle-dashed-duotone" : "i-ph:arrow-counter-clockwise-duotone"} />
+            </button>
+            <button
+              type="button"
+              className={$("btn p-1.5 rounded-md hover:bg-surfaceHighlight/50 transition-colors", isFocused && "text-primary")}
+              onClick={toggleFocus}
+              title={isFocused ? "取消收藏" : "收藏"}
+            >
+              <span className={isFocused ? "i-ph:star-fill" : "i-ph:star-duotone"} />
+            </button>
+            {/* firefox cannot drag a button */}
+            {setHandleRef && (
+              <div
+                ref={setHandleRef}
+                className="btn p-1.5 rounded-md hover:bg-surfaceHighlight/50 cursor-grab active:cursor-grabbing transition-colors"
+                title="拖拽排序"
+              >
+                <span className="i-ph:dots-six-vertical-duotone" />
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
       <OverlayScrollbar
         className={$([
-          "h-full p-2 overflow-y-auto rounded-2xl bg-base bg-op-70!",
-          isFetching && `animate-pulse`,
+          "flex-1 overflow-y-auto pr-1 bg-transparent",
           `sprinkle-${sources[id].color}`,
+          isFetching && "animate-pulse op-50",
         ])}
         options={{
           overflow: { x: "hidden" },
@@ -170,6 +190,48 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
           {!!data?.items?.length && (sources[id].type === "hottest" ? <NewsListHot items={data.items} /> : <NewsListTimeLine items={data.items} />)}
         </div>
       </OverlayScrollbar>
+
+      {/* 底部统计信息区域 */}
+      {data?.items && data.items.length > 0 && (
+        <div className="mt-4 pt-4 border-t border-border/50">
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-textSecondary">更新</span>
+              <span className="text-sm font-bold text-white flex items-center gap-1">
+                {data.items.length}
+                <span className="text-xs font-normal text-textSecondary">条</span>
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs text-textSecondary">热度</span>
+              <div className="flex items-center gap-1">
+                {Array.from({ length: Math.floor(Math.random() * 3) + 3 }).map((_, i) => (
+                  <div
+                    key={i}
+                    className={$("w-1 h-3 rounded-full transition-all duration-300", i < 2 ? "bg-primary" : "bg-primary/30")}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <button
+            className={$(
+              "w-full flex items-center justify-center gap-2",
+              "bg-background hover:bg-primary/10 text-primary",
+              "text-sm font-semibold py-2.5 rounded-lg transition-all duration-200",
+              "active:scale-[0.98]",
+            )}
+            onClick={() => {
+              console.log(`查看 ${sources[id].name} 详情`)
+            }}
+            title="查看更多内容"
+          >
+            <span className="i-ph:arrows-out-simple-horizontal text-lg" />
+            查看全部
+          </button>
+        </div>
+      )}
     </>
   )
 }
@@ -241,22 +303,25 @@ function NewsListHot({ items }: { items: NewsItem[] }) {
           key={item.id}
           title={item.extra?.hover}
           className={$(
-            "flex gap-2 items-center items-stretch relative cursor-pointer [&_*]:cursor-pointer transition-all",
-            "hover:bg-neutral-400/10 rounded-md pr-1 visited:(text-neutral-400)",
+            "flex gap-3 items-center items-stretch relative cursor-pointer transition-all duration-200 group/item",
+            "hover:bg-surfaceHighlight/30 rounded-lg px-2 py-2 -mx-2",
+            "visited:text-textSecondary",
           )}
         >
-          <span className={$("bg-neutral-400/10 min-w-6 flex justify-center items-center rounded-md text-sm")}>
+          <span className={$("min-w-7 h-7 flex justify-center items-center rounded-md text-sm font-bold", "bg-primary/10 text-primary group-hover/item:bg-primary/20 transition-colors")}>
             {i + 1}
           </span>
           {!!item.extra?.diff && <DiffNumber diff={item.extra.diff} />}
-          <span className="self-start line-height-none">
-            <span className="mr-2 text-base">
+          <div className="flex-1 min-w-0 flex flex-col justify-center">
+            <span className="text-sm font-medium text-white leading-snug line-clamp-2 group-hover/item:text-primary transition-colors">
               {item.title}
             </span>
-            <span className="text-xs text-neutral-400/80 truncate align-middle">
-              <ExtraInfo item={item} />
-            </span>
-          </span>
+            {item?.extra && (
+              <div className="flex items-center gap-1.5 mt-1 text-xs text-textSecondary">
+                <ExtraInfo item={item} />
+              </div>
+            )}
+          </div>
         </a>
       ))}
     </ol>
@@ -266,29 +331,28 @@ function NewsListHot({ items }: { items: NewsItem[] }) {
 function NewsListTimeLine({ items }: { items: NewsItem[] }) {
   const { width } = useWindowSize()
   return (
-    <ol className="border-s border-neutral-400/50 flex flex-col ml-1">
+    <ol className="border-l-2 border-border/50 flex flex-col ml-1">
       {items?.map(item => (
-        <li key={`${item.id}-${item.pubDate || item?.extra?.date || ""}`} className="flex flex-col">
-          <span className="flex items-center gap-1 text-neutral-400/50 ml--1px">
-            <span className="">-</span>
-            <span className="text-xs text-neutral-400/80">
-              {(item.pubDate || item?.extra?.date) && <NewsUpdatedTime date={(item.pubDate || item?.extra?.date)!} />}
-            </span>
-            <span className="text-xs text-neutral-400/80">
-              <ExtraInfo item={item} />
-            </span>
-          </span>
+        <li key={`${item.id}-${item.pubDate || item?.extra?.date || ""}`} className="flex flex-col gap-1 mb-3 last:mb-0">
+          <div className="flex items-center gap-2 text-textSecondary/70 text-xs ml-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary/50"></span>
+            <span className={(item.pubDate || item?.extra?.date) && <NewsUpdatedTime date={(item.pubDate || item?.extra?.date)!} />} />
+            <ExtraInfo item={item} />
+          </div>
           <a
             className={$(
-              "ml-2 px-1 hover:bg-neutral-400/10 rounded-md visited:(text-neutral-400/80)",
-              "cursor-pointer [&_*]:cursor-pointer transition-all",
+              "ml-4 px-3 py-2 hover:bg-surfaceHighlight/30 rounded-lg transition-all duration-200",
+              "visited:text-textSecondary group-hover/item:text-primary",
+              "cursor-pointer block",
             )}
             href={width < 768 ? item.mobileUrl || item.url : item.url}
             title={item.extra?.hover}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {item.title}
+            <span className="text-sm font-medium text-white leading-snug line-clamp-2">
+              {item.title}
+            </span>
           </a>
         </li>
       ))}

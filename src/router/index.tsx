@@ -1,5 +1,4 @@
 import React from "react"
-import { Navigate } from "react-router-dom"
 /* eslint-disable react-refresh/only-export-components */
 
 import NewsCenter from "../app-views/NewsCenter"
@@ -62,11 +61,25 @@ function getLabelForView(view: ViewState): string {
   }
 }
 
+// 欢迎页面
+function WelcomePage() {
+  return (
+    <div className="flex-1 flex flex-col items-center justify-center bg-background text-white h-full">
+      <div className="text-center space-y-4">
+        <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          欢迎使用 TrendEngine
+        </h1>
+        <p className="text-textSecondary">请从左侧菜单选择一个功能开始使用</p>
+      </div>
+    </div>
+  )
+}
+
 // 路由配置元素
 export const routes = [
   {
     path: "/",
-    element: <Navigate to={routePaths[ViewState.NEWS]} replace />,
+    element: <WelcomePage />,
   },
   {
     path: routePaths[ViewState.NEWS],

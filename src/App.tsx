@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { Menu } from "lucide-react"
 import Sidebar from "./app-components/Sidebar"
 import { getViewStateFromPath, routes } from "./router"
-import { ViewState } from "./app-types"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,7 +18,7 @@ const queryClient = new QueryClient({
 
 const AppContent: React.FC = () => {
   const location = useLocation()
-  const currentView = getViewStateFromPath(location.hash) || ViewState.NEWS
+  const currentView = getViewStateFromPath(location.hash)
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(true)
 
   return (

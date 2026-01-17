@@ -35,6 +35,12 @@ export interface MetadataSlice {
   setMetadata: (metadata: PrimitiveMetadata) => void
   updateMetadata: (update: Partial<PrimitiveMetadata>) => void
   setCurrentColumnID: (id: FixedColumnID) => void
+  resetAction: () => void
+  // Stable selectors for use with shallow comparison
+  selectFocusSources: (state: MetadataSlice) => SourceID[]
+  selectCurrentSources: (state: MetadataSlice) => SourceID[]
+  selectCurrentColumnID: (state: MetadataSlice) => FixedColumnID
+  // Legacy methods (kept for backward compatibility)
   getFocusSources: () => SourceID[]
   setFocusSources: (update: Update<SourceID[]>) => void
   getCurrentSources: () => SourceID[]
@@ -56,6 +62,10 @@ export const createMetadataSlice: StateCreator<MetadataSlice> = (set, get) => {
 
     setMetadata: metadata => set({ metadata }),
 
+    resetAction: () => set(state => ({
+      metadata: { ...state.metadata, action: "" },
+    })),
+
     updateMetadata: update => set((state) => {
       const nextMetadata = { ...state.metadata, ...update }
       // Only update if newer (same logic as Jotai)
@@ -66,6 +76,11 @@ export const createMetadataSlice: StateCreator<MetadataSlice> = (set, get) => {
     }),
 
     setCurrentColumnID: currentColumnID => set({ currentColumnID }),
+
+    // Stable selectors (for use with shallow comparison in components)
+    selectFocusSources: state => state.metadata.data.focus || [],
+    selectCurrentSources: state => state.metadata.data[state.currentColumnID] || [],
+    selectCurrentColumnID: state => state.currentColumnID,
 
     // Derived state as selectors (computed on access)
     getFocusSources: () => {
