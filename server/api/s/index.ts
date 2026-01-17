@@ -1,7 +1,8 @@
 import type { SourceID, SourceResponse } from "@shared/types"
-import { getters } from "#/getters"
-import { getCacheTable } from "#/database/cache"
-import type { CacheInfo } from "#/types"
+import { getters } from "../../getters"
+import { getCacheTable } from "../../database/cache"
+import type { CacheInfo } from "../../types"
+import { sources } from "../../../shared/sources"
 
 export default defineEventHandler(async (event): Promise<SourceResponse> => {
   try {

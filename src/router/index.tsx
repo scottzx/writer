@@ -1,6 +1,9 @@
 import React from "react"
 import { Navigate } from "react-router-dom"
+/* eslint-disable react-refresh/only-export-components */
+
 import NewsCenter from "../app-views/NewsCenter"
+import HotsCenter from "../app-views/HotsCenter"
 import TimelineAnalysis from "../app-views/TimelineAnalysis"
 import ResearchCenter from "../app-views/ResearchCenter"
 import EditorWorkspace from "../app-views/EditorWorkspace"
@@ -9,6 +12,7 @@ import { ViewState } from "../app-types"
 // 路由路径与 ViewState 的映射
 export const routePaths: Record<ViewState, string> = {
   [ViewState.NEWS]: "/news",
+  [ViewState.HOTS]: "/hots", // 新增：热点聚合
   [ViewState.TIMELINE]: "/timeline",
   [ViewState.RESEARCH]: "/research",
   [ViewState.OUTLINE]: "/outline",
@@ -67,6 +71,10 @@ export const routes = [
   {
     path: routePaths[ViewState.NEWS],
     element: <NewsCenter />,
+  },
+  {
+    path: routePaths[ViewState.HOTS],
+    element: <HotsCenter />,
   },
   {
     path: routePaths[ViewState.TIMELINE],

@@ -1,5 +1,6 @@
-import type { Database, type RdbClient, isCloudBaseEnabled } from "./cloudbase-adapter"
-import type { UserInfo } from "#/types"
+import type { UserInfo } from "../types"
+import type { Database, type RdbClient } from "./cloudbase-adapter"
+import { isCloudBaseEnabled } from "./cloudbase-adapter"
 
 export class UserTable {
   private db: Database | RdbClient

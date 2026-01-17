@@ -1,22 +1,43 @@
-services:
-  newsnow:
-    image: ghcr.io/ourongxing/newsnow:latest
-    container_name: newsnow
-    ports:
-      - '4444:4444'
-    volumes:
-      - newsnow_data:/usr/app/.data
-    environment:
-      - HOST=0.0.0.0
-      - PORT=4444
-      - NODE_ENV=production
-      - G_CLIENT_ID=
-      - G_CLIENT_SECRET=
-      - JWT_SECRET=
-      - INIT_TABLE=true
-      - ENABLE_CACHE=true
-      - PRODUCTHUNT_API_TOKEN=
+version: '3.8'
 
-volumes:
-  newsnow_data:
-    name: newsnow_data
+services:
+  # 后端服务
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: newsnow-backend
+    ports:
+      - '3001:3001'
+    environment:
+      - NODE_ENV=production
+      - CLOUDBASE_ENV_ID=${CLOUDBASE_ENV_ID}
+      - CLOUDBASE_API_KEY=${CLOUDBASE_API_KEY}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    restart: unless-stopped
+    networks:
+      - newsnow-network
+    healthcheck:
+      test: [CMD, wget, --quiet, --tries=1, --spider, 'http://localhost:3001/api/health']
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # 前端服务
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: newsnow-frontend
+    ports:
+      - '80:80'
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - newsnow-network
+
+networks:
+  newsnow-network:
+    driver: bridge

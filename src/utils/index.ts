@@ -1,5 +1,6 @@
 import type { MaybePromise } from "@shared/type.util"
 import { $fetch } from "ofetch"
+import { delay as sharedDelay } from "@shared/utils"
 
 export function safeParseString(str: any) {
   try {
@@ -54,3 +55,6 @@ export function isiOS() {
   ].includes(navigator.platform)
   || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
 }
+
+// Re-export delay from shared/utils
+export const delay = sharedDelay

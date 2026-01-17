@@ -1,18 +1,20 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import { LayoutDashboard, Library, Lightbulb, Newspaper, Search, Settings, Smartphone } from "lucide-react"
+import { Flame, LayoutDashboard, Library, Lightbulb, Newspaper, Search, Settings, Smartphone, X } from "lucide-react"
 import { ViewState } from "../app-types"
 import { routePaths } from "../router"
 
 interface SidebarProps {
   currentView: ViewState
+  onToggle: () => void
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ currentView }) => {
+const Sidebar: React.FC<SidebarProps> = ({ currentView, onToggle }) => {
   const navigate = useNavigate()
 
   const inspirationItems = [
     { id: ViewState.NEWS, label: "新闻中心", icon: Newspaper },
+    { id: ViewState.HOTS, label: "热点聚合", icon: Flame }, // 新增：热点聚合入口
     { id: ViewState.RESEARCH, label: "深度研究", icon: Search },
   ]
 
@@ -28,6 +30,13 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView }) => {
           <LayoutDashboard size={20} />
         </div>
         <h1 className="font-bold text-lg tracking-tight">TrendEngine</h1>
+        <button
+          type="button"
+          onClick={onToggle}
+          className="ml-auto p-1 rounded-lg hover:bg-surfaceHighlight transition-colors text-textSecondary hover:text-white"
+        >
+          <X size={18} />
+        </button>
       </div>
 
       <div className="flex-1 px-4 space-y-6 overflow-y-auto">
@@ -42,6 +51,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView }) => {
             {inspirationItems.map(item => (
               <button
                 key={item.id}
+                type="button"
                 onClick={() => navigate(routePaths[item.id])}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   currentView === item.id
@@ -66,6 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView }) => {
             {creativeItems.map(item => (
               <button
                 key={item.id}
+                type="button"
                 onClick={() => navigate(routePaths[item.id])}
                 className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   currentView === item.id

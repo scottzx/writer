@@ -4,9 +4,9 @@ import react from "@vitejs/plugin-react-swc"
 import unocss from "unocss/vite"
 import unimport from "unimport/unplugin"
 import dotenv from "dotenv"
-import nitro from "./nitro.config"
 import { projectDir } from "./shared/dir"
 import pwa from "./pwa.config"
+// import nitro from "./nitro.config"  // Temporarily disabled due to h3-nightly compatibility issue
 
 dotenv.config({
   path: join(projectDir, ".env.server"),
@@ -15,8 +15,8 @@ dotenv.config({
 export default defineConfig({
   server: {
     proxy: {
-      '/api': {
-        target: 'http://localhost:3001',
+      "/api": {
+        target: "http://localhost:3001",
         changeOrigin: true,
       },
     },
@@ -43,6 +43,6 @@ export default defineConfig({
     unocss(),
     react(),
     pwa(),
-    // nitro(), // Temporarily disabled due to h3-nightly compatibility issue
+    // nitro(),  // Temporarily disabled - Nitro server running separately on port 3001
   ],
 })

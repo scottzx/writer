@@ -1,7 +1,7 @@
 import process from "node:process"
 import { SignJWT } from "jose"
-import { UserTable } from "#/database/user"
-import { db as cloudBaseDb, isCloudBaseEnabled } from "#/database/cloudbase-adapter"
+import { UserTable } from "../../database/user"
+import { db as cloudBaseDb, isCloudBaseEnabled } from "../../database/cloudbase-adapter"
 
 export default defineEventHandler(async (event) => {
   // 根据环境选择数据库实例

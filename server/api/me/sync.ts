@@ -1,6 +1,6 @@
 import process from "node:process"
-import { UserTable } from "#/database/user"
-import { db as cloudBaseDb, isCloudBaseEnabled } from "#/database/cloudbase-adapter"
+import { UserTable } from "../../database/user"
+import { db as cloudBaseDb, isCloudBaseEnabled } from "../../database/cloudbase-adapter"
 
 export default defineEventHandler(async (event) => {
   try {

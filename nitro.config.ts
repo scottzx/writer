@@ -5,6 +5,7 @@ import { RollopGlob } from "./tools/rollup-glob"
 import { projectDir } from "./shared/dir"
 
 const nitroOption: Parameters<typeof viteNitro>[0] = {
+  compatibilityDate: "2026-01-17",
   experimental: {
     database: true,
   },
@@ -24,6 +25,13 @@ const nitroOption: Parameters<typeof viteNitro>[0] = {
   },
   imports: {
     dirs: ["server/utils", "shared"],
+    presets: [
+      {
+        imports: [
+          { from: "@shared/sources", name: "sources", as: "sources" },
+        ],
+      },
+    ],
   },
   preset: "node-server",
   alias: {

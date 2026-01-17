@@ -1,0 +1,45 @@
+# 后端 Dockerfile
+FROM node:20-alpine AS backend-builder
+
+WORKDIR /app
+
+# 复制 package.json 和 pnpm-lock.yaml
+COPY package.json pnpm-lock.yaml ./
+
+# 安装 pnpm
+RUN npm install -g pnpm
+
+# 安装依赖
+RUN pnpm install --frozen-lockfile
+
+# 复制源代码
+COPY . .
+
+# 构建后端
+RUN pnpm run build
+
+# 生产镜像
+FROM node:20-alpine AS backend
+
+WORKDIR /app
+
+# 复制构建产物
+COPY --from=backend-builder /app/.output ./
+COPY --from=backend-builder /app/package.json ./
+
+# 复制 server 目录（用于运行时）
+COPY --from=backend-builder /app/server ./server
+COPY --from=backend-builder /app/shared ./shared
+
+# 安装生产依赖
+RUN npm install --production
+
+# 设置环境变量
+ENV NODE_ENV=production
+ENV PORT=3001
+
+# 暴露端口
+EXPOSE 3001
+
+# 启动命令
+CMD ["node", ".output/server/index.mjs"]

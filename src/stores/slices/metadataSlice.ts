@@ -1,13 +1,32 @@
 import type { StateCreator } from "zustand"
 import type { FixedColumnID, PrimitiveMetadata, SourceID } from "@shared/types"
+import { metadata as defaultMetadata } from "@shared/metadata"
 
 export type Update<T> = T | ((prev: T) => T)
 
-// Preprocess function - will be imported from utils
+// 将默认的 Metadata 转换为 PrimitiveMetadata.data 格式
+function getDefaultMetadataData(): Record<FixedColumnID, SourceID[]> {
+  return {
+    focus: defaultMetadata.focus?.sources || [],
+    hottest: defaultMetadata.hottest?.sources || [],
+    realtime: defaultMetadata.realtime?.sources || [],
+  }
+}
 
+// Preprocess metadata from server sync
+// 合并服务器数据和本地默认数据,确保所有栏目都有值
 function _preprocessMetadata(target: PrimitiveMetadata): PrimitiveMetadata {
-  // This is a placeholder - the actual implementation will be imported
-  return target
+  const defaultData = getDefaultMetadataData()
+
+  return {
+    ...target,
+    data: {
+      // 使用服务器数据,如果为空则使用默认值
+      focus: target.data.focus?.length > 0 ? target.data.focus : defaultData.focus,
+      hottest: target.data.hottest?.length > 0 ? target.data.hottest : defaultData.hottest,
+      realtime: target.data.realtime?.length > 0 ? target.data.realtime : defaultData.realtime,
+    },
+  }
 }
 
 export interface MetadataSlice {
@@ -20,73 +39,103 @@ export interface MetadataSlice {
   setFocusSources: (update: Update<SourceID[]>) => void
   getCurrentSources: () => SourceID[]
   setCurrentSources: (update: Update<SourceID[]>) => void
+  reorderSources: (fromIndex: number, toIndex: number) => void
 }
 
-export const createMetadataSlice: StateCreator<MetadataSlice> = (set, get) => ({
-  metadata: {
-    updatedTime: 0,
-    data: {} as any, // Will be initialized properly
-    action: "init",
-  },
-  currentColumnID: "focus",
+export const createMetadataSlice: StateCreator<MetadataSlice> = (set, get) => {
+  // 使用默认数据源初始化,确保所有用户(包括未登录)都能看到内容
+  const initialData = getDefaultMetadataData()
 
-  setMetadata: metadata => set({ metadata }),
+  return {
+    metadata: {
+      updatedTime: 0,
+      data: initialData,
+      action: "init",
+    },
+    currentColumnID: "hottest", // 默认显示"最热"栏目
 
-  updateMetadata: update => set((state) => {
-    const nextMetadata = { ...state.metadata, ...update }
-    // Only update if newer (same logic as Jotai)
-    if (nextMetadata.updatedTime > state.metadata.updatedTime) {
-      return { metadata: nextMetadata }
-    }
-    return state
-  }),
+    setMetadata: metadata => set({ metadata }),
 
-  setCurrentColumnID: currentColumnID => set({ currentColumnID }),
+    updateMetadata: update => set((state) => {
+      const nextMetadata = { ...state.metadata, ...update }
+      // Only update if newer (same logic as Jotai)
+      if (nextMetadata.updatedTime > state.metadata.updatedTime) {
+        return { metadata: nextMetadata }
+      }
+      return state
+    }),
 
-  // Derived state as selectors (computed on access)
-  getFocusSources: () => {
-    const state = get()
-    return state.metadata.data.focus || []
-  },
+    setCurrentColumnID: currentColumnID => set({ currentColumnID }),
 
-  setFocusSources: update => set((state) => {
-    const focusSources = typeof update === "function"
-      ? update(state.metadata.data.focus || [])
-      : update
+    // Derived state as selectors (computed on access)
+    getFocusSources: () => {
+      const state = get()
+      return state.metadata.data.focus || []
+    },
 
-    return {
-      metadata: {
-        ...state.metadata,
-        updatedTime: Date.now(),
-        action: "manual",
-        data: {
-          ...state.metadata.data,
-          focus: focusSources,
+    setFocusSources: update => set((state) => {
+      const currentFocus = state.metadata.data.focus || []
+      const focusSources = typeof update === "function"
+        ? update(currentFocus)
+        : update
+
+      return {
+        metadata: {
+          ...state.metadata,
+          updatedTime: Date.now(),
+          action: "manual",
+          data: {
+            ...state.metadata.data,
+            focus: focusSources,
+          },
         },
-      },
-    }
-  }),
+      }
+    }),
 
-  getCurrentSources: () => {
-    const state = get()
-    return state.metadata.data[state.currentColumnID] || []
-  },
+    getCurrentSources: () => {
+      const state = get()
+      return state.metadata.data[state.currentColumnID] || []
+    },
 
-  setCurrentSources: update => set((state) => {
-    const currentSources = typeof update === "function"
-      ? update(state.metadata.data[state.currentColumnID] || [])
-      : update
+    setCurrentSources: update => set((state) => {
+      const currentSources = typeof update === "function"
+        ? update(state.metadata.data[state.currentColumnID] || [])
+        : update
 
-    return {
-      metadata: {
-        ...state.metadata,
-        updatedTime: Date.now(),
-        action: "manual",
-        data: {
-          ...state.metadata.data,
-          [state.currentColumnID]: currentSources,
+      return {
+        metadata: {
+          ...state.metadata,
+          updatedTime: Date.now(),
+          action: "manual",
+          data: {
+            ...state.metadata.data,
+            [state.currentColumnID]: currentSources,
+          },
         },
-      },
-    }
-  }),
-})
+      }
+    }),
+
+    reorderSources: (fromIndex, toIndex) => set((state) => {
+      const currentSources = state.metadata.data[state.currentColumnID] || []
+      if (fromIndex === toIndex || fromIndex < 0 || toIndex < 0 || fromIndex >= currentSources.length || toIndex >= currentSources.length) {
+        return state
+      }
+
+      const newSources = [...currentSources]
+      const [removed] = newSources.splice(fromIndex, 1)
+      newSources.splice(toIndex, 0, removed)
+
+      return {
+        metadata: {
+          ...state.metadata,
+          updatedTime: Date.now(),
+          action: "manual",
+          data: {
+            ...state.metadata.data,
+            [state.currentColumnID]: newSources,
+          },
+        },
+      }
+    }),
+  }
+}

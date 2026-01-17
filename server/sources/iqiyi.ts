@@ -1,5 +1,5 @@
-import { myFetch } from "#/utils/fetch"
-import { defineSource } from "#/utils/source"
+import { myFetch } from "../utils/fetch"
+import { defineSource } from "../utils/source"
 
 interface WapResp {
   code: number

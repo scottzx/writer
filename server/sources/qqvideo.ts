@@ -1,6 +1,6 @@
 import dayjs from "dayjs/esm"
-import { myFetch } from "#/utils/fetch"
-import { defineSource } from "#/utils/source"
+import { myFetch } from "../utils/fetch"
+import { defineSource } from "../utils/source"
 
 interface WapResp {
   data: {
