@@ -1,5 +1,6 @@
 import type { PrimitiveMetadata } from "@shared/types"
 import { useDebounce, useMount } from "react-use"
+import { useRef } from "react"
 import { useLogin } from "./useLogin"
 import { useToast } from "./useToast"
 import { useStore } from "~/stores"
@@ -43,8 +44,15 @@ export function useSync() {
   const { logout, login } = useLogin()
   const toaster = useToast()
 
-  useDebounce(async () => {
-    // Get latest metadata from store to avoid stale closure values
+  // Track if initial sync has completed
+  const hasDownloadedRef = useRef(false)
+
+  useDebounce(() => {
+    // Skip if we haven't completed initial download yet
+    if (!hasDownloadedRef.current) {
+      return
+    }
+
     const metadata = useStore.getState().metadata
 
     const fn = async () => {
@@ -70,14 +78,20 @@ export function useSync() {
       fn()
     }
   }, 10000, [jwt])
+
   useMount(() => {
     const fn = async () => {
       try {
         const metadata = await downloadMetadata(jwt)
         if (metadata) {
+          hasDownloadedRef.current = true
           setMetadata(preprocessMetadata(metadata))
+        } else {
+          // No data to download (no jwt or empty response), mark as done
+          hasDownloadedRef.current = true
         }
       } catch (e: any) {
+        hasDownloadedRef.current = true
         if (e.statusCode !== 506) {
           toaster("身份校验失败，无法同步，请重新登录", {
             type: "error",

@@ -22,7 +22,10 @@
     "release": "bumpp",
     "prepare": "simple-git-hooks",
     "log": "wrangler pages deployment tail --project-name newsnow",
-    "test": "vitest -c vitest.config.ts"
+    "test": "vitest -c vitest.config.ts",
+    "restart": "./restart.sh",
+    "restart:docker": "./restart-docker.sh",
+    "setup": "./setup-env.sh"
   },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "^0.2.11",

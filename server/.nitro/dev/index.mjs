@@ -934,30 +934,29 @@ const _1Va1YH = defineEventHandler(async (event) => {
   var _a, _b;
   const url = getRequestURL(event);
   if (!url.pathname.startsWith("/api")) return;
-  if (["JWT_SECRET", "G_CLIENT_ID", "G_CLIENT_SECRET"].find((k) => !process$1.env[k])) {
+  const hasLoginConfig = ["JWT_SECRET", "G_CLIENT_ID", "G_CLIENT_SECRET"].every((k) => process$1.env[k]);
+  if (!hasLoginConfig) {
     event.context.disabledLogin = true;
-    if (["/api/s", "/api/proxy", "/api/latest", "/api/mcp", "/api/chat", "/api/projects"].every((p) => !url.pathname.startsWith(p)))
-      throw createError({ statusCode: 506, message: "Server not configured, disable login" });
-  } else {
-    if (["/api/s", "/api/me"].find((p) => url.pathname.startsWith(p))) {
-      const token = (_b = (_a = getHeader(event, "Authorization")) == null ? void 0 : _a.replace(/Bearer\s*/, "")) == null ? void 0 : _b.trim();
-      if (token) {
-        try {
-          const { payload } = await jwtVerify(token, new TextEncoder().encode(process$1.env.JWT_SECRET));
-          if (payload == null ? void 0 : payload.id) {
-            event.context.user = {
-              id: payload.id,
-              type: payload.type
-            };
-          }
-        } catch {
-          if (url.pathname.startsWith("/api/me"))
-            throw createError({ statusCode: 401, message: "JWT verification failed" });
-          else logger.warn("JWT verification failed");
+    return;
+  }
+  if (["/api/s", "/api/me"].find((p) => url.pathname.startsWith(p))) {
+    const token = (_b = (_a = getHeader(event, "Authorization")) == null ? void 0 : _a.replace(/Bearer\s*/, "")) == null ? void 0 : _b.trim();
+    if (token) {
+      try {
+        const { payload } = await jwtVerify(token, new TextEncoder().encode(process$1.env.JWT_SECRET));
+        if (payload == null ? void 0 : payload.id) {
+          event.context.user = {
+            id: payload.id,
+            type: payload.type
+          };
         }
-      } else if (url.pathname.startsWith("/api/me")) {
-        throw createError({ statusCode: 401, message: "JWT verification failed" });
+      } catch {
+        if (url.pathname.startsWith("/api/me"))
+          throw createError({ statusCode: 401, message: "JWT verification failed" });
+        else logger.warn("JWT verification failed");
       }
+    } else if (url.pathname.startsWith("/api/me")) {
+      throw createError({ statusCode: 401, message: "JWT verification failed" });
     }
   }
 });
@@ -1363,9 +1362,10 @@ const chat_post$1 = /*#__PURE__*/Object.freeze({
 });
 
 const enableLogin = defineEventHandler(async () => {
+  const hasLoginConfig = process$1.env.G_CLIENT_ID && process$1.env.G_CLIENT_SECRET && process$1.env.JWT_SECRET;
   return {
-    enable: true,
-    url: `https://github.com/login/oauth/authorize?client_id=${process$1.env.G_CLIENT_ID}`
+    enable: !!hasLoginConfig,
+    url: hasLoginConfig ? `https://github.com/login/oauth/authorize?client_id=${process$1.env.G_CLIENT_ID}` : null
   };
 });
 

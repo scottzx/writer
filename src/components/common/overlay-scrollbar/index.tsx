@@ -49,7 +49,7 @@ export function OverlayScrollbar({ disabled, children, options, events, defer, c
   }, [instance])
 
   return (
-    <div ref={ref} {...props} className={$("overflow-auto scrollbar-hidden", className)}>
+    <div ref={ref} {...props} className={$("overflow-auto", className)}>
       {/* 只能有一个 element */}
       <div>{children}</div>
     </div>
@@ -118,7 +118,7 @@ export function GlobalOverlayScrollbar({ children, className, ...props }: PropsW
   }, [instance])
 
   return (
-    <div ref={ref} {...props} className={$("overflow-auto scrollbar-hidden", className)}>
+    <div ref={ref} {...props} className={$("overflow-auto", className)}>
       <div>{children}</div>
     </div>
   )

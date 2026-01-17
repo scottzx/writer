@@ -25,7 +25,7 @@ const AppContent: React.FC = () => {
   return (
     <div className="flex h-screen bg-background text-white font-sans overflow-hidden">
       {isSidebarOpen && <Sidebar currentView={currentView} onToggle={() => setIsSidebarOpen(!isSidebarOpen)} />}
-      <main className="flex-1 flex flex-col min-w-0 overflow-hidden relative">
+      <main className="flex-1 flex flex-col min-w-0 overflow-auto relative">
         {!isSidebarOpen && (
           <button
             type="button"
