@@ -5,7 +5,7 @@ import { useWindowSize } from "react-use"
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react"
 import { sources } from "@shared/sources"
 import { OverlayScrollbar } from "../common/overlay-scrollbar"
-import { delay, safeParseString } from "~/utils"
+import { delay, myFetch, safeParseString } from "~/utils"
 import { cacheSources, refetchSources } from "~/utils/data"
 import { useRefetch } from "~/hooks/useRefetch"
 import { useFocusWith } from "~/hooks/useFocus"
@@ -60,10 +60,13 @@ function NewsCard({ id, setHandleRef }: NewsCardProps) {
     queryKey: ["source", id],
     queryFn: async ({ queryKey }) => {
       const id = queryKey[1] as SourceID
-      let url = `/s?id=${id}`
+
+      // Use the new proxy API
+      let url = `/proxy/${id}`
       const headers: Record<string, any> = {}
       if (refetchSources.has(id)) {
-        url = `/s?id=${id}&latest`
+        // Add timestamp to bypass cache
+        url = `/proxy/${id}?t=${Date.now()}`
         const jwt = safeParseString(localStorage.getItem("jwt"))
         if (jwt) headers.Authorization = `Bearer ${jwt}`
         refetchSources.delete(id)

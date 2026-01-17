@@ -563,5 +563,46 @@
     "color": "green",
     "interval": 1800000,
     "title": "热播榜"
+  },
+  "linuxdo": {
+    "redirect": "linuxdo-latest",
+    "name": "Linux.do",
+    "column": "tech",
+    "home": "https://linux.do",
+    "color": "green",
+    "interval": 600000,
+    "title": "最新"
+  },
+  "linuxdo-latest": {
+    "name": "Linux.do",
+    "column": "tech",
+    "home": "https://linux.do",
+    "color": "green",
+    "interval": 600000,
+    "title": "最新"
+  },
+  "linuxdo-hot": {
+    "name": "Linux.do",
+    "type": "hottest",
+    "column": "tech",
+    "home": "https://linux.do",
+    "color": "green",
+    "interval": 600000,
+    "title": "最热"
+  },
+  "ghxi": {
+    "name": "果核剥壳",
+    "column": "tech",
+    "home": "https://www.ghxi.com",
+    "color": "teal",
+    "interval": 600000
+  },
+  "smzdm": {
+    "name": "什么值得买",
+    "type": "hottest",
+    "column": "china",
+    "home": "https://www.smzdm.com",
+    "color": "red",
+    "interval": 600000
   }
 }

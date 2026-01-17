@@ -5,17 +5,21 @@ import { cacheSources, refetchSources } from "~/utils/data"
 
 /**
  * Hook for fetching a single news source
+ * Now uses the proxy API to access data sources directly from frontend
  */
 export function useNewsQuery(sourceId: SourceID) {
   return useQuery({
     queryKey: ["source", sourceId],
     queryFn: async ({ queryKey }) => {
       const id = queryKey[1] as SourceID
-      let url = `/s?id=${id}`
+
+      // Use the new proxy API
+      let url = `/proxy/${id}`
       const headers: Record<string, any> = {}
 
       if (refetchSources.has(id)) {
-        url = `/s?id=${id}&latest`
+        // Add timestamp to bypass cache
+        url = `/proxy/${id}?t=${Date.now()}`
         const jwt = safeParseString(localStorage.getItem("jwt"))
         if (jwt) headers.Authorization = `Bearer ${jwt}`
         refetchSources.delete(id)
@@ -63,7 +67,8 @@ export function useEntireQuery(items: SourceID[]) {
       const sources = queryKey[1] as SourceID[]
       if (sources.length === 0) return null
 
-      const res: SourceResponse[] | undefined = await myFetch("/s/entire", {
+      // Use the new batch proxy API
+      const res: SourceResponse[] | undefined = await myFetch("/proxy/batch", {
         method: "POST",
         body: { sources },
       })

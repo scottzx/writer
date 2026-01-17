@@ -29,7 +29,8 @@
     "test": "vitest -c vitest.config.ts",
     "restart": "./restart.sh",
     "restart:docker": "./restart-docker.sh",
-    "setup": "./setup-env.sh"
+    "setup": "./setup-env.sh",
+    "fetch:all": "tsx server/scripts/directFetch.ts"
   },
   "dependencies": {
     "@anthropic-ai/claude-agent-sdk": "^0.2.11",
